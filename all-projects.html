@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Projects - Junke Zhao</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="style-updated.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Prevent Theme Flash - Must run before page renders -->
+    <script>
+        // Immediately set theme from localStorage before page renders
+        (function() {
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+</head>
+<body>
+    <!-- Desktop Theme Toggle -->
+    <button class="theme-toggle desktop-theme-toggle" id="themeToggleDesktop" aria-label="Toggle theme">
+        <i class="fas fa-sun"></i>
+    </button>
+
+    <!-- Mobile Header -->
+    <header class="mobile-header">
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+            <i class="fas fa-bars"></i>
+        </button>
+        <a href="index.html" class="mobile-site-name">Junke Zhao</a>
+        <button class="theme-toggle mobile-theme-toggle" id="themeToggleMobile" aria-label="Toggle theme">
+            <i class="fas fa-sun"></i>
+        </button>
+    </header>
+
+    <!-- Main Container -->
+    <div class="all-projects-container">
+        
+        <!-- Back Button -->
+        <a href="index.html" class="back-button">
+            <i class="fas fa-arrow-left"></i>
+            Back to Home
+        </a>
+        
+        <!-- Page Header -->
+        <div class="all-projects-header">
+            <h1 class="all-projects-title">All Projects</h1>
+            <p class="all-projects-subtitle">A comprehensive collection of my research and design work</p>
+        </div>
+
+        <!-- Filter Buttons -->
+        <div class="filter-section">
+            <button class="filter-btn active" data-filter="all">All Projects</button>
+            <button class="filter-btn" data-filter="research">Research</button>
+            <button class="filter-btn" data-filter="design">Design</button>
+        </div>
+
+        <!-- RESEARCH PROJECTS SECTION -->
+        <div class="project-section section">
+            <h2 class="project-section-title">Research Projects</h2>
+            <div class="projects-list">
+                
+                <!-- Research Project 1 -->
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="Assets/Taxo-cover.png" alt="Transformable Furniture">
+                    </div>
+                    <div class="project-body">
+                        <div class="project-meta">
+                            <span class="project-venue">Paper in Progress</span>
+                            <span class="pub-badge research">Research</span>
+                        </div>
+                        <h3 class="project-name">Beyond Furniture: A Taxonomy of Functional, Personalized Transformable Furniture Made with Digital Fabrication Technologies for Domestic Usage</h3>
+                        <p class="project-authors">Junke Zhao, Te-Yen Wu, Liang He</p>
+                        <p class="project-desc">Comprehensive taxonomy and query platform mapping transformation mechanisms to user needs across diverse demographics. Analyzing 150+ papers from HCI, architecture, and design fields.</p>
+                        <div class="project-actions">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Research Project 2 -->
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="Assets/cofab-cover.png" alt="CoFAB">
+                    </div>
+                    <div class="project-body">
+                        <div class="project-meta">
+                            <span class="project-venue">Master's Thesis, 2025</span>
+                            <span class="pub-badge research">Research</span>
+                        </div>
+                        <h3 class="project-name">CoFAB: An Integrated Human-AI Collaboration Prototyping and Fabrication System for Designers in Early Design Stages</h3>
+                        <p class="project-authors">Junke Zhao (Advisor: Joshua Bard)</p>
+                        <p class="project-desc">Human-AI collaboration system for prototyping and digital fabrication. Three-layer classification framework covering transformation behaviors, trigger mechanisms, and material structures.</p>
+                        <div class="project-actions">
+                            <a href="https://drive.google.com/file/d/1E9MvBLqkt8z6fdklrLyAxQeExmC2L9iB/view?usp=sharing" target="_blank" class="btn-link">
+                                <i class="fas fa-file-pdf"></i> INTRO
+                            </a>
+                            <a href="https://drive.google.com/file/d/1BmAGKElm0BlAb-0TT-c-CwevNOFlq4R6/view?usp=sharing" target="_blank" class="btn-link">
+                                <i class="fas fa-video"></i> VIDEO
+                            </a>
+                            <a href="https://doi.org/10.1184/R1/29251037.v1" target="_blank" class="btn-link">
+                                <i class="fas fa-link"></i> DOI
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- DESIGN PROJECTS SECTION -->
+        <div class="project-section section">
+            <h2 class="project-section-title">Design Projects</h2>
+            <div class="projects-list">
+                
+                <!-- Design Project 1 -->
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="Assets/kinetic-shade-cover.png" alt="Kinetic Shades">
+                    </div>
+                    <div class="project-body">
+                        <div class="project-meta">
+                            <span class="project-venue">Design Project, 2024</span>
+                            <span class="pub-badge design">Design</span>
+                        </div>
+                        <h3 class="project-name">Kinetic Shades</h3>
+                        <p class="project-authors">2024</p>
+                        <p class="project-desc">Exploring the spatial experience resulting from user interaction with building facade design through an adaptively sensing curtain wall system enabled by digital fabrication and physical computing.</p>
+                        <div class="project-actions">
+                            <span class="btn-link">
+                                <i class="fas fa-file-pdf"></i> PDF
+                            </span>
+                            <span class="btn-link">
+                                <i class="fas fa-link"></i> Link
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Design Project 2 -->
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="Assets/bustracker-cover.jpeg" alt="Track Your Commute">
+                    </div>
+                    <div class="project-body">
+                        <div class="project-meta">
+                            <span class="project-venue">Design Project, 2023</span>
+                            <span class="pub-badge design">Design</span>
+                        </div>
+                        <h3 class="project-name">Track Your Commute</h3>
+                        <p class="project-authors">2023</p>
+                        <p class="project-desc">An interactive widget that visualizes your daily commute by combining real-time weather and bus schedule data.</p>
+                        <div class="project-actions">
+                            <span class="btn-link">
+                                <i class="fas fa-video"></i> Video
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Design Project 3 -->
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="Assets/ambient-cover.png" alt="Ambient Infohub">
+                    </div>
+                    <div class="project-body">
+                        <div class="project-meta">
+                            <span class="project-venue">Design Project, 2023</span>
+                            <span class="pub-badge design">Design</span>
+                        </div>
+                        <h3 class="project-name">Ambient Infohub</h3>
+                        <p class="project-authors">2023</p>
+                        <p class="project-desc">By incorporating sensors and interactive interfaces, transforming the historic Magret Morrison Carnegie Hall into a massive information distribution & interaction center that is perceptible, interactive, and experiential.</p>
+                        <div class="project-actions">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Design Project 4 -->
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="Assets/waving-cloud-cover.png" alt="The Waving Cloud">
+                    </div>
+                    <div class="project-body">
+                        <div class="project-meta">
+                            <span class="project-venue">Design Project, 2022</span>
+                            <span class="pub-badge design">Design</span>
+                        </div>
+                        <h3 class="project-name">The Waving Cloud</h3>
+                        <p class="project-authors">2022</p>
+                        <p class="project-desc">Prefabricated 3D printed architectural design explores breaking through the size limitations of 3D printing equipment by using a method of layered printing and structural reinforcement.</p>
+                        <div class="project-actions">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Design Project 5 -->
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="Assets/apartment-cover.png" alt="Living As You Want">
+                    </div>
+                    <div class="project-body">
+                        <div class="project-meta">
+                            <span class="project-venue">Design Project, 2022</span>
+                            <span class="pub-badge design">Design</span>
+                        </div>
+                        <h3 class="project-name">Living As You Want</h3>
+                        <p class="project-authors">2022</p>
+                        <p class="project-desc">A user-participatory apartment design platform built to help users customize room layouts, interior styles, and community environments, as well as assist designers in planning architectural and community designs.</p>
+                        <div class="project-actions">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="all-projects-footer">
+            <p>&copy; 2024 Junke Zhao. All rights reserved.</p>
+            <p>Last updated: November 2024</p>
+        </footer>
+
+    </div>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+    
+    <script>
+        // Filter Functionality for All-Projects Page
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const sections = document.querySelectorAll('.project-section');
+            
+            console.log('Filter buttons found:', filterBtns.length); // Debug
+            console.log('Sections found:', sections.length); // Debug
+            
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    console.log('Button clicked:', btn.getAttribute('data-filter')); // Debug
+                    
+                    // Remove active from all buttons
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    // Add active to clicked button
+                    btn.classList.add('active');
+                    
+                    const filter = btn.getAttribute('data-filter');
+                    
+                    // Show/hide sections based on filter
+                    sections.forEach(section => {
+                        const sectionTitle = section.querySelector('.project-section-title').textContent;
+                        
+                        if (filter === 'all') {
+                            section.style.display = 'block';
+                        } else if (filter === 'research' && sectionTitle.includes('Research')) {
+                            section.style.display = 'block';
+                        } else if (filter === 'design' && sectionTitle.includes('Design')) {
+                            section.style.display = 'block';
+                        } else {
+                            section.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

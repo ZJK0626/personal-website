@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Junke Zhao - Computational Designer | HCI Researcher</title>
+    <!-- Google Fonts - Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style-updated.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Prevent Theme Flash - Must run before page renders -->
+    <script>
+        // Immediately set theme from localStorage before page renders
+        (function() {
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+</head>
+<body>
+    <!-- Desktop Theme Toggle (visible on desktop only) -->
+    <button class="theme-toggle desktop-theme-toggle" id="themeToggleDesktop" aria-label="Toggle theme">
+        <i class="fas fa-sun"></i>
+    </button>
+
+    <!-- Mobile Header (visible on mobile only) -->
+    <header class="mobile-header">
+        <!-- Mobile Menu Toggle Button (Left) -->
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+            <i class="fas fa-bars"></i>
+        </button>
+        
+        <!-- Site Name/Logo (Center) - Clickable -->
+        <a href="#about" class="mobile-site-name">Junke Zhao</a>
+        
+        <!-- Mobile Theme Toggle Button (Right) -->
+        <button class="theme-toggle mobile-theme-toggle" id="themeToggleMobile" aria-label="Toggle theme">
+            <i class="fas fa-sun"></i>
+        </button>
+    </header>
+
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+        <aside class="sidebar mobile-sidebar" id="sidebar">
+            <!-- Mobile Close Button -->
+            <button class="mobile-close-btn" id="mobileCloseBtn" aria-label="Close menu">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="profile-section">
+                <div class="profile-header">
+                    <div class="profile-image">
+                        <img src="Assets/profile.jpg" alt="Junke Zhao">
+                    </div>
+                    <div class="profile-info">
+                        <h1>Junke Zhao</h1>
+                        <p class="role">Research Assistant | UT Dallas</p>
+                    </div>
+                </div>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="1c66747d733276697277792c2a2e2a5c7b717d7570327f7371">[email&#160;protected]</a> </span>
+                    </div>
+                    
+                    <a href="https://www.linkedin.com/in/junkezhao" class="contact-item" target="_blank">
+                        <i class="fab fa-linkedin"></i>
+                        <span>LinkedIn</span>
+                    </a>
+                    
+                    <a href="https://scholar.google.com" class="contact-item" target="_blank">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>Google scholar</span>
+                    </a>
+
+                    <a href="https://github.com/ZJK0626" class="contact-item" target="_blank">
+                        <i class="fab fa-github"></i>
+                        <span>Github</span>
+                    </a>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Dallas, Texas, USA</span>
+                    </div>
+                    
+                    <a href="Assets/Junke Zhao - CV.pdf" class="cv-button" download>
+                        <i class="fas fa-file-pdf"></i>
+                        <span>Download CV</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <nav class="nav-menu">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#research-projects" class="nav-link">Research Projects</a>
+                <a href="#design-projects" class="nav-link">Design Projects</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#education" class="nav-link">Education</a>
+                <a href="#skills" class="nav-link">Skills</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- About Section -->
+            <section id="about" class="section">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-content">
+                    <p class="lead">
+                        Hi, I'm Junke. I'm currently a Research Assistant at DE4M Lab, UT Dallas, advised by Prof. <a href="https://lianghe.me/" target="_blank">Liang He, </a>. 
+                        Before this, I obtained my Master of Science degree in Computational Design from Carnegie Mellon University in May 2025, 
+                        and obtained my Bachelor of Architecture degree from Southeast University in June 2023.
+                    </p>
+                    
+                    <p>
+                        My research interests focus on the intersection of design and technology, 
+                        with a focus on exploring computational design, digital fabrication, tangible interaction, 
+                        and ubiquitous computing in the field of human-computer interaction. 
+                        Specifically, my research objectives lie in the following two aspects:
+                    </p>
+                    
+                    <div class="research-directions">
+                        <div class="direction-card">
+                            <h3>Human-Centered Intelligent Physical Environments</h3>
+                            <p>
+                                My research investigates the design and implementation of adaptive, 
+                                responsive and interactive systems within built environments and everyday artifacts, 
+                                aiming to enhance user comfort, human abilities, and overall experience.
+                            </p>
+                        </div>
+                        
+                        <div class="direction-card">
+                            <h3>Personal and Democratized Design and Fabrication Tools</h3>
+                            <p>
+                                My research explores design tools and advanced fabrication methodologies, 
+                                aimed at democratizing digital manufacturing, reducing barriers to entry, 
+                                and expanding the scope of material and spatial expression.
+
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="status-banner">
+                        <p>
+                            <strong>I'm actively seeking PhD positions in HCI and related fields starting Fall 2026.</strong> 
+                            Please feel free to reach out if you have any opportunities!
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Research Projects Section -->
+            <section id="research-projects" class="section">
+                <h2 class="section-title">Research Projects</h2>
+                
+                <div class="project-list">
+                    <!-- Project 1 -->
+                    <div class="project-item">
+                        <div class="project-image">
+                            <img src="Assets/Taxo-cover.png" alt="Transformable Furniture Platform">
+                        </div>
+                        <div class="project-info">
+                            <div class="project-header">
+                                <span class="project-venue">Paper in Progress</span>
+                                <!-- <span class="pub-badge research">Research</span> -->
+                            </div>
+                            <h3 class="project-title"> Beyond Furniture:A Taxonomy of Functional,Personalized Transformable Furniture Made with Digital Fabrication Technologies for Domestic Usage</h3>
+                            <p class="project-authors">Junke Zhao, Te-Yen Wu, Liang He</p>
+                            <div class="project-links">
+                                <!-- <button class="project-btn">PDF</button>
+                                <button class="project-btn">Link</button> -->
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 2 -->
+                    <div class="project-item">
+                        <div class="project-image">
+                            <img src="Assets/cofab-cover.png" alt="Design Taxonomy">
+                        </div>
+                        <div class="project-info">
+                            <div class="project-header">
+                                <span class="project-venue">Master's Thesis, 2025</span>
+                                <!-- <span class="pub-badge research">Research</span> -->
+                            </div>
+                            <h3 class="project-title">CoFAB: An Integrated Human-AI Collaboration Prototyping and Fabrication System for Designers in Early Design Stages</h3>
+                            <p class="project-authors">Junke Zhao (Advisor: Joshua Bard)</p>
+                            <div class="project-links">
+                                <a href="https://drive.google.com/file/d/1E9MvBLqkt8z6fdklrLyAxQeExmC2L9iB/view?usp=sharing" target="_blank">
+                                    <button class="project-btn">INTRO</button>
+                                </a>
+                                <a href="https://drive.google.com/file/d/1BmAGKElm0BlAb-0TT-c-CwevNOFlq4R6/view?usp=sharing" target="_blank">
+                                    <button class="project-btn">VIDEO</button>
+                                </a>
+                                <a href="https://doi.org/10.1184/R1/29251037.v1" target="_blank">
+                                    <button class="project-btn">DOI</button>
+                                </a>
+                            </div>
+                        </div>
+                    </a>
+                    
+                </div>
+            </section>
+
+            <!-- Design Projects Section -->
+            <section id="design-projects" class="section">
+                <div class="section-header-with-button">
+                    <h2 class="section-title">Design Projects</h2>
+                    <a href="all-projects.html" class="view-all-btn">
+                        View all <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="project-list">
+                    <!-- Project 1 -->
+                    <a href="project-cmu-thesis.html" class="project-item">
+                        <div class="project-image">
+                            <img src="Assets/kinetic-shade-cover.png" alt="Kinetic Shades">
+                        </div>
+                        <div class="project-info">
+                            <div class="project-header">
+                            </div>
+                            <p class="project-authors">2024</p>
+                            <h3 class="project-title">Kinetic Shades</h3>
+                            <p class="project-description">
+                                Exploring the spatial experience resulting from user interaction with building facade 
+                                design through an adaptively sensing curtain wall system enabled by digital fabrication and physical computing.
+                            </p>
+                            <div class="project-links">
+                                <button class="project-btn">PDF</button>
+                                <button class="project-btn">Link</button>
+                            </div>
+                        </div>
+                    </a>
+                    
+                    <!-- Project 2 -->
+                    <a href="project-parametric.html" class="project-item">
+                        <div class="project-image">
+                            <img src="Assets/bustracker-cover.jpeg" alt="Parametric Design">
+                        </div>
+                        <div class="project-info">
+                            <div class="project-header">
+                            </div>
+                            <p class="project-authors">2023</p>
+                            <h3 class="project-title">Track Your Commute</h3>
+                            <p class="project-description">
+                                An interactive widget that visualizes your daily commute by combining real-time 
+                                weather and bus schedule data.
+                            </p>
+                            <div class="project-links">
+                                <button class="project-btn">Video</button>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Project 3 -->
+                    <a href="project-robotic.html" class="project-item">
+                        <div class="project-image">
+                            <img src="Assets/ambient-cover.png" alt="Robotic Fabrication">
+                        </div>
+                        <div class="project-info">
+                            <div class="project-header">
+                            </div>
+                            <p class="project-authors">2023</p>
+                            <h3 class="project-title">Ambient Infohub</h3>
+                           <p class="project-description">
+                                By incorporating sensors and interactive interfaces, 
+                                transforming the historic Magret Morrison Carnegie Hall into a massive information 
+                                distribution & interaction center that is perceptible, interactive, and experiential.
+                            </p>
+                            <div class="project-links">
+                            </div>
+                        </div>
+                    </a>
+
+                <!-- Project 4 -->
+                    <a href="project-robotic.html" class="project-item">
+                        <div class="project-image">
+                            <img src="Assets/waving-cloud-cover.png" alt="Robotic Fabrication">
+                        </div>
+                        <div class="project-info">
+                            <div class="project-header">
+                            </div>
+                            <p class="project-authors">2022</p>
+                            <h3 class="project-title">The Waving Cloud</h3>
+                           <p class="project-description">
+                                Prefabricated 3D printed architectural design explores breaking through the size limitations of 
+                                3D printing equipment by using a method of layered printing and structural reinforcement.
+                            </p>
+                            <div class="project-links">
+                            </div>
+                        </div>
+                    </a>
+
+                <!-- Project 4 -->
+                    <a href="project-robotic.html" class="project-item">
+                        <div class="project-image">
+                            <img src="Assets/apartment-cover.png" alt="Robotic Fabrication">
+                        </div>
+                        <div class="project-info">
+                            <div class="project-header">
+                            </div>
+                            <p class="project-authors">2022</p>
+                            <h3 class="project-title">Living As You Want</h3>
+                           <p class="project-description">
+                                A user-participatory apartment design platform built to help users customize room layouts, 
+                                interior styles, and community environments, as well as assist designers in planning architectural and community designs.
+                            </p>
+                            <div class="project-links">
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- View All Button at Bottom -->
+                <div class="view-all-bottom">
+                    <a href="all-projects.html" class="view-all-btn-bottom">
+                        View all <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Recent Experiences -->
+            <section id="experience" class="section">
+                <h2 class="section-title">Recent Experiences</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-icon">
+                            <img src="assets/utd-logo.png" alt="UT Dallas">
+                        </div>
+                        <div class="timeline-content">
+                            <h3>The University of Texas at Dallas</h3>
+                            <p class="position">Research Assistant. Aug 2025-Present</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-icon">
+                            <img src="assets/cmu-logo.png" alt="CMU">
+                        </div>
+                        <div class="timeline-content">
+                            <h3>Carnegie Mellon University</h3>
+                            <p class="position">Research Assistant. Aug 2024 - Jan 2025</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Education -->
+            <section id="education" class="section">
+                <h2 class="section-title">Education</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-icon">
+                            <img src="assets/cmu-logo.png" alt="CMU">
+                        </div>
+                        <div class="timeline-content">
+                            <h3>Carnegie Mellon University</h3>
+                            <p class="position">Master of Science in Computational Design, Aug 2023 - May2025</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-icon">
+                            <img src="assets/seu-logo.png" alt="Southeast University">
+                        </div>
+                        <div class="timeline-content">
+                            <h3>Southeast University</h3>
+                            <p class="position">Bachelor of Architecture, Aug 2018 - Jun 2023</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-icon">
+                            <img src="assets/eth-logo.png" alt="ETH Zurich">
+                        </div>
+                        <div class="timeline-content">
+                            <h3>ETH Zurich</h3>
+                            <p class="position">Joint Program, Architecture, Sep 2019 - Jun 2020</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Skills & Expertise -->
+            <section id="skills" class="section">
+                <h2 class="section-title">Skills & Expertise</h2>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <h3><i class="fas fa-search"></i> Research Methods</h3>
+                        <ul>
+                            <li>Systematic Literature Review</li>
+                            <li>Taxonomy Development</li>
+                            <li>User-Centered Design</li>
+                            <li>Qualitative Analysis</li>
+                            <li>Data Visualization</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skill-card">
+                        <h3><i class="fas fa-code"></i> Technical Skills</h3>
+                        <ul>
+                            <li>Python, JavaScript, React</li>
+                            <li>D3.js, Plotly, Matplotlib</li>
+                            <li>Web Development</li>
+                            <li>Database Design</li>
+                            <li>Data Processing</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skill-card">
+                        <h3><i class="fas fa-drafting-compass"></i> Design Tools</h3>
+                        <ul>
+                            <li>Grasshopper, Rhino</li>
+                            <li>Parametric Design</li>
+                            <li>3D Modeling & CAD</li>
+                            <li>Digital Fabrication</li>
+                            <li>Prototyping</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="footer">
+                <p>&copy; Design and Developed by Junke Zhao. All rights reserved.</p>
+                <p>Last updated: November 2025</p>
+            </footer>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+    
+    <script>
+        // Save scroll position when clicking "View All" links
+        document.addEventListener('DOMContentLoaded', function() {
+            const viewAllLinks = document.querySelectorAll('a[href="all-projects.html"]');
+            
+            viewAllLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    // Save current scroll position
+                    sessionStorage.setItem('homepageScrollPosition', window.scrollY);
+                });
+            });
+            
+            // Restore scroll position when returning from all-projects page
+            window.addEventListener('load', function() {
+                const savedPosition = sessionStorage.getItem('homepageScrollPosition');
+                
+                if (savedPosition !== null) {
+                    // Restore scroll position
+                    window.scrollTo(0, parseInt(savedPosition));
+                    // Clear saved position
+                    sessionStorage.removeItem('homepageScrollPosition');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
