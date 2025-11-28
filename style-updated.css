@@ -839,57 +839,6 @@ p a:hover {
     line-height: 1.6;
 }
 
-/* Skills Section */
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}
-
-.skill-card {
-    background: var(--card-bg);
-    padding: 20px;
-    border-radius: 12px;
-    border: 1px solid var(--border-color);
-    transition: all 0.3s;
-}
-
-.skill-card:hover {
-    border-color: var(--accent-color);
-    box-shadow: var(--shadow-md);
-    transform: translateY(-3px);
-}
-
-.skill-card h3 {
-    color: var(--accent-color);
-    font-size: 1.05rem;
-    margin-bottom: 15px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.skill-card ul {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.skill-card li {
-    color: var(--text-secondary);
-    font-size: 0.8rem;
-    padding-left: 20px;
-    position: relative;
-}
-
-.skill-card li::before {
-    content: '▹';
-    position: absolute;
-    left: 0;
-    color: var(--accent-color);
-}
-
 /* Footer */
 .footer {
     text-align: center;
