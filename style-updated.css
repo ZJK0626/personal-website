@@ -504,7 +504,7 @@ p a:hover {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding: 12px 28px;
+    padding: 8px 18px;
     background: transparent;
     border: 2px solid var(--accent-color);
     color: var(--accent-color);
