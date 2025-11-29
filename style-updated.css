@@ -720,22 +720,28 @@ p a:hover {
 /* Project Badges */
 .pub-badge {
     display: inline-block;
-    padding: 4px 12px;
-    border-radius: 12px;
-    font-size: 0.7rem;
-    font-weight: 700;
+    padding: 5px 10px;
+    border-radius: 16px;
+    font-size: 0.6rem;
+    font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    background: transparent;
+    border: 1.1px solid var(--text-secondary);
+    color: var(--text-secondary);
+    transition: all 0.3s ease;
 }
 
 .pub-badge.research {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
+    background: transparent;
+    border: 1.1px solid var(--text-secondary);
+    color: var(--text-secondary);
 }
 
 .pub-badge.design {
-    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-    color: white;
+    background: transparent;
+    border: 1.1px solid var(--text-secondary);
+    color: var(--text-secondary);
 }
 
 /* Timeline Styles */
@@ -1211,7 +1217,6 @@ p a:hover {
 .project-meta {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     gap: 15px;
     flex-wrap: wrap;
 }
@@ -1242,7 +1247,14 @@ p a:hover {
     display: flex;
     gap: 10px;
     flex-wrap: wrap;
-    margin-top: auto;
+}
+
+/* Project Badge Wrapper - positions badge at bottom */
+.project-badge-wrapper {
+    display: flex;
+    margin-top: 15px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border-color);
 }
 
 .btn-link {
@@ -1314,4 +1326,101 @@ p a:hover {
 /* Smooth Transitions */
 * {
     transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* ========================================
+   OTHER STUFF SECTION - GRID LAYOUT
+======================================== */
+
+/* Fun Stuff Grid */
+.fun-stuff-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+/* Fun Card */
+.fun-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}
+
+.fun-card:hover {
+    border-color: var(--accent-color);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-5px);
+}
+
+/* Fun Image */
+.fun-img {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    background: var(--bg-tertiary);
+}
+
+.fun-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.fun-card:hover .fun-img img {
+    transform: scale(1.08);
+}
+
+/* Fun Body */
+.fun-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+}
+
+.fun-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+    line-height: 1.3;
+}
+
+.fun-desc {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Responsive for Fun Stuff Grid */
+@media (max-width: 768px) {
+    .fun-stuff-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .fun-img {
+        height: 180px;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .fun-stuff-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1025px) {
+    .fun-stuff-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
