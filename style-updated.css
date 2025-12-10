@@ -13,9 +13,9 @@
     --card-bg: #ffffff;
     
     --text-primary: #1a1a1a;
-    --text-secondary: #666666;
+    --text-secondary: #383838;
     
-    --accent-color: #2e8c94;
+    --accent-color: #1a7a83;
     --border-color: #e0e0e0;
     
     --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
@@ -32,7 +32,7 @@
     --card-bg: #1a1a1a;
     
     --text-primary: #e8e8e8;
-    --text-secondary: #a0a0a0;
+    --text-secondary: #c7c7c7;
     
     --accent-color: #77652a;
     --border-color: #333333;
@@ -54,7 +54,8 @@ html {
 }
 
 body {
-    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+                "Segoe UI", sans-serif;
     line-height: 1.6;
     color: var(--text-primary);
     background: var(--bg-primary);
@@ -90,7 +91,7 @@ body {
 /* Mobile Site Name (Center) */
 .mobile-site-name {
     font-family: 'Poppins', sans-serif;
-    font-size: 1.05rem;
+    font-size: 1.2rem;
     font-weight: 600;
     color: var(--text-primary);
     text-decoration: none;
@@ -109,7 +110,7 @@ body {
     background: transparent;
     border: 2px solid var(--border-color);
     color: var(--text-primary);
-    font-size: 1.05rem;
+    font-size: 1.2rem;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -132,7 +133,7 @@ body {
     background: transparent;
     border: 2px solid var(--border-color);
     color: var(--text-primary);
-    font-size: 1.05rem;
+    font-size: 1.2rem;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -212,7 +213,7 @@ body {
     background: var(--bg-tertiary);
     border: 1px solid var(--border-color);
     color: var(--text-primary);
-    font-size: 1.05rem;
+    font-size: 1.2rem;
     cursor: pointer;
     align-items: center;
     justify-content: center;
@@ -231,11 +232,9 @@ body {
     display: grid;
     grid-template-columns: 320px 1fr;
     min-height: 100vh;
-    max-width: 1920px;
-    margin: 0 auto;
+    max-width: 100%;  
+    margin: 0;  
     position: relative;
-    /* Fix for back button navigation */
-    will-change: auto;
 }
 
 /* Prevent layout shifts */
@@ -336,7 +335,7 @@ p a:hover {
 }
 
 .profile-info h1 {
-    font-size: 1.7rem;
+    font-size: 1.8rem;
     font-weight: 600;
     color: var(--text-primary);
     margin-bottom: 8px;
@@ -344,7 +343,7 @@ p a:hover {
 
 .role {
     color: var(--text-secondary);
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     margin-bottom: 0;
 }
 
@@ -362,7 +361,7 @@ p a:hover {
     gap: 12px;
     color: var(--text-secondary);
     text-decoration: none;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     transition: color 0.3s;
 }
 
@@ -412,7 +411,7 @@ p a:hover {
     text-decoration: none;
     border-radius: 6px;
     transition: all 0.3s;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
 }
 
 .nav-link:hover {
@@ -471,7 +470,7 @@ p a:hover {
     text-decoration: none;
     border-radius: 8px;
     font-weight: 500;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     transition: all 0.3s ease;
     flex-shrink: 0;
 }
@@ -483,7 +482,7 @@ p a:hover {
 }
 
 .view-all-btn i {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     transition: transform 0.3s ease;
 }
 
@@ -511,7 +510,7 @@ p a:hover {
     text-decoration: none;
     border-radius: 8px;
     font-weight: 500;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     transition: all 0.3s ease;
 }
 
@@ -523,7 +522,7 @@ p a:hover {
 }
 
 .view-all-btn-bottom i {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     transition: transform 0.3s ease;
 }
 
@@ -539,14 +538,14 @@ p a:hover {
 }
 
 .lead {
-    font-size: 1.05rem;
+    font-size: 1.2rem;
     line-height: 1.8;
     color: var(--text-primary);
 }
 
 .about-content p {
     color: var(--text-secondary);
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     line-height: 1.7;
 }
 
@@ -572,12 +571,12 @@ p a:hover {
 
 .direction-card h3 {
     color: var(--accent-color);
-    font-size: 1.05rem;
+    font-size: 1.2rem;
     margin-bottom: 12px;
 }
 
 .direction-card p {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     line-height: 1.6;
 }
 
@@ -591,7 +590,7 @@ p a:hover {
 
 .status-banner p {
     color: white;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     line-height: 1.6;
     margin: 0;
 }
@@ -834,14 +833,14 @@ p a:hover {
 
 .position {
     color: var(--text-secondary);
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     font-style: italic;
     margin-bottom: 10px;
 }
 
 .description {
     color: var(--text-secondary);
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     line-height: 1.6;
 }
 
@@ -1080,7 +1079,7 @@ p a:hover {
     text-decoration: none;
     border-radius: 8px;
     font-weight: 500;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     margin-bottom: 20px;
     transition: all 0.3s ease;
 }
@@ -1222,7 +1221,7 @@ p a:hover {
 }
 
 .project-venue {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     font-weight: 500;
     color: var(--text-secondary);
 }
@@ -1286,7 +1285,7 @@ p a:hover {
     padding: 30px 0;
     border-top: 1px solid var(--border-color);
     color: var(--text-secondary);
-    font-size: 0.85rem;
+    font-size: 0.9rem;
 }
 
 /* All-Projects Page Responsive */
@@ -1395,7 +1394,7 @@ p a:hover {
 }
 
 .fun-desc {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     color: var(--text-secondary);
     margin: 0;
     line-height: 1.5;
