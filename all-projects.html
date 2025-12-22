@@ -1,28 +1,20 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>All Projects - Junke Zhao</title>
 
-    <!-- Logo -->
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="Assets/logo.png">
     <link rel="apple-touch-icon" href="Assets/logo.png">
     
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Main CSS -->
-    <link rel="stylesheet" href="style-updated.css">
-    
-    <!-- Font Awesome -->
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Prevent Theme Flash - Must run before page renders -->
+    <!-- Prevent Theme Flash -->
     <script>
-        // Immediately set theme from localStorage before page renders
         (function() {
             const savedTheme = localStorage.getItem('theme') || 'dark';
             document.documentElement.setAttribute('data-theme', savedTheme);
@@ -34,6 +26,13 @@
     <button class="theme-toggle desktop-theme-toggle" id="themeToggleDesktop" aria-label="Toggle theme">
         <i class="fas fa-sun"></i>
     </button>
+
+    <!-- Floating Navigation -->
+    <nav class="floating-nav" aria-label="Project navigation">
+        <a class="nav-float-btn" href="index.html" aria-label="Back to Home" title="Home">
+            <i class="fas fa-home"></i>
+        </a>
+    </nav>
 
     <!-- Mobile Header -->
     <header class="mobile-header">
@@ -49,16 +48,9 @@
     <!-- Main Container -->
     <div class="all-projects-container">
         
-        <!-- Back Button -->
-        <a href="index.html" class="back-button">
-            <i class="fas fa-arrow-left"></i>
-            Back to Home
-        </a>
-        
         <!-- Page Header -->
         <div class="all-projects-header">
             <h1 class="all-projects-title">All Projects</h1>
-            <p class="all-projects-subtitle">A comprehensive collection of my research and design work</p>
         </div>
 
         <!-- Filter Buttons -->
@@ -68,8 +60,8 @@
             <button class="filter-btn" data-filter="design">Design</button>
         </div>
 
-        <!-- RESEARCH PROJECTS SECTION -->
-        <div class="project-section section">
+        <!-- Research Projects Section -->
+        <div class="project-section section" data-category="research">
             <h2 class="project-section-title">Research Projects</h2>
             <div class="projects-list">
                 
@@ -81,13 +73,11 @@
                     <div class="project-body">
                         <div class="project-meta">
                             <span class="project-venue">Paper in Progress</span>
-                            <!-- <span class="pub-badge research">Research</span> -->
                         </div>
                         <h3 class="project-name">Beyond Furniture: A Taxonomy of Functional, Personalized Transformable Furniture Made with Digital Fabrication Technologies for Domestic Usage</h3>
                         <p class="project-authors">Junke Zhao, Te-Yen Wu, Liang He</p>
                         <p class="project-desc">Comprehensive taxonomy and query platform mapping transformation mechanisms to user needs across diverse demographics. Analyzing 150+ papers from HCI, architecture, and design fields.</p>
-                        <div class="project-actions">
-                        </div>
+                        <div class="project-actions"></div>
                     </div>
                 </div>
 
@@ -99,7 +89,6 @@
                     <div class="project-body">
                         <div class="project-meta">
                             <span class="project-venue">Master's Thesis, 2025</span>
-                            <!-- <span class="pub-badge research">Research</span> -->
                         </div>
                         <h3 class="project-name">CoFAB: An Integrated Human-AI Collaboration Prototyping and Fabrication System for Designers in Early Design Stages</h3>
                         <p class="project-authors">Junke Zhao (Advisor: Joshua Bard)</p>
@@ -121,13 +110,13 @@
             </div>
         </div>
 
-        <!-- DESIGN PROJECTS SECTION -->
-        <div class="project-section section">
+        <!-- Design Projects Section -->
+        <div class="project-section section" data-category="design">
             <h2 class="project-section-title">Design Projects</h2>
             <div class="projects-list">
                 
-                <!-- Design Project 1 -->
-                <div class="project-card">
+                <!-- Design Project 1: Kinetic Shades -->
+                <a href="project-kinetic-shade.html" class="project-card">
                     <div class="project-img">
                         <img src="Assets/kinetic-shade-cover.png" alt="Kinetic Shades">
                     </div>
@@ -143,16 +132,15 @@
                             <span class="pub-badge design">Digital Fabrication</span>
                         </div>
                     </div>
-                </div>
+                </a>
 
-                <!-- Design Project 1 -->
-                <div class="project-card">
+                <!-- Design Project 2: Type Better -->
+                <a href="under-construction.html" class="project-card">
                     <div class="project-img">
-                        <img src="Assets/typebetter.png" alt="Type better on the wrist">
+                        <img src="Assets/typebetter.png" alt="Type Better on the Wrist">
                     </div>
                     <div class="project-body">
-
-                        <h3 class="project-name">Type better on the wrist</h3>
+                        <h3 class="project-name">Type Better on the Wrist</h3>
                         <p class="project-authors">2024</p>
                         <p class="project-desc">Developing a touch keyboard prototype for small devices/smartwatches 
                             through rapid prototyping and user testing, significantly improving input speed and accuracy.
@@ -162,25 +150,25 @@
                             <span class="pub-badge design">Accessibilities</span>
                         </div>
                     </div>
-                </div>
+                </a>
 
-                <!-- Design Project 1 -->
-                <div class="project-card">
+                <!-- Design Project 3: Jewelry Automata -->
+                <a href="under-construction.html" class="project-card">
                     <div class="project-img">
-                        <img src="Assets/jewlery-automata-cover.png" alt="Jewlery Automata">
+                        <img src="Assets/jewlery-automata-cover.png" alt="Jewelry Automata">
                     </div>
                     <div class="project-body">
-                        <h3 class="project-name">Jewlery Automata</h3>
+                        <h3 class="project-name">Jewelry Automata</h3>
                         <p class="project-authors">2024</p>
                         <p class="project-desc">Exploring generative design methods for personal accessories/jewelry based on cellular automata algorithms</p>
                         <div class="project-meta">
                             <span class="pub-badge design">Generative Design</span>
                         </div>
                     </div>
-                </div>
+                </a>
 
-                <!-- Design Project 2 -->
-                <div class="project-card">
+                <!-- Design Project 4: Track Your Commute -->
+                <a href="under-construction.html" class="project-card">
                     <div class="project-img">
                         <img src="Assets/bustracker-cover.jpeg" alt="Track Your Commute">
                     </div>
@@ -193,10 +181,10 @@
                             <span class="pub-badge design">IoT</span>
                         </div>
                     </div>
-                </div>
+                </a>
 
-                <!-- Design Project 3 -->
-                <div class="project-card">
+                <!-- Design Project 5: Ambient Infohub -->
+                <a href="under-construction.html" class="project-card">
                     <div class="project-img">
                         <img src="Assets/ambient-cover.png" alt="Ambient Infohub">
                     </div>
@@ -206,13 +194,13 @@
                         <p class="project-desc">By incorporating sensors and interactive interfaces, transforming the historic Magret Morrison Carnegie Hall into a massive information distribution & interaction center that is perceptible, interactive, and experiential.</p>
                         <div class="project-meta">
                             <span class="pub-badge design">Spatial Computing</span>
-                            <span class="pub-badge design">tangible interaction</span>
+                            <span class="pub-badge design">Tangible Interaction</span>
                         </div>
                     </div>
-                </div>
+                </a>
 
-                <!-- Design Project 4 -->
-                <div class="project-card">
+                <!-- Design Project 6: The Waving Cloud -->
+                <a href="under-construction.html" class="project-card">
                     <div class="project-img">
                         <img src="Assets/waving-cloud-cover.png" alt="The Waving Cloud">
                     </div>
@@ -224,10 +212,10 @@
                             <span class="pub-badge design">Digital Fabrication</span>
                         </div>
                     </div>
-                </div>
+                </a>
 
-                <!-- Design Project 5 -->
-                <div class="project-card">
+                <!-- Design Project 7: Living As You Want -->
+                <a href="under-construction.html" class="project-card">
                     <div class="project-img">
                         <img src="Assets/apartment-cover.png" alt="Living As You Want">
                     </div>
@@ -236,14 +224,14 @@
                         <p class="project-authors">2022</p>
                         <p class="project-desc">A user-participatory apartment design platform built to help users customize room layouts, interior styles, and community environments, as well as assist designers in planning architectural and community designs.</p>
                         <div class="project-meta">
-                            <span class="pub-badge design">user-participatory Design</span>
+                            <span class="pub-badge design">User-Participatory Design</span>
                             <span class="pub-badge design">Generative Design</span>
                         </div>
                     </div>
-                </div>
+                </a>
 
-                <!-- Design Project 6 -->
-                <div class="project-card">
+                <!-- Design Project 8: Cybertale -->
+                <a href="under-construction.html" class="project-card">
                     <div class="project-img">
                         <img src="Assets/cybertale-cover.jpg" alt="Cybertale">
                     </div>
@@ -255,20 +243,20 @@
                             <span class="pub-badge design">Digital Fabrication</span>
                         </div>
                     </div>
-                </div>
+                </a>
 
             </div>
         </div>
 
-        <!-- OTHER STUFF SECTION -->
-        <div class="project-section section">
+        <!-- Other Fun Stuff Section -->
+        <div class="project-section section" data-category="other">
             <h2 class="project-section-title">Other Fun Stuff</h2>
             <div class="fun-stuff-grid">
                 
                 <!-- Fun Project 1 -->
                 <div class="fun-card">
                     <div class="fun-img">
-                        <img src="Assets/thunderbolt-cover.png" alt="Racing Sim">
+                        <img src="Assets/thunderbolt-cover.png" alt="ThunderBolt112">
                     </div>
                     <div class="fun-body">
                         <h4 class="fun-title">ThunderBolt112</h4>
@@ -287,7 +275,7 @@
                     </div>
                 </div>
 
-                <!-- Fun Project 2 -->
+                <!-- Fun Project 3 -->
                 <div class="fun-card">
                     <div class="fun-img">
                         <img src="Assets/furniture.png" alt="Furniture Design of Postmodernism">
@@ -298,7 +286,7 @@
                     </div>
                 </div>
 
-                <!-- Fun Project 3 -->
+                <!-- Fun Project 4 -->
                 <div class="fun-card">
                     <div class="fun-img">
                         <img src="Assets/project-metro.jpg" alt="Project Metropolis">
@@ -309,10 +297,10 @@
                     </div>
                 </div>
 
-                <!-- Fun Project 4 -->
+                <!-- Fun Project 5 -->
                 <div class="fun-card">
                     <div class="fun-img">
-                        <img src="Assets/invisible-city.png" alt="invisible-city">
+                        <img src="Assets/invisible-city.png" alt="Invisible City">
                     </div>
                     <div class="fun-body">
                         <h4 class="fun-title">Invisible City</h4>
@@ -320,10 +308,10 @@
                     </div>
                 </div>
 
-                <!-- Fun Project 5 -->
+                <!-- Fun Project 6 -->
                 <div class="fun-card">
                     <div class="fun-img">
-                        <img src="Assets/pavlion.png" alt="pavilion">
+                        <img src="Assets/pavlion.png" alt="Build a Pavilion">
                     </div>
                     <div class="fun-body">
                         <h4 class="fun-title">Build a Pavilion</h4>
@@ -336,7 +324,7 @@
 
         <!-- Footer -->
         <footer class="footer">
-            <p>&copy; Design and Developed by Junke Zhao. Last updated: December 2025</p>
+            <p>&copy; Designed and Developed by Junke Zhao. Last updated: December 2025</p>
             <p>Try pressing "T" to switch theme!</p>
         </footer>
 
@@ -345,35 +333,27 @@
     <!-- JavaScript -->
     <script src="script.js"></script>
     
+    <!-- Filter Functionality -->
     <script>
-        // Filter Functionality for All-Projects Page
         document.addEventListener('DOMContentLoaded', function() {
             const filterBtns = document.querySelectorAll('.filter-btn');
             const sections = document.querySelectorAll('.project-section');
             
-            console.log('Filter buttons found:', filterBtns.length); // Debug
-            console.log('Sections found:', sections.length); // Debug
-            
             filterBtns.forEach(btn => {
                 btn.addEventListener('click', () => {
-                    console.log('Button clicked:', btn.getAttribute('data-filter')); // Debug
-                    
-                    // Remove active from all buttons
+                    // Update active button
                     filterBtns.forEach(b => b.classList.remove('active'));
-                    // Add active to clicked button
                     btn.classList.add('active');
                     
                     const filter = btn.getAttribute('data-filter');
                     
                     // Show/hide sections based on filter
                     sections.forEach(section => {
-                        const sectionTitle = section.querySelector('.project-section-title').textContent;
+                        const category = section.getAttribute('data-category');
                         
                         if (filter === 'all') {
                             section.style.display = 'block';
-                        } else if (filter === 'research' && sectionTitle.includes('Research')) {
-                            section.style.display = 'block';
-                        } else if (filter === 'design' && sectionTitle.includes('Design')) {
+                        } else if (filter === category) {
                             section.style.display = 'block';
                         } else {
                             section.style.display = 'none';

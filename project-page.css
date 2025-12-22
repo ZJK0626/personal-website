@@ -1,0 +1,438 @@
+/* ============================================
+   PROJECT PAGE STYLES
+   Shared styles for all project detail pages
+   ============================================ */
+
+/* Layout */
+.project-page {
+    background: var(--bg-primary);
+    min-height: 100vh;
+    padding: 34px 0 60px;
+}
+
+.project-container {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* Featured Image */
+.project-featured-image {
+    width: 100%;
+    margin: 40px 0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+}
+
+.project-featured-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Project Header */
+.project-header {
+    margin-bottom: 44px;
+}
+
+.project-page-title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.2;
+    margin: 0 0 12px 0;
+}
+
+.project-subtitle {
+    font-size: 0.98rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin: 0 0 18px 0;
+    max-width: 780px;
+}
+
+/* Meta Grid */
+.meta-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.meta-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 11px;
+    padding: 12px 12px 10px;
+    min-height: 100px;
+}
+
+.meta-label {
+    font-size: 0.8rem;
+    color: var(--accent-color);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 6px;
+}
+
+.meta-value {
+    font-size: 0.88rem;
+    color: var(--text-primary);
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+/* Section Styles */
+.project-section {
+    margin: 50px 0 56px 0;
+}
+
+.project-section .section-title {
+    font-size: 1.45rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 22px 0;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--accent-color);
+    text-align: left;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.section-content {
+    font-size: 0.92rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+}
+
+.section-content p {
+    margin: 0 0 16px 0;
+}
+
+/* Subheadings */
+.subhead {
+    margin: 0 0 14px 0;
+    font-size: 1.15rem;
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+.subsubhead {
+    margin: 0 0 10px 0;
+    font-size: 1rem;
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+/* Background Grid */
+.bg-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 36px;
+    align-items: start;
+    margin-top: 18px;
+}
+
+.sticky-media {
+    position: static;
+    top: 96px;
+}
+
+.rq-block {
+    margin-top: 20px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border-color);
+}
+
+.rq-text {
+    font-size: 1.02rem;
+    color: var(--text-secondary);
+    font-style: italic;
+    margin: 8px 0 0 0;
+}
+
+/* Center Media */
+.center-media {
+    max-width: 980px;
+    margin: 0 auto;
+}
+
+/* Two Column Layout */
+.two-col {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    margin-top: 18px;
+}
+
+/* Media Box */
+.media-box {
+    border-radius: 14px;
+    overflow: hidden;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+}
+
+.media-box.fixed-h {
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.media-box.fixed-h img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+/* Output Forms Section */
+.output-step {
+    margin-top: 22px;
+}
+
+.output-step-title {
+    color: var(--accent-color);
+    font-size: 1.25rem;
+    margin: 0 0 18px 0;
+    font-weight: 600;
+}
+
+/* Step 1 Grid */
+.of-step1-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 34px;
+    align-items: start;
+}
+
+.of-figure {
+    margin: 0;
+    text-align: center;
+}
+
+.of-figure img {
+    width: 100%;
+    height: 180px;
+    object-fit: contain;
+    display: block;
+}
+
+/* Step 2 Top Grid */
+.of-step2-top-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 34px;
+    align-items: start;
+    margin-top: 10px;
+    margin-bottom: 40px;
+}
+
+.of-square {
+    aspect-ratio: 1 / 1;
+}
+
+.of-square img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: left;
+    display: block;
+}
+
+/* Step 2 Bottom Grid */
+.of-step2-bottom-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 30px;
+    align-items: stretch;
+    height: clamp(300px, 38vw, 360px);
+}
+
+.of-gh-stack {
+    height: 100%;
+    display: grid;
+    grid-template-rows: 0.62fr 1.4fr;
+    gap: 20px;
+}
+
+.of-gh-item {
+    height: 100%;
+}
+
+.of-gh-item img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+}
+
+.of-render {
+    height: 100%;
+}
+
+.of-render img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+    object-position: center;
+}
+
+/* Grid Layouts */
+.grid-2,
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 36px;
+    margin-top: 30px;
+}
+
+/* Tall Media */
+.tall-media {
+    height: 300px;
+    overflow: hidden;
+    border-radius: 14px;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-color);
+    background: var(--card-bg);
+}
+
+.tall-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Outcome Media */
+.outcome-media {
+    height: 520px;
+    overflow: hidden;
+    border-radius: 14px;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-color);
+    background: var(--card-bg);
+}
+
+.outcome-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Showcase */
+.showcase {
+    max-width: 1100px;
+    margin: 28px auto 0;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 980px) {
+    .meta-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    
+    .meta-card {
+        min-height: auto;
+        padding: 14px;
+    }
+    
+    .bg-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+    
+    .sticky-media {
+        position: relative;
+        top: auto;
+    }
+    
+    .two-col {
+        grid-template-columns: 1fr;
+    }
+    
+    .grid-2,
+    .grid-3 {
+        grid-template-columns: 1fr;
+    }
+
+    .of-step1-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .of-step2-top-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .of-step2-bottom-grid {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+    
+    .of-gh-stack {
+        grid-template-rows: auto;
+    }
+
+    /* Hide desktop floating nav on mobile */
+    .floating-nav {
+        display: none !important;
+    }
+
+    /* Show mobile header nav buttons */
+    .mobile-header-nav {
+        display: flex;
+    }
+
+    /* Adjust project page padding for mobile header */
+    .project-page {
+        padding-top: 90px;
+    }
+
+    .project-container {
+        padding: 0 20px;
+    }
+
+    .project-page-title {
+        font-size: 1.8rem;
+    }
+
+    .project-subtitle {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .project-page-title {
+        font-size: 1.5rem;
+    }
+
+    .meta-card {
+        padding: 12px;
+    }
+
+    .meta-label {
+        font-size: 0.75rem;
+    }
+
+    .meta-value {
+        font-size: 0.82rem;
+    }
+
+    .of-step2-top-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .mobile-nav-btn {
+        width: 38px;
+        height: 38px;
+        font-size: 0.95rem;
+    }
+}
