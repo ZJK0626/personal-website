@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Living As You Want - Junke Zhao</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../Assets/logo.png">
+    <link rel="apple-touch-icon" href="../Assets/logo.png">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../project-page.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Prevent Theme Flash -->
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+
+</head>
+<body>
+    <!-- Desktop Theme Toggle -->
+    <button class="theme-toggle desktop-theme-toggle" id="themeToggleDesktop" aria-label="Toggle theme">
+        <i class="fas fa-sun"></i>
+    </button>
+    
+    <!-- Floating Navigation -->
+    <nav class="floating-nav" aria-label="Project navigation">
+        <a class="nav-float-btn" href="../index.html" aria-label="Back to Home" title="Home">
+            <i class="fas fa-home"></i>
+        </a>
+        <a class="nav-float-btn" href="javascript:history.back()" aria-label="Back to All Projects" title="All Projects">
+            <i class="fas fa-arrow-left"></i>
+        </a>
+    </nav>
+
+    <!-- Mobile Header -->
+    <header class="mobile-header">
+        <div class="mobile-header-nav">
+            <a href="../index.html" class="mobile-nav-btn" aria-label="Back to Home" title="Home">
+                <i class="fas fa-home"></i>
+            </a>
+            <a href="../all-projects.html" class="mobile-nav-btn" aria-label="Back to All Projects" title="All Projects">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+        </div>
+        <a href="../index.html" class="mobile-site-name">Junke Zhao</a>
+        <button class="theme-toggle mobile-theme-toggle" id="themeToggleMobile" aria-label="Toggle theme">
+            <i class="fas fa-sun"></i>
+        </button>
+    </header>
+
+    <!-- Page Content -->
+    <main class="project-page">
+        <div class="project-container">
+
+            <!-- Featured Image -->
+            <div class="project-featured-image">
+                <img src="../Assets/WavingCloud/waving-cloud-cover.png" alt="Jewelry Automata - Generative Jewelry Design">
+            </div>
+
+            <!-- Project Header -->
+            <div class="project-header">
+                <h1 class="project-page-title">Waving Cloud</h1>
+                <p class="project-subtitle">
+                    Prefabricated 3D printed architectural design explores breaking through the size limitations of 
+                    3D printing equipment by using a method of layered printing and structural reinforcement.
+                </p>
+                <div class="meta-grid">
+                    <div class="meta-card">
+                        <div class="meta-label">Team Member</div>
+                        <div class="meta-value">Junke Zhao<br>Jiayue Wang</div>
+                    </div>
+                    <div class="meta-card">
+                        <div class="meta-label">Duration</div>
+                        <div class="meta-value">Feb 2022 - Apr 2022</div>
+                    </div>
+                    <div class="meta-card">
+                        <div class="meta-label">Contribution</div>
+                        <div class="meta-value">Concept Design<br>Modelling<br>Coding<br>Rendering and Drawing</div>
+                    </div>
+                </div>
+            </div>           
+
+            <section class="project-section">
+                <h2 class="section-title"></h2>
+                <div class="output-step" style="margin-top: 40px;">
+                    <div class="center-media card-frame" style="margin-top: 20px;">
+                        <img class="img" src="../Assets/LivingAsYouWant/Portfolio-FINAL_page-0004.jpg" alt="LivingAsYouWant Page 1">
+                    </div>
+                    <div class="center-media card-frame" style="margin-top: 20px;">
+                        <img class="img" src="../Assets/LivingAsYouWant/Portfolio-FINAL_page-0005.jpg" alt="LivingAsYouWant Page 2">
+                    </div>
+                    <div class="center-media card-frame" style="margin-top: 20px;">
+                        <img class="img" src="../Assets/LivingAsYouWant/Portfolio-FINAL_page-0006.jpg" alt="LivingAsYouWant Page 3">
+                    </div>
+                    <div class="center-media card-frame" style="margin-top: 20px;">
+                        <img class="img" src="../Assets/LivingAsYouWant/Portfolio-FINAL_page-0007.jpg" alt="LivingAsYouWant Page 4">
+                    </div>
+                    <div class="center-media card-frame" style="margin-top: 20px;">
+                        <img class="img" src="../Assets/LivingAsYouWant/Portfolio-FINAL_page-0008.jpg" alt="LivingAsYouWant Page 5">
+                    </div>
+                    <div class="center-media card-frame" style="margin-top: 20px;">
+                        <img class="img" src="../Assets/LivingAsYouWant/Portfolio-FINAL_page-0009.jpg" alt="LivingAsYouWant Page 6">
+                    </div>
+                </div>
+            </section>
+        </div>
+
+            <!-- Navigation Buttons -->
+        <section class="project-page-nav">
+            <div class="page-nav-inner">
+                <button class="nav-btn" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">
+                    Back to Top
+                </button>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; Designed and Developed by Junke Zhao. Last updated: December 2025</p>
+            <p>Try pressing "T" to switch theme!</p>
+        </footer>
+    </main>
+
+    <script src="../script.js"></script>
+</body>
+</html>

@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kinetic Shade - Junke Zhao</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../Assets/logo.png">
+    <link rel="apple-touch-icon" href="../Assets/logo.png">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../project-page.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Prevent Theme Flash -->
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+</head>
+<body>
+    <!-- Desktop Theme Toggle -->
+    <button class="theme-toggle desktop-theme-toggle" id="themeToggleDesktop" aria-label="Toggle theme">
+        <i class="fas fa-sun"></i>
+    </button>
+    
+    <!-- Floating Navigation -->
+    <nav class="floating-nav" aria-label="Project navigation">
+        <a class="nav-float-btn" href="../index.html" aria-label="Back to Home" title="Home">
+            <i class="fas fa-home"></i>
+        </a>
+        <a class="nav-float-btn" href="javascript:history.back()" aria-label="Back to All Projects" title="All Projects">
+            <i class="fas fa-arrow-left"></i>
+        </a>
+    </nav>
+
+    <!-- Mobile Header -->
+    <header class="mobile-header">
+        <div class="mobile-header-nav">
+            <a href="../index.html" class="mobile-nav-btn" aria-label="Back to Home" title="Home">
+                <i class="fas fa-home"></i>
+            </a>
+            <a href="../all-projects.html" class="mobile-nav-btn" aria-label="Back to All Projects" title="All Projects">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+        </div>
+        <a href="../index.html" class="mobile-site-name">Junke Zhao</a>
+        <button class="theme-toggle mobile-theme-toggle" id="themeToggleMobile" aria-label="Toggle theme">
+            <i class="fas fa-sun"></i>
+        </button>
+    </header>
+
+    <!-- Page Content -->
+    <main class="project-page">
+        <div class="project-container">
+
+            <!-- Featured Image -->
+            <div class="project-featured-image">
+                <img src="../Assets/KineticShade/cover.jpg" alt="Kinetic Shade Project">
+            </div>
+
+            <!-- Project Header -->
+            <div class="project-header">
+                <h1 class="project-page-title">Kinetic Shade</h1>
+                <p class="project-subtitle">
+                    Exploring the spatial experience resulting from user interaction with building facade 
+                    design through an adaptively sensing curtain wall system enabled by digital fabrication and physical computing.
+                </p>
+
+                <div class="meta-grid">
+                    <div class="meta-card">
+                        <div class="meta-label">Team Member</div>
+                        <div class="meta-value">Junke Zhao<br>Angie Wang<br>Ankita Sinha</div>
+                    </div>
+                    <div class="meta-card">
+                        <div class="meta-label">Duration</div>
+                        <div class="meta-value">Apr 2024 - May 2024</div>
+                    </div>
+                    <div class="meta-card">
+                        <div class="meta-label">Contribution</div>
+                        <div class="meta-value">Concept Design, Coding, Fabrication, Assembly, Rendering and Animation</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Background Section -->
+            <section class="project-section">
+                <h2 class="section-title">Background</h2>
+                <div class="bg-grid">
+                    <div class="section-content">
+                        <p>
+                            In contemporary architecture, kinetic systems such as facades are predominantly designed to operate autonomously,
+                            responding to predetermined schedules or environmental sensors. However, this often overlooks the potential for direct
+                            engagement with building occupants. Our project aims to redefine this paradigm by integrating occupant interaction into
+                            architectural kinetic assemblies, thus fostering dynamic user experiences within built environments.
+                        </p>
+                        <div class="rq-block">
+                            <h3 class="subsubhead">Research Question</h3>
+                            <p class="rq-text">
+                                How can we augment the human experience when interacting with kinetic environments?
+                            </p>
+                        </div>
+                    </div>
+                    <aside class="sticky-media">
+                        <div class="card-frame">
+                            <img class="img" src="../Assets/KineticShade/bg.png" alt="Kinetic Facade Example">
+                        </div>
+                    </aside>
+                </div>
+            </section>
+
+            <!-- Workflow Section -->
+            <section class="project-section">
+                <h2 class="section-title">Workflow</h2>
+                <div class="center-media card-frame">
+                    <img class="img" src="../Assets/KineticShade/wf.png" alt="Workflow Diagram">
+                </div>
+            </section>
+
+            <!-- Input Methods Section -->
+            <section class="project-section">
+                <h2 class="section-title">Input Methods</h2>
+
+                <!-- Iteration 1 -->
+                <div class="output-step">
+                    <h3 class="subhead">Iteration 1: Weight Sensing with Load Cell Module</h3>
+                    <div class="section-content">
+                        <p>
+                            The load cell bar operates on the principle of strain gauge technology, where deformation of the gauge due to applied
+                            weight changes its electrical resistance. An amplifier module then reads these changes and converts them into a digital
+                            signal that the Arduino uses to trigger motor movement when human presence is detected.
+                        </p>
+                    </div>
+                    <div class="two-col">
+                        <div class="media-box fixed-h">
+                            <img src="../Assets/KineticShade/im_1_1.png" alt="Load Cell Setup">
+                        </div>
+                        <div class="media-box fixed-h">
+                            <img src="../Assets/KineticShade/im_1_2.png" alt="Load Cell Circuit">
+                        </div>
+                    </div>
+                    <div class="section-content" style="margin-top:16px;">
+                        <p><strong>Limitations:</strong></p>
+                        <ul class="list">
+                            <li>Poor Capacity: Hold only up to 5kg</li>
+                            <li>Only detects the presence of human, lack of range in interaction</li>
+                            <li>Limited in Accuracy</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Iteration 2 -->
+                <div class="output-step" style="margin-top:34px;">
+                    <h3 class="subhead">Iteration 2: Motion Detection with IR Beam + Ultrasonic Ranger</h3>
+                    <div class="two-col">
+                        <div>
+                            <h4 class="subsubhead">IR Break Beam Sensor</h4>
+                            <div class="section-content">
+                                <p>
+                                    IR break beam sensor, which consists of an emitter that sends out an infrared light and a receiver that detects the
+                                    presence of that light. When something breaks the beam, the interruption is detected by an IR receiver.
+                                </p>
+                            </div>
+                            <div class="media-box" style="max-width:200px;">
+                                <img class="img" src="../Assets/KineticShade/im_2_1.png" alt="IR Sensor">
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="subsubhead">Ultrasonic Sensor</h4>
+                            <div class="section-content">
+                                <p>
+                                    When activated, the ultrasonic ranger emits sound waves. The time it takes for the echo to return is used to calculate
+                                    the object's distance. This distance measurement then informs the Arduino how to control the motor's rotation to a
+                                    corresponding angle based on the detected presence.
+                                </p>
+                            </div>
+                            <div class="media-box" style="max-width:200px;">
+                                <img class="img" src="../Assets/KineticShade/im_2_2.png" alt="Ultrasonic Sensor">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section-content" style="margin-top:16px;">
+                        <p><strong>Limitations:</strong></p>
+                        <ul class="list">
+                            <li>Cannot sense far objects</li>
+                            <li>Sensing responsive time increasing after long time running</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Output Form Finding Section -->
+            <section class="project-section output-forms">
+                <h2 class="section-title">Output Form Finding</h2>
+
+                <!-- Step 1 -->
+                <div class="output-step">
+                    <h3 class="output-step-title">Step 1: Basic Form Finding</h3>
+                    <div class="of-step1-grid">
+                        <figure class="of-figure">
+                            <img src="../Assets/KineticShade/OF_1_1.png" alt="Interaction Experiment On Single Component">
+                            <div class="caption">Interaction Experiment On Single Component</div>
+                        </figure>
+                        <figure class="of-figure">
+                            <img src="../Assets/KineticShade/OF_1_2.png" alt="Testing Multiple Component Combinations">
+                            <div class="caption">Testing Multiple Component Combinations And Collaboration</div>
+                        </figure>
+                        <figure class="of-figure">
+                            <img src="../Assets/KineticShade/OF_1_3.png" alt="Generating Large-scale Patterns">
+                            <div class="caption">Generating Large-scale Patterns</div>
+                        </figure>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="output-step">
+                    <h3 class="output-step-title">Step 2: Texture Generating</h3>
+                    <div class="of-step2-top-grid">
+                        <div class="of-square">
+                            <img src="../Assets/KineticShade/OF_2_1.jpg" alt="Frame Generation">
+                            <div class="caption">Frame Generation</div>
+                        </div>
+                        <div class="of-square">
+                            <img src="../Assets/KineticShade/OF_2_2.jpg" alt="Frame Fill">
+                            <div class="caption">Frame Fill</div>
+                        </div>
+                        <div class="of-square">
+                            <img src="../Assets/KineticShade/OF_2_3.jpg" alt="Panel Generation">
+                            <div class="caption">Panel Generation</div>
+                        </div>
+                        <div class="of-square">
+                            <img src="../Assets/KineticShade/OF_2_4.gif" alt="Panel Detail">
+                            <div class="caption">Panel Detail</div>
+                        </div>
+                    </div>
+                    <div class="of-step2-bottom-grid">
+                        <div class="of-gh-stack">
+                            <div class="of-gh-item">
+                                <img src="../Assets/KineticShade/of_3_1.png" alt="Grasshopper Definition 1">
+                            </div>
+                            <div class="of-gh-item">
+                                <img src="../Assets/KineticShade/of_3_2.png" alt="Grasshopper Definition 2">
+                                <div class="caption">Model Generation in Grasshopper</div>
+                            </div>
+                        </div>
+                        <div class="of-render">
+                            <img src="../Assets/KineticShade/of_3_3.gif" alt="Final Render">
+                            <div class="caption">Rendering</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Fabrication and Assembly Section -->
+            <section class="project-section">
+                <h2 class="section-title">Fabrication and Assembly</h2>
+                <div class="grid-3">
+                    <div>
+                        <div class="tall-media">
+                            <img src="../Assets/KineticShade/fa_1_1.jpg" alt="Structure - 6mm plywood">
+                        </div>
+                        <div class="caption">Structure - 6mm plywood</div>
+                    </div>
+                    <div>
+                        <div class="tall-media">
+                            <img src="../Assets/KineticShade/fa_1_2.jpg" alt="Panel - 2.5mm Chipboard">
+                        </div>
+                        <div class="caption">Panel - 2.5mm Chipboard</div>
+                    </div>
+                    <div>
+                        <div class="tall-media">
+                            <img src="../Assets/KineticShade/fa_1_3.jpg" alt="Assembly">
+                        </div>
+                        <div class="caption">Assembly</div>
+                    </div>
+                </div>
+                <div class="grid-3" style="margin-top:50px;">
+                    <div>
+                        <div class="tall-media">
+                            <img src="../Assets/KineticShade/fa_2_1.png" alt="Wiring and Sensor Installing">
+                        </div>
+                        <div class="caption">Wiring and Sensor Installing</div>
+                    </div>
+                    <div>
+                        <div class="tall-media">
+                            <img src="../Assets/KineticShade/fa_2_2.jpg" alt="Panel Detail">
+                        </div>
+                        <div class="caption">Panel Detail</div>
+                    </div>
+                    <div>
+                        <div class="tall-media">
+                            <img src="../Assets/KineticShade/fa_3_3.gif" alt="Final Output">
+                        </div>
+                        <div class="caption">Final Output</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Final Outcomes Section -->
+            <section class="project-section">
+                <h2 class="section-title">Final Outcomes</h2>
+                <div class="grid-3">
+                    <div class="outcome-media">
+                        <img src="../Assets/KineticShade/fo_1_1.gif" alt="Kinetic Movement 1">
+                    </div>
+                    <div class="outcome-media">
+                        <img src="../Assets/KineticShade/fo_1_2.jpg" alt="Kinetic Movement 2">
+                    </div>
+                    <div class="outcome-media">
+                        <img src="../Assets/KineticShade/fo_1_3.gif" alt="Kinetic Movement 3">
+                    </div>
+                </div>
+                <div class="caption" style="font-style:normal; margin-top:14px;">Responsive Interaction</div>
+                <div class="showcase">
+                    <div class="card-frame">
+                        <img class="img" src="../Assets/KineticShade/oc_4.gif" alt="Simulating Animation">
+                    </div>
+                    <div class="caption">Simulating Animation</div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Navigation Buttons -->
+        <section class="project-page-nav">
+            <div class="page-nav-inner">
+                <button class="nav-btn" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">
+                    Back to Top
+                </button>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; Designed and Developed by Junke Zhao. Last updated: December 2025</p>
+            <p>Try pressing "T" to switch theme!</p>
+        </footer>
+    </main>
+
+    <script src="../script.js"></script>
+</body>
+</html>

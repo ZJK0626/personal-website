@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cybertale - Junke Zhao</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../Assets/logo.png">
+    <link rel="apple-touch-icon" href="../Assets/logo.png">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../project-page.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Prevent Theme Flash -->
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+
+    <!-- Page-specific Styles -->
+    <style>
+        /* Flexible equal-height image grid */
+        .bg-grid-flex {
+            display: flex;
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .bg-grid-flex .card-frame {
+            flex-basis: 0;
+            min-width: 0;
+            overflow: hidden;
+        }
+
+        .bg-grid-flex .card-frame img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Three-column grid for renders */
+        .bg-grid-three {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-top: 20px;
+        }
+
+        .bg-grid-three .card-frame {
+            overflow: hidden;
+        }
+
+        .bg-grid-three .card-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .bg-grid-flex {
+                flex-direction: column;
+            }
+            
+            .bg-grid-flex .card-frame {
+                flex-grow: 1 !important;
+            }
+
+            .bg-grid-three {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Four-column grid for printing experiment */
+        .bg-grid-four { 
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .bg-grid-four .card-frame {
+            overflow: hidden;
+        }
+
+        .bg-grid-four .card-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .bg-grid-four {
+                grid-template-columns: repeat(2, 1fr);
+            }
+}
+    </style>
+
+</head>
+<body>
+    <!-- Desktop Theme Toggle -->
+    <button class="theme-toggle desktop-theme-toggle" id="themeToggleDesktop" aria-label="Toggle theme">
+        <i class="fas fa-sun"></i>
+    </button>
+    
+    <!-- Floating Navigation -->
+    <nav class="floating-nav" aria-label="Project navigation">
+        <a class="nav-float-btn" href="../index.html" aria-label="Back to Home" title="Home">
+            <i class="fas fa-home"></i>
+        </a>
+        <a class="nav-float-btn" href="javascript:history.back()" aria-label="Back to All Projects" title="All Projects">
+            <i class="fas fa-arrow-left"></i>
+        </a>
+    </nav>
+
+    <!-- Mobile Header -->
+    <header class="mobile-header">
+        <div class="mobile-header-nav">
+            <a href="../index.html" class="mobile-nav-btn" aria-label="Back to Home" title="Home">
+                <i class="fas fa-home"></i>
+            </a>
+            <a href="../all-projects.html" class="mobile-nav-btn" aria-label="Back to All Projects" title="All Projects">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+        </div>
+        <a href="../index.html" class="mobile-site-name">Junke Zhao</a>
+        <button class="theme-toggle mobile-theme-toggle" id="themeToggleMobile" aria-label="Toggle theme">
+            <i class="fas fa-sun"></i>
+        </button>
+    </header>
+
+    <!-- Page Content -->
+    <main class="project-page">
+        <div class="project-container">
+
+            <!-- Featured Image -->
+            <div class="project-featured-image dual-image">
+                <img src="../Assets/Cybertale/cover.jpg" alt="3D Printed Couture Wings">
+            </div>
+
+            <!-- Project Header -->
+            <div class="project-header">
+                <h1 class="project-page-title">Cybertale</h1>
+                <p class="project-subtitle">
+                    3D-Printing Haute Couture: Exploring customized 3D printing techniques for garments, integrating fabrics with various materials to form complex self-forming mechanisms.
+                </p>
+
+                <div class="meta-grid">
+                    <div class="meta-card">
+                        <div class="meta-label">Team Member</div>
+                        <div class="meta-value">Junke Zhao<br>Siyuan Zhang<br>Xiangping Zhang<br>Pingsi Dai</div>
+                    </div>
+                    <div class="meta-card">
+                        <div class="meta-label">Duration</div>
+                        <div class="meta-value">Jun 2022 - Jul 2022</div>
+                    </div>
+                    <div class="meta-card">
+                        <div class="meta-label">Contribution</div>
+                        <div class="meta-value">Clothes Design<br>Printing Experiment<br>Fabricating<br>Testing</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Background and Concept Section -->
+            <section class="project-section">
+                <h2 class="section-title">Background and Concept</h2>
+                <div class="section-content">
+                    <p>
+                        Emerging 3D printing technologies are forging unprecedented new types of fabrics, serving as a significant impetus for architects to engage in custom fashion design. Notably, the use of TPU flexible printing and FDM combined with fabric introduces novel possibilities for fashion silhouette and fabric texture. Many fabric printing experiments encounter failures or flaws, yet direct interaction with the fabric using hands or body allows for adjustments in its geometric structure or printing technique.
+                    </p>
+                    <p>
+                        Designers strive to produce fabrics that meet predefined characteristics, but the iterative process of experimentation can also lead to entirely new ideas. Thus, design research and manufacturing experiments complement each other. The development of 3D fabrics based on computational design spans across architecture, fashion design, information technology, and automation technology. It also integrates cultural ethos, artistic sentiment, mathematical logic, and practical techniques. This development of 3D fabrics will become an intrinsic part of fashion design practices.
+                    </p>
+                    <p>
+                        This project focuses on customized 3D printing techniques for garments, exploring how fabrics can effectively integrate with various materials to form complex self-forming mechanisms. It involves digital adjustment of the fabric's texture, performance, and appearance, innovating fashion design through customized processes.
+                    </p>
+                </div>
+                <div class="bg-grid" style="margin-top: 24px;">
+                    <div class="card-frame">
+                        <img class="img" src="../Assets/cybertale/bg_1.jpg" alt="3D Printed Fabric Texture Test">
+                    </div>
+                    <div class="card-frame">
+                        <img class="img" src="../Assets/cybertale/bg_2.JPG" alt="3D Printed Wing Structure">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Design Process Section -->
+            <section class="project-section">
+                <h2 class="section-title">Design Process</h2>
+
+                <!-- Design Workflow -->
+                <div class="output-step">
+                    <h3 class="subhead">Design Workflow</h3>
+                    <div class="section-content">
+                        <p>
+                            The team first used CLO3D for paneling and styling after conceptualizing the design. The pattern and fabric models were then imported into Rhino and parameterized using Grasshopper to create the digital model. The digital model was then sliced and printed.
+                        </p>
+                    </div>
+                    <div class="center-media card-frame" style="margin-top: 20px;">
+                        <img class="img" src="../Assets/cybertale/wf.png" alt="Design Workflow Diagram">
+                    </div>
+                    <div class="caption">Workflow: Concept Design → CLO 3D → Rhino & Grasshopper → Slicing → Printing & Fabrication</div>
+                </div>
+
+                <!-- Style and Layout Design -->
+                <div class="output-step" style="margin-top: 40px;">
+                    <h3 class="subhead">Style and Layout Design</h3>
+                    <div class="center-media card-frame" style="margin-top: 20px;">
+                        <img class="img" src="../Assets/Cybertale/clo3D.png" alt="Clo3D Layout Design">
+                    </div>
+                    <div class="caption">Clo3D Layout Design</div>                    
+                    <div class="center-media card-frame" style="margin-top: 20px;">
+                        <img class="img" src="../Assets/Cybertale/pattern.png" alt="Pattern Design & Generation">
+                    </div>
+                    <div class="caption">Pattern Design & Generation</div>
+                    <div class="section-content" style="margin-top: 40px;">
+                        <p>
+                            The patterns were imported into Rhino and parameterized using Grasshopper to create detailed 3D models. This allowed for precise control over the geometry and enabled parametric adjustments to the design.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Prepare for Printing -->
+                <div class="output-step" style="margin-top: 40px;">
+                    <h3 class="subhead">Prepare for Printing</h3>
+                    <div class="bg-grid-flex">
+                        <div class="card-frame" style="flex-grow: 1.0;">
+                            <img class="img" src="../Assets/cybertale/pre_1.png" alt="3D Mesh Preparation 1">
+                        </div>
+                        <div class="card-frame" style="flex-grow: 0.47;">
+                            <img class="img" src="../Assets/cybertale/pre_2.png" alt="3D Mesh Preparation 2">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Printing Experiment Section -->
+            <section class="project-section">
+                <h2 class="section-title">Printing Experiment</h2>
+                <div class="section-content">
+                    <p>
+                        Various printing experiments were conducted to test different materials, patterns, and techniques. The Ender 3D printer was used to create intricate patterns on fabric substrates, exploring the possibilities of combining flexible TPU with traditional textiles.
+                    </p>
+                </div>
+                <div class="bg-grid-four">
+                    <div class="card-frame">
+                        <img class="img" src="../Assets/cybertale/print_1.JPG" alt="3D Printing Process">
+                    </div>
+                    <div class="card-frame">
+                        <img class="img" src="../Assets/cybertale/print_2.JPG" alt="Printed Fabric Panel">
+                    </div>
+                    <div class="card-frame">
+                        <img class="img" src="../Assets/cybertale/print_3.JPG" alt="Fabric Experiment 1">
+                    </div>
+                    <div class="card-frame">
+                        <img class="img" src="../Assets/cybertale/print_4.png" alt="Fabric Experiment 2">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Design Output Section -->
+            <section class="project-section">
+                <h2 class="section-title">Design Output</h2>
+
+                <!-- Physical Prototype -->
+                <div class="output-step">
+                    <h3 class="subhead">Physical Prototype</h3>
+                    <div class="section-content">
+                        <p>
+                            The final physical prototypes were assembled on dress forms, showcasing the integration of 3D printed elements with traditional fabric construction. The geometric panels and origami-like structures demonstrate the potential of computational design in fashion.
+                        </p>
+                    </div>
+                    <div class="bg-grid-three" style="margin-top: 20px;">
+                        <div class="card-frame">
+                            <img class="img" src="../Assets/Cybertale/pic_1.JPG" alt="Physical Prototype Front View">
+                        </div>
+                        <div class="card-frame">
+                            <img class="img" src="../Assets/Cybertale/pic_2.JPG" alt="Physical Prototype Side View">
+                        </div>
+                        <div class="card-frame">
+                            <img class="img" src="../Assets/Cybertale/pic_3.JPG" alt="Physical Prototype Side View">
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Rendering Display -->
+                <div class="output-step" style="margin-top: 40px;">
+                    <h3 class="subhead">Rendering Display</h3>
+                    <div class="section-content">
+                        <p>
+                            High-quality renderings showcase the envisioned final design, combining metallic structural elements with intricate printed textures on a digital mannequin.
+                        </p>
+                    </div>
+                    <div class="center-media card-frame" style="margin-top: 20px;">
+                        <img class="img" src="../Assets/Cybertale/render_1.JPG" alt="Render View 1">
+                    </div>
+                    <div class="center-media card-frame" style="margin-top: 20px;">
+                        <img class="img" src="../Assets/cybertale/render_2.JPG" alt="Render View 2">
+                    </div>
+                    <div class="center-media card-frame" style="margin-top: 20px;">
+                        <img class="img" src="../Assets/cybertale/render_3.JPG" alt="Render View 3">
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- Navigation Buttons -->
+        <section class="project-page-nav">
+            <div class="page-nav-inner">
+                <button class="nav-btn" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">
+                    Back to Top
+                </button>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; Designed and Developed by Junke Zhao. Last updated: December 2025</p>
+            <p>Try pressing "T" to switch theme!</p>
+        </footer>
+    </main>
+
+    <script src="../script.js"></script>
+</body>
+</html>

@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ambient InfoHub - Junke Zhao</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../Assets/logo.png">
+    <link rel="apple-touch-icon" href="../Assets/logo.png">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../project-page.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Prevent Theme Flash -->
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+
+    <!-- Page-specific Styles -->
+    <style>
+        /* Two-by-two grid for storyboard */
+        .bg-grid-2x2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .bg-grid-2x2 .card-frame {
+            overflow: hidden;
+        }
+
+        .bg-grid-2x2 .card-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Flexible equal-height image grid */
+        .bg-grid-flex {
+            display: flex;
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .bg-grid-flex .card-frame {
+            flex-basis: 0;
+            min-width: 0;
+            overflow: hidden;
+        }
+
+        .bg-grid-flex .card-frame img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Two-column text layout */
+        .two-column-text {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-top: 24px;
+        }
+
+        .two-column-text .column {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .two-column-text .column h3 {
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            margin-bottom: 16px;
+        }
+
+        .two-column-text .column p {
+            margin-bottom: 12px;
+            line-height: 1.7;
+        }
+
+        .two-column-text .column p strong {
+            color: var(--accent-color);
+        }
+
+        @media (max-width: 768px) {
+            .two-column-text {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .bg-grid-2x2 {
+                grid-template-columns: 1fr;
+            }
+
+            .bg-grid-flex {
+                flex-direction: column;
+            }
+            
+            .bg-grid-flex .card-frame {
+                flex-grow: 1 !important;
+            }
+        }
+
+        /* Storyboard layout: image left, text right */
+        .storyboard-row {
+            display: grid;
+            grid-template-columns: 2fr 3fr;
+            gap: 32px;
+            margin-top: 24px;
+            align-items: start;
+        }
+
+        .storyboard-row .storyboard-image {
+            width: 100%;
+        }
+
+        .storyboard-row .storyboard-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            display: block;
+        }
+
+        .storyboard-row .storyboard-text h4 {
+            color: var(--accent-color);
+            font-size: 1rem;
+            margin-bottom: 12px;
+        }
+
+        .storyboard-row .storyboard-text p {
+            line-height: 1.7;
+            margin-bottom: 0;
+        }
+
+        @media (max-width: 768px) {
+            .storyboard-row {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+        }
+    </style>
+
+</head>
+<body>
+    <!-- Desktop Theme Toggle -->
+    <button class="theme-toggle desktop-theme-toggle" id="themeToggleDesktop" aria-label="Toggle theme">
+        <i class="fas fa-sun"></i>
+    </button>
+    
+    <!-- Floating Navigation -->
+    <nav class="floating-nav" aria-label="Project navigation">
+        <a class="nav-float-btn" href="../index.html" aria-label="Back to Home" title="Home">
+            <i class="fas fa-home"></i>
+        </a>
+        <a class="nav-float-btn" href="javascript:history.back()" aria-label="Back to All Projects" title="All Projects">
+            <i class="fas fa-arrow-left"></i>
+        </a>
+    </nav>
+
+    <!-- Mobile Header -->
+    <header class="mobile-header">
+        <div class="mobile-header-nav">
+            <a href="../index.html" class="mobile-nav-btn" aria-label="Back to Home" title="Home">
+                <i class="fas fa-home"></i>
+            </a>
+            <a href="../all-projects.html" class="mobile-nav-btn" aria-label="Back to All Projects" title="All Projects">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+        </div>
+        <a href="../index.html" class="mobile-site-name">Junke Zhao</a>
+        <button class="theme-toggle mobile-theme-toggle" id="themeToggleMobile" aria-label="Toggle theme">
+            <i class="fas fa-sun"></i>
+        </button>
+    </header>
+
+    <!-- Page Content -->
+    <main class="project-page">
+        <div class="project-container">
+
+            <!-- Featured Image -->
+            <div class="project-featured-image dual-image">
+                <img src="../Assets/AmbientInfohub/cover.png" alt="Ambient InfoHub Cover">
+            </div>
+
+            <!-- Project Header -->
+            <div class="project-header">
+                <h1 class="project-page-title">Ambient InfoHub</h1>
+                <p class="project-subtitle">
+                    Interactive & responsive information hub for the home of CMU SoA and SoD with spatial computing.
+                </p>
+
+                <div class="meta-grid">
+                    <div class="meta-card">
+                        <div class="meta-label">Team Member</div>
+                        <div class="meta-value">Junke Zhao<br>Na Eun Kim<br>Sharon Fung</div>
+                    </div>
+                    <div class="meta-card">
+                        <div class="meta-label">Duration</div>
+                        <div class="meta-value">Nov 2023</div>
+                    </div>
+                    <div class="meta-card">
+                        <div class="meta-label">Contribution</div>
+                        <div class="meta-value">Concept Design<br>User Experiment Study<br>Technical Drawing</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Concept Origin Section -->
+            <section class="project-section">
+                <h2 class="section-title">Concept Origin</h2>
+                <div class="section-content">
+                    <p>
+                        Our goal is to effectively organize information that is both relevant and meaningful to foster daily gatherings and meetings. Since MMCH serves as a campus corridor, connecting students not only within the same school but also from different schools, we aimed to design with this dynamic in mind. Ultimately, our vision is to establish MMCH as a spatial information hub, promoting cross-disciplinary collaboration between D&A and creating stronger connections among students.
+                    </p>
+                    <p>
+                        We aim to activate the first floor of MMCH as an information hub. Transferring, sharing, and altering information via the interaction of students, professors, and visitors of the past, present, and future. How can we connect the greater university to the rich history of the school of design, school of architecture, and the original women's college?
+                    </p>
+                </div>
+                <div class="bg-grid-2x2" style="height: 280px; margin-top: 24px;">
+                    <div class="card-frame">
+                        <img class="img" src="../Assets/AmbientInfohub/concept_1.png" alt="Overflow of Information">
+                    </div>
+                    
+                    <div class="card-frame">
+                        <img class="img" src="../Assets/AmbientInfohub/concept_2.png" alt="1st Floor as Campus Connector">
+                    </div>
+                    <div class="caption">Overflow of Information (e.g. emails)</div>
+                    <div class="caption">MMCH 1st floor as CMU's Campus Connector</div>
+                </div>
+                <div class="bg-grid-2x2" style="height: 280px; margin-top: 16px;">
+                    <div class="card-frame">
+                        <img class="img" src="../Assets/AmbientInfohub/concept_3.png" alt="Cross-collaboration of SoD & SoA">
+                    </div>
+                    <div class="card-frame">
+                        <img class="img" src="../Assets/AmbientInfohub/concept_4.png" alt="Student Disconnect in School">
+                    </div>
+                    <div class="caption">Cross-collabration of SoD & SoA</div>
+                    <div class="caption">Student Disconnect in School</div>
+                </div>
+            </section>
+
+            <!-- User Scenario Section -->
+            <section class="project-section">
+                <h2 class="section-title">User Scenario</h2>
+                
+                <div class="two-column-text">
+                    <!-- Left Column: Information Recommendation -->
+                    <div class="column">
+                        <h3 class="subhead">Information Recommendation</h3>
+                        <p>Our system enhances personalized interaction through a series of dynamic touchpoints:</p>
+                        <br>
+                        <p><strong>North Vestibule Interaction:</strong> Upon entering from the north, students can scan their ID cards in the vestibule. This action activates a billboard that displays surveys, events, and other relevant information. By analyzing your interests, the system reshuffles the billboard content, prioritizing items that align with your preferences.</p>
+                        <br>
+                        <p><strong>Rotunda Billboard:</strong> At the rotunda entrance, the ID-activated billboard caters specifically to graduate students and professors. It suggests connections with individuals who share similar research or design interests, fostering collaboration across the Schools of Architecture (SoA) and Design (SoD).</p>
+                        <br>
+                        <p><strong>Interactive Corridor Floor Tiles:</strong> As you walk through the corridor, floor tiles present information hierarchically, starting with the most relevant to you. This includes events, plans, surveys, and projects displayed in sync with the billboard.</p>
+                        <br>
+                        <p><strong>Engaging with Tiles:</strong> By tapping or stepping on a tile that intrigues you, the system responds by resetting the displayed information and illuminating a path to the relevant professor's office or student group's classroom, enhancing accessibility and engagement.</p>
+                    </div>
+
+                    <!-- Right Column: Information Exhibition -->
+                    <div class="column">
+                        <h3 class="subhead">Information Exhibition</h3>
+                        <p>The exhibition encourages exploration without a fixed order, with content tied to specific locations, offering an engaging and dynamic experience:</p>
+                        <br>
+                        <p><strong>Historical Portraits:</strong> Outside Room 103, five portraits of Margaret Morrison come to life. They blink and speak, sharing stories about the history of the building and its legacy as a women's college when visitors approach.</p>
+                        <br>
+                        <p><strong>Activity Mapping:</strong> Infrared cameras and high-definition microphones enable a color-mapping activity. This system translates classroom activities onto mobile devices, allowing students to check who is present or what is happening in a space while on the go.</p>
+                        <br>
+                        <p><strong>Archival Billboards:</strong> The remaining billboards on the first floor offer access to the archives of past works. These digital displays provide a curated glimpse into the building's creative history.</p>
+                        <br>
+                        <p><strong>Interactive Music Playback:</strong> The music practice rooms log the sessions of different groups. Later, the hallway can replay these audio recordings, creating a soundscape that reflects the building's vibrant musical activities.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- User Storyboard Section -->
+            <section class="project-section">
+                <h2 class="section-title">User Storyboard</h2>
+
+                <!-- Story 1 - Avery -->
+                <div class="output-step">
+                    <h3 class="subhead">Story 1 - Avery: Information Exhibition</h3>
+                    
+                    <!-- Row 1 -->
+                    <div class="storyboard-row">
+                        <div class="storyboard-image card-frame">
+                            <img src="../Assets/AmbientInfohub/story_1_1.png" alt="Story 1-1">
+                        </div>
+                        <div class="storyboard-text">
+                            <h4>Scene 1</h4>
+                            <p>Heinz School student Avery was caught in heavy rainfall while going back home after studying at the Hunt Library. Avery had no choice but to stay out of the rain for a while. Seeing the MMCH building, Avery hid under the canopy. Then suddenly a hologram popped up! The hologram woman introduced herself as Maggie Mo, suggesting Avery go inside and dry wet clothes and shoes.</p>
+                        </div>
+                    </div>
+
+                    <!-- Row 2 -->
+                    <div class="storyboard-row">
+                        <div class="storyboard-image card-frame">
+                            <img src="../Assets/AmbientInfohub/story_1_2.png" alt="Story 1-2">
+                        </div>
+                        <div class="storyboard-text">
+                            <h4>Scene 2</h4>
+                            <p>When Avery went inside, suddenly the portrait on the wall started to talk! The woman in the portrait was the same person from outside - Maggie Mo. Not only Maggie Mo but also other oil paintings in the picture frames were moving and talking. Maggie Mo suggested Avery take the stairs on the back, telling that women in portraits will guide Avery's journey.</p>
+                        </div>
+                    </div>
+
+                    <!-- Row 3 -->
+                    <div class="storyboard-row">
+                        <div class="storyboard-image card-frame">
+                            <img src="../Assets/AmbientInfohub/story_1_3.png" alt="Story 1-3">
+                        </div>
+                        <div class="storyboard-text">
+                            <h4>Scene 3</h4>
+                            <p>As soon as Avery took steps, portraits were telling their own experiences in this building. Their stories created holograms of letters in the air and floated in front of Avery. It was a very exotic experience - meeting people from the past and hearing their voices. Their passion for studying and curiosity in academics also gave insights to Avery.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Story 2 - Alex -->
+                <div class="output-step" style="margin-top: 48px;">
+                    <h3 class="subhead">Story 2 - Alex: Information Recommendation</h3>
+                    
+                    <!-- Row 1 -->
+                    <div class="storyboard-row">
+                        <div class="storyboard-image card-frame">
+                            <img src="../Assets/AmbientInfohub/story_2_1.png" alt="Story 2-1">
+                        </div>
+                        <div class="storyboard-text">
+                            <h4>Scene 1</h4>
+                            <p>Alex is a design school student. It's only 11:00 a.m., but Alex received 15 emails from school already. But it's okay. MMCH building will sort all the emails and important notifications just for Alex while Alex walks in through the building. Alex tagged the student ID card to the scanner in front of the billboard.</p>
+                        </div>
+                    </div>
+
+                    <!-- Row 2 -->
+                    <div class="storyboard-row">
+                        <div class="storyboard-image card-frame">
+                            <img src="../Assets/AmbientInfohub/story_2_2.png" alt="Story 2-2">
+                        </div>
+                        <div class="storyboard-text">
+                            <h4>Scene 2</h4>
+                            <p>As soon as Alex tags the card, papers on the billboard start to shuffle, reflecting Alex's interest and preference. Free lunch? YES. That's super important. When Alex entered the hallway, internet-connected LED tiles started to present important information and news that appeared on the billboard.</p>
+                        </div>
+                    </div>
+
+                    <!-- Row 3 -->
+                    <div class="storyboard-row">
+                        <div class="storyboard-image card-frame">
+                            <img src="../Assets/AmbientInfohub/story_2_3.png" alt="Story 2-3">
+                        </div>
+                        <div class="storyboard-text">
+                            <h4>Scene 3</h4>
+                            <p>The most crucial one is the free pizza event held in 304. Then tiles drew arrows, guiding Alex to MMCH 304. Alex thought this function was so convenient, especially at the start of the new semester - no longer needing to wander around searching for the classroom.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Spatial Flow Diagram Section -->
+            <section class="project-section">
+                <h2 class="section-title">Spatial Flow Diagram</h2>
+                <div class="center-media card-frame">
+                    <img class="img" src="../Assets/AmbientInfohub/diagram.png" alt="Spatial Flow Diagram">
+                </div>
+            </section>
+
+            <!-- Technology Diagram Section -->
+            <section class="project-section">
+                <h2 class="section-title">Technology Diagram</h2>
+                <div class="center-media card-frame">
+                    <img class="img" src="../Assets/AmbientInfohub/tech_1.png" alt="Technology Diagram">                 
+                </div>
+                <div class="caption">Technical Diagram 1: How to interact with Digital Tiles</div>
+                <div class="center-media card-frame" style = "margin-top: 20px;">
+                    <img class="img" src="../Assets/AmbientInfohub/tech_2.png" alt="Technology Diagram">
+                </div>
+                <div class="caption">Technical Diagram 2: Activities color mapping</div>
+            </section>
+
+        </div>
+
+        <!-- Navigation Buttons -->
+        <section class="project-page-nav">
+            <div class="page-nav-inner">
+                <button class="nav-btn" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">
+                    Back to Top
+                </button>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; Designed and Developed by Junke Zhao. Last updated: December 2025</p>
+            <p>Try pressing "T" to switch theme!</p>
+        </footer>
+    </main>
+
+    <script src="../script.js"></script>
+</body>
+</html>

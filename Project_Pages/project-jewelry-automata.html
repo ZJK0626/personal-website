@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jewelry Automata - Junke Zhao</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../Assets/logo.png">
+    <link rel="apple-touch-icon" href="../Assets/logo.png">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../project-page.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Prevent Theme Flash -->
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+
+    <!-- Additional Page Styles -->
+    <style>
+        /* Four column grid for inspiration */
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-top: 24px;
+        }
+
+        .grid-4 .tall-media {
+            height: 280px;
+        }
+
+        /* Workflow diagram style */
+        .workflow-diagram {
+            text-align: center;
+        }
+
+        .workflow-diagram img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Outcomes grid - 3 columns */
+        .outcomes-row{
+            display: grid;
+            grid-template-columns: 2fr 1fr 2fr; /* 左中右占满整行，保证两端对齐 */
+            gap: 24px;
+            margin-top: 30px;
+            align-items: start;
+        }
+
+        .outcomes-row .outcome-item{
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+
+            width: 100%;     /* 卡片宽度跟内容走（不会被列拉伸） */
+            display: flex;            /* 让图片在卡片内居中 */
+            justify-content: center;
+            align-items: center;
+        }
+
+        .outcomes-row .outcome-item img{
+            height: 280px;   /* 三张等高 */
+            width: auto; 
+            display: block;
+        }
+
+        @media (max-width: 980px) {
+            .grid-4 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .outcomes-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .grid-4 {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Desktop Theme Toggle -->
+    <button class="theme-toggle desktop-theme-toggle" id="themeToggleDesktop" aria-label="Toggle theme">
+        <i class="fas fa-sun"></i>
+    </button>
+    
+    <!-- Floating Navigation -->
+    <nav class="floating-nav" aria-label="Project navigation">
+        <a class="nav-float-btn" href="../index.html" aria-label="Back to Home" title="Home">
+            <i class="fas fa-home"></i>
+        </a>
+        <a class="nav-float-btn" href="javascript:history.back()" aria-label="Back to All Projects" title="All Projects">
+            <i class="fas fa-arrow-left"></i>
+        </a>
+    </nav>
+
+    <!-- Mobile Header -->
+    <header class="mobile-header">
+        <div class="mobile-header-nav">
+            <a href="../index.html" class="mobile-nav-btn" aria-label="Back to Home" title="Home">
+                <i class="fas fa-home"></i>
+            </a>
+            <a href="../all-projects.html" class="mobile-nav-btn" aria-label="Back to All Projects" title="All Projects">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+        </div>
+        <a href="../index.html" class="mobile-site-name">Junke Zhao</a>
+        <button class="theme-toggle mobile-theme-toggle" id="themeToggleMobile" aria-label="Toggle theme">
+            <i class="fas fa-sun"></i>
+        </button>
+    </header>
+
+    <!-- Page Content -->
+    <main class="project-page">
+        <div class="project-container">
+
+            <!-- Featured Image -->
+            <div class="project-featured-image">
+                <img src="../Assets/JewleryAutomata/cover.png" alt="Jewelry Automata - Generative Jewelry Design">
+            </div>
+
+            <!-- Project Header -->
+            <div class="project-header">
+                <h1 class="project-page-title">Jewelry Automata</h1>
+                <p class="project-subtitle">
+                    Generative form-finding and visual computing applications for customized accessories design.
+                </p>
+
+                <div class="meta-grid">
+                    <div class="meta-card">
+                        <div class="meta-label">Team Member</div>
+                        <div class="meta-value">Junke Zhao<br>Angie Wang</div>
+                    </div>
+                    <div class="meta-card">
+                        <div class="meta-label">Duration</div>
+                        <div class="meta-value">Feb 2024</div>
+                    </div>
+                    <div class="meta-card">
+                        <div class="meta-label">Contribution</div>
+                        <div class="meta-value">Modelling<br>Coding<br>Rendering and Animation</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Background Section -->
+            <section class="project-section">
+                <h2 class="section-title">Background</h2>
+                <div class="bg-grid">
+                    <aside class="sticky-media">
+                        <div class="card-frame">
+                            <img class="img" src="../Assets/JewleryAutomata/bg1.png" alt="3D Printed Shoes By Francis Bitonti">
+                        </div>
+                        <div class="caption">3D Printed Shoes By Francis Bitonti</div>
+                    </aside>
+                    <div class="section-content">
+                        <p>
+                            Our interest in the concept of Cellular Automata (CA) discussed during class led us to explore some real-world application examples and products based on this algorithm. Among our findings, the 3D Printed Shoes by Francis Bitonti stood out. These shoes are examples of CA being applied to create wearable art and visually captivating designs that reflects the convergence of technology, fashion, and art. The design process involves using CA algorithms to simulate patterns that resemble natural textures, which are then materialized through 3D printing technology.
+                        </p>
+                        <p>
+                            This approach results in intricate, organic-looking structures that would be difficult to achieve through traditional manufacturing methods and also embodies a futuristic vision where fashion transcends conventional boundaries, highlighting the potential of CA in pushing the limits of design.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Inspiration Section -->
+            <section class="project-section">
+                <h2 class="section-title">Inspiration</h2>
+                <div class="section-content">
+                    <p>
+                        Inspired by elements seen in fashion week runways and based on examples, we observed that the visual effects of CA applied to surfaces share a similar pattern with designs featuring draping elements. This similarity indicates a potential for CA in creating complex, natural-looking textures and forms in fashion and product design.
+                    </p>
+                </div>
+                <div class="grid-4">
+                    <div class="tall-media">
+                        <img src="../Assets/JewleryAutomata/insp_1.jpg" alt="Fashion Inspiration 1">
+                    </div>
+                    <div class="tall-media">
+                        <img src="../Assets/JewleryAutomata/insp_2.jpg" alt="Fashion Inspiration 2">
+                    </div>
+                    <div class="tall-media">
+                        <img src="../Assets/JewleryAutomata/insp_3.jpg" alt="Fashion Inspiration 3">
+                    </div>
+                    <div class="tall-media">
+                        <img src="../Assets/JewleryAutomata/insp_4.jpg" alt="Fashion Inspiration 4">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Generative Design Section -->
+            <section class="project-section">
+                <h2 class="section-title">Generative Design</h2>
+                <div class="bg-grid">
+                    <div class="section-content">
+                        <p>
+                            Inherited from the knowledge we learned during class on the Cellular Automata algorithm, we established the a similar rule set in Grasshopper. However, since we would like our project to be defined as a material and shape that can form organic connections between surfaces, our variable is actually based on input, which is the surface shape needed by the user.
+                        </p>
+                        <p>
+                            In this case, our initialization steps are as follows:
+                        </p>
+                    </div>
+                    <aside class="sticky-media">
+                        <div class="card-frame">
+                            <img class="img" src="../Assets/JewleryAutomata/GenDes1.png" alt="Cellular Automata Rules">
+                        </div>
+                    </aside>
+                </div>
+
+                <div class="workflow-diagram">
+                    <div class="card-frame" style="padding: 30px; background: var(--bg-primary);">
+                        <img class="img" src="../Assets/JewleryAutomata/GenDes2.png" alt="Design Workflow: Curve → Pipe → Surface → Mesh → Deconstruct Mesh → Square Grid → Loop → Visualization">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Final Outcomes Section -->
+            <section class="project-section">
+                <h2 class="section-title">Final Outcomes</h2>
+                
+                <div class="outcomes-row">
+                    <div class="outcome-item">
+                        <img src="../Assets/JewleryAutomata/final_1_1.png" alt="Mesh Design 1">
+                    </div>
+                    <div class="outcome-item">
+                        <img src="../Assets/JewleryAutomata/final_1_2.png" alt="Mesh Design 2">
+                    </div>
+                    <div class="outcome-item">
+                        <img src="../Assets/JewleryAutomata/final_1_3.gif" alt="Mesh Design 3">
+                    </div>
+                </div>
+                <div class="caption">01-Meshes</div>
+
+                <div class="outcomes-row">
+                    <div class="outcome-item">
+                        <img src="../Assets/JewleryAutomata/final_2_1.png" alt="Final Design 1">
+                    </div>
+                    <div class="outcome-item">
+                        <img src="../Assets/JewleryAutomata/final_2_2.png" alt="Final Design 2">
+                    </div>
+                    <div class="outcome-item">
+                        <img src="../Assets/JewleryAutomata/final_2_3.gif" alt="Final Design 3">
+                    </div>
+                </div>
+                <div class="caption">02-Rendered Outputs</div>
+            </section>
+        </div>
+
+        <!-- Navigation Buttons -->
+        <section class="project-page-nav">
+            <div class="page-nav-inner">
+                <button class="nav-btn" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">
+                    Back to Top
+                </button>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; Designed and Developed by Junke Zhao. Last updated: December 2025</p>
+            <p>Try pressing "T" to switch theme!</p>
+        </footer>
+    </main>
+
+    <script src="../script.js"></script>
+</body>
+</html>

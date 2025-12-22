@@ -11,7 +11,7 @@
 }
 
 .project-container {
-    max-width: 980px;
+    max-width: 1080px;
     margin: 0 auto;
     padding: 0 24px;
 }
@@ -54,9 +54,11 @@
 
 /* Meta Grid */
 .meta-grid {
+    width: 100%;
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 18px;
+    box-sizing: border-box;
 }
 
 .meta-card {
@@ -153,7 +155,7 @@
 
 /* Center Media */
 .center-media {
-    max-width: 980px;
+    max-width: 1080px;
     margin: 0 auto;
 }
 
@@ -217,6 +219,9 @@
     height: 180px;
     object-fit: contain;
     display: block;
+    border-radius: 14px;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
 }
 
 /* Step 2 Top Grid */
@@ -239,6 +244,9 @@
     object-fit: cover;
     object-position: left;
     display: block;
+    border-radius: 14px;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
 }
 
 /* Step 2 Bottom Grid */
@@ -246,39 +254,40 @@
     display: grid;
     grid-template-columns: 1.1fr 1fr;
     gap: 30px;
-    align-items: stretch;
-    height: clamp(300px, 38vw, 360px);
+    align-items: start;
+    min-height: 300px;
 }
 
 .of-gh-stack {
-    height: 100%;
     display: grid;
-    grid-template-rows: 0.62fr 1.4fr;
+    grid-template-rows: auto auto;
     gap: 20px;
 }
 
 .of-gh-item {
-    height: 100%;
+    /* 移除固定高度，让内容自然撑开 */
 }
 
 .of-gh-item img {
     width: 100%;
-    height: 100%;
+    height: auto;
     display: block;
-    object-fit: cover;
-    object-position: center;
+    border-radius: 14px;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
 }
 
 .of-render {
-    height: 100%;
+    /* 让渲染图自适应 */
 }
 
 .of-render img {
     width: 100%;
-    height: 100%;
+    height: auto;
     display: block;
-    object-fit: contain;
-    object-position: center;
+    border-radius: 14px;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
 }
 
 /* Grid Layouts */
@@ -330,11 +339,16 @@
     margin: 28px auto 0;
 }
 
+    .project-header{
+        display: block;
+        width: 100%;
+    }
+
 /* ============================================
    RESPONSIVE DESIGN
    ============================================ */
 
-@media (max-width: 980px) {
+@media (max-width: 1080px) {
     .meta-grid {
         grid-template-columns: 1fr;
         gap: 12px;
@@ -408,6 +422,26 @@
         font-size: 0.9rem;
     }
 }
+    .video-embed {
+        position: relative;
+        width: 100%;
+        padding-bottom: 56.25%; /* 16:9 aspect ratio */
+        height: 0;
+        overflow: hidden;
+        border-radius: 12px;
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+    }
+    
+    .video-embed iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+        border-radius: 12px;
+    }
 
 @media (max-width: 600px) {
     .project-page-title {

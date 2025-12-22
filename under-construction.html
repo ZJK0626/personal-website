@@ -90,11 +90,14 @@
             background: var(--accent-color);
             color: white;
             text-decoration: none;
-            border-radius: 8px;
+            border-radius: 999px;
             font-weight: 600;
             font-size: 1rem;
             transition: all 0.3s ease;
             box-shadow: var(--shadow-md);
+            border: none;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
         }
 
         .back-home-btn:hover {
@@ -164,14 +167,25 @@
                 This page is currently being built. Check back soon for updates!
             </p>
             
-            <a href="index.html" class="back-home-btn">
+            <button onclick="goBack()" class="back-home-btn">
                 <i class="fas fa-arrow-left"></i>
-                Back to Home
-            </a>
+                Go Back
+            </button>
         </div>
     </div>
 
     <!-- JavaScript -->
     <script src="script.js"></script>
+    <script>
+        function goBack() {
+            // Check if there's a previous page in history
+            if (window.history.length > 1 && document.referrer) {
+                window.history.back();
+            } else {
+                // Fallback to home page if no history
+                window.location.href = 'index.html';
+            }
+        }
+    </script>
 </body>
 </html>
