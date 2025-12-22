@@ -2,6 +2,10 @@
    JUNKE ZHAO PORTFOLIO - UNIFIED JAVASCRIPT
    ============================================ */
 
+if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'auto';
+}
+
 // ============================================
 // THEME TOGGLE
 // ============================================
@@ -134,7 +138,7 @@ window.addEventListener('pageshow', (event) => {
         resetMobileMenuState();
         html.setAttribute('data-theme', localStorage.getItem('theme') || 'dark');
         updateThemeIcon();
-        window.scrollTo(0, 0);
+        // window.scrollTo(0, 0);
     }
 });
 
