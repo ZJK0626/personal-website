@@ -219,5 +219,6 @@ document.addEventListener('DOMContentLoaded', function() {
 // CONSOLE EASTER EGG
 // ============================================
 console.log('%c👋 Hi there!', 'font-size: 20px; font-weight: bold; color: #4d9fff;');
-console.log('%Welcome to my personal website!', 'font-size: 14px; color: #666;');
+console.log('%cWelcome to my personal website,', 'font-size: 14px; color: #666;');
+console.log('%cHope you can find something interesting!', 'font-size: 14px; color: #666;');
 console.log('%cPress T to toggle theme!', 'font-size: 12px; color: #4d9fff;');

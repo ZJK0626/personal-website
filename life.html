@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life / Fun Facts - Junke Zhao</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="Assets/logo.png">
+    <link rel="apple-touch-icon" href="Assets/logo.png">
+
+    <!-- Google Fonts - Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Prevent Theme Flash -->
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+</head>
+<body>
+    <!-- Desktop Theme Toggle -->
+    <button class="theme-toggle desktop-theme-toggle" id="themeToggleDesktop" aria-label="Toggle theme">
+        <i class="fas fa-sun"></i>
+    </button>
+
+    <!-- Floating Navigation -->
+    <nav class="floating-nav" aria-label="Page navigation">
+        <a class="nav-float-btn" href="index.html" aria-label="Back to Home" title="Home">
+            <i class="fas fa-home"></i>
+        </a>
+    </nav>
+
+    <!-- Mobile Header -->
+    <header class="mobile-header">
+        <div class="mobile-header-nav">
+            <a href="index.html" class="mobile-nav-btn" aria-label="Back to Home">
+                <i class="fas fa-home"></i>
+            </a>
+        </div>
+        <span class="mobile-site-name">Life / Fun Facts</span>
+        <button class="theme-toggle mobile-theme-toggle" id="themeToggleMobile" aria-label="Toggle theme">
+            <i class="fas fa-sun"></i>
+        </button>
+    </header>
+
+    <!-- Main Container -->
+    <div class="all-projects-container">
+        
+        <!-- Page Header -->
+        <div class="all-projects-header">
+            <h1 class="all-projects-title">Life / Fun Facts</h1>
+        </div>
+
+        <!-- Fun Facts Section -->
+        <div class="life-section">
+            <div class="fun-facts-list">
+                
+                <!-- Fun Fact 1 -->
+                <div class="fun-fact-item">
+                    <div class="fun-fact-image">
+                        <img src="Assets/funfacts/fun_fact_1.jpg" alt="Fun facts 1">
+                    </div>
+                    <div class="fun-fact-content">
+                        <p>I. I share my studio with two cats, Mochi and Nori, they were adopted by me when they were just 3 months
+                            <br><br>Despite I am slightly allergic to cat furs. 🤔</p>
+                    </div>
+                </div>
+
+                <!-- Fun Fact 2 -->
+                <div class="fun-fact-item">
+                    <div class="fun-fact-image">
+                        <img src="Assets/funfacts/fun_fact_2.jpg" alt="Fun facts 2">
+                    </div>
+                    <div class="fun-fact-content">
+                        <p>II. I've been playing the piano for over 15 years, and I love both classical and rock music.
+                                <br><br> 
+                                I was a band member playing as a keyboard during my undergraduate. 😎</p>
+                        </div>
+                </div>
+
+                <!-- Fun Fact 3 -->
+                <div class="fun-fact-item">
+                    <div class="fun-fact-image">
+                        <img src="Assets/funfacts/fun_fact_3.jpg" alt="Fun facts 3">
+                    </div>
+                    <div class="fun-fact-content">
+                        <p>III. My favorite sport is soccer. As a member of high school class team and university department team, I most often played as a wing defender.
+                            <br><br>
+                            My favorite and most hated soccer club are both Borussia Dortmund. 😤
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Fun Fact 4 -->
+                <div class="fun-fact-item">
+                    <div class="fun-fact-image">
+                        <img src="Assets/funfacts/fun_fact_4.jpg" alt="">
+                    </div>
+                    <div class="fun-fact-content">
+                        <p>IV. Another thing I enjoy is cooking. My Chinese cooking skills have improved dramatically since I came to the United States.
+                            <br><br>
+                            I once served as the "head chef" for a New Year's Eve party. 👨‍🍳</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; Designed and Developed by Junke Zhao. Last updated: December 2025</p>
+            <p>Try pressing "T" to switch theme!</p>
+        </footer>
+
+    </div>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

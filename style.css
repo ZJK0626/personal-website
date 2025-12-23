@@ -52,7 +52,7 @@ html {
 }
 
 body {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     line-height: 1.6;
     color: var(--text-primary);
     background: var(--bg-primary);
@@ -65,12 +65,13 @@ a {
     color: var(--accent-color);
     text-decoration: none;
     transition: color 0.3s ease;
-    border-bottom: 1px solid transparent;
+    /* border-bottom: 1px solid transparent; */
 }
 
-a:hover {
-    border-bottom-color: var(--accent-color);
+a:not([class]):hover {
+    text-decoration: underline;
 }
+
 
 /* ============================================
    3. MOBILE HEADER
@@ -417,7 +418,7 @@ a:hover {
    ============================================ */
 .sidebar {
     background: var(--bg-secondary);
-    padding: 40px 30px;
+    padding: 40px 40px;
     border-right: 1px solid var(--border-color);
     position: sticky;
     top: 0;
@@ -449,12 +450,12 @@ a:hover {
 .profile-header {
     display: flex;
     flex-direction: column;
-    margin-bottom: 25px;
+    margin-bottom: 40px;
 }
 
 .profile-image {
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
     overflow: hidden;
     margin-bottom: 20px;
@@ -558,7 +559,7 @@ a:hover {
 }
 
 .section-title {
-    font-size: 1.9rem;
+    font-size: 2rem;
     font-weight: 600;
     color: var(--text-primary);
     margin-bottom: 25px;
@@ -768,8 +769,8 @@ a:hover {
 
 .project-title,
 .project-name {
-    font-size: 1.2rem;
-    font-weight: 600;
+    font-size: 1.25rem;
+    font-weight: 700;
     color: var(--text-primary);
     margin: 0;
     line-height: 1.4;
@@ -810,7 +811,7 @@ a:hover {
     border: 1px solid var(--border-color);
     border-radius: 6px;
     color: var(--text-primary);
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -836,7 +837,7 @@ a:hover {
     display: inline-block;
     padding: 5px 10px;
     border-radius: 16px;
-    font-size: 0.6rem;
+    font-size: 0.7rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -895,7 +896,7 @@ a:hover {
 
 .timeline-icon i {
     color: var(--accent-color);
-    font-size: 1.05rem;
+    font-size: 1.2rem;
 }
 
 [data-theme="dark"] .timeline-icon {
@@ -966,6 +967,7 @@ a:hover {
 
 .all-projects-subtitle {
     font-size: 1.1rem;
+    font-weight: 400;
     color: var(--text-secondary);
 }
 
@@ -982,7 +984,7 @@ a:hover {
 }
 
 .project-section-title {
-    font-size: 1.9rem;
+    font-size: 2rem;
     font-weight: 600;
     margin-bottom: 30px;
     padding-bottom: 12px;
@@ -1053,7 +1055,7 @@ a:hover {
 }
 
 .fun-title {
-    font-size: 1.05rem;
+    font-size: 1.2rem;
     font-weight: 600;
     color: var(--text-primary);
     margin: 0;
@@ -1086,7 +1088,7 @@ a:hover {
     border: 2px solid var(--accent-color);
     background: transparent;
     color: var(--accent-color);
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     font-weight: 500;
     cursor: pointer;
     text-decoration: none;
@@ -1431,7 +1433,7 @@ a:hover {
     .theme-toggle {
         width: 40px;
         height: 40px;
-        font-size: 0.8rem;
+        font-size: 0.9rem;
     }
     
     .mobile-nav-btn {
@@ -1486,4 +1488,103 @@ a:hover {
 
 .list li {
     margin: 6px 0;
+}
+
+/* ============================================
+   17. LIFE / FUN FACTS SECTION
+   ============================================ */
+.fun-facts-list {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.fun-fact-item {
+    display: flex;
+    gap: 25px;
+    background: transparent;
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+
+.fun-fact-image {
+    flex-shrink: 0;
+    width: 272px;
+    height: 187px;
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--bg-tertiary);
+}
+
+.fun-fact-image img {
+    width: 100%;
+    height: 100%;
+    object-fit:cover;
+    transition: transform 0.3s ease;
+}
+
+.fun-fact-item:hover .fun-fact-image img {
+    transform: scale(1.05);
+}
+
+.fun-fact-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    gap: 20px;
+}
+
+.fun-fact-content h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    margin: 0;
+    line-height: 1.4;
+}
+
+.fun-fact-content p {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Fun Facts Responsive */
+@media (max-width: 1200px) and (min-width: 1025px) {
+    .fun-fact-image {
+        width: 220px;
+        height: 160px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .fun-fact-image {
+        width: 200px;
+        height: 150px;
+    }
+}
+
+@media (max-width: 768px) {
+    .fun-fact-item {
+        flex-direction: column;
+        padding: 20px;
+    }
+    
+    .fun-fact-image {
+        width: 100%;
+        height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .fun-fact-image {
+        height: 180px;
+    }
+}
+
+/* Life Section Container */
+.life-section {
+    margin-bottom: 60px;
 }
