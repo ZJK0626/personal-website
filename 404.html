@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found | Junke Zhao</title>
+
+    <!-- Logo -->
+    <link rel="icon" type="image/png" href="Assets/logo.png">
+    <link rel="apple-touch-icon" href="Assets/logo.png">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Prevent Theme Flash -->
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+
+    <style>
+        .construction-container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            text-align: center;
+            background: var(--bg-primary);
+        }
+
+        .construction-content {
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .construction-image {
+            width: 300px;
+            height: 300px;
+            margin: 0 auto 40px;
+            animation: wave 3s ease-in-out infinite;
+        }
+
+        .construction-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.2));
+        }
+
+        @keyframes wave {
+            0%, 100% {
+                transform: rotate(-5deg);
+            }
+            50% {
+                transform: rotate(5deg);
+            }
+        }
+
+        .construction-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+        }
+
+        .construction-message {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .back-home-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 30px;
+            background: var(--accent-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 999px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-md);
+            border: none;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .back-home-btn:hover {
+            background: var(--text-primary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .back-home-btn i {
+            transition: transform 0.3s ease;
+        }
+
+        .back-home-btn:hover i {
+            transform: translateX(-3px);
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .construction-image {
+                width: 200px;
+                height: 200px;
+                margin-bottom: 30px;
+            }
+
+            .construction-title {
+                font-size: 2rem;
+            }
+
+            .construction-message {
+                font-size: 1rem;
+            }
+
+            .back-home-btn {
+                padding: 12px 24px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Desktop Theme Toggle -->
+    <button class="theme-toggle desktop-theme-toggle" id="themeToggleDesktop" aria-label="Toggle theme">
+        <i class="fas fa-sun"></i>
+    </button>
+
+    <!-- Mobile Header -->
+    <header class="mobile-header">
+        <button class="mobile-menu-toggle" onclick="window.location.href='index.html'" aria-label="Go to home">
+            <i class="fas fa-home"></i>
+        </button>
+        <a href="index.html" class="mobile-site-name">Junke Zhao</a>
+        <button class="theme-toggle mobile-theme-toggle" id="themeToggleMobile" aria-label="Toggle theme">
+            <i class="fas fa-sun"></i>
+        </button>
+    </header>
+
+    <!-- Background Decorations -->
+    <div class="error-decoration top"></div>
+    <div class="error-decoration bottom"></div>
+
+    <!-- Error Container -->
+    <div class="construction-container">
+        <div class="construction-content">
+            <div class="construction-image">
+                <img src="Assets/404.png" alt="Page Not Found">
+            </div>
+            
+            <h1 class="construction-title">Page not Found</h1>
+            
+            <p class="construction-message">
+                Oops! The page you're looking for doesn't exist or has been moved. Let's get you back on track.
+            </p>
+            
+            <button onclick="goBack()" class="back-home-btn">
+                <i class="fas fa-arrow-left"></i>
+                Go Back
+            </button>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+    <script>
+        function goBack() {
+            // Check if there's a previous page in history
+            if (window.history.length > 1 && document.referrer) {
+                window.history.back();
+            } else {
+                // Fallback to home page if no history
+                window.location.href = 'index.html';
+            }
+        }
+    </script>
+</body>
+</html>
