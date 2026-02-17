@@ -216,6 +216,31 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // ============================================
+// LAST UPDATED FOOTER
+// ============================================
+function updateLastUpdatedFooter() {
+    const lastUpdatedElements = document.querySelectorAll('.last-updated');
+    if (!lastUpdatedElements.length) return;
+
+    const lastModified = new Date(document.lastModified);
+    const formattedLastModified = Number.isNaN(lastModified.getTime())
+        ? 'Unavailable'
+        : lastModified.toLocaleString(undefined, {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit'
+        });
+
+    lastUpdatedElements.forEach((element) => {
+        element.textContent = formattedLastModified;
+    });
+}
+
+window.addEventListener('DOMContentLoaded', updateLastUpdatedFooter);
+
+// ============================================
 // CONSOLE EASTER EGG
 // ============================================
 console.log('%c👋 Hi there!', 'font-size: 20px; font-weight: bold; color: #4d9fff;');
