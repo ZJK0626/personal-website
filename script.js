@@ -225,12 +225,9 @@ function updateLastUpdatedFooter() {
     const lastModified = new Date(document.lastModified);
     const formattedLastModified = Number.isNaN(lastModified.getTime())
         ? 'Unavailable'
-        : lastModified.toLocaleString(undefined, {
+        : lastModified.toLocaleDateString('en-US', {
             year: 'numeric',
-            month: 'long',
-            day: 'numeric',
-            hour: '2-digit',
-            minute: '2-digit'
+            month: 'long'
         });
 
     lastUpdatedElements.forEach((element) => {
