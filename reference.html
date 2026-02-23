@@ -9,7 +9,6 @@
     <style>
         /* :::::: 1. CSS 变量定义 (配色方案) :::::: */
         :root {
-            /* 浅色主题 */
             --bg-body: #F4F7F9;
             --bg-sidebar: #FFFFFF;
             --bg-card: rgba(255, 255, 255, 0.8);
@@ -20,10 +19,10 @@
             --border-color: #E2E8F0;
             --card-shadow: 0 10px 30px -10px rgba(0, 150, 136, 0.15);
             --glass-blur: blur(12px);
+            --banner-bg: linear-gradient(135deg, rgba(0, 150, 136, 0.1), rgba(0, 150, 136, 0.02));
         }
 
         [data-theme="dark"] {
-            /* 深色主题 */
             --bg-body: #0A0A0A;
             --bg-sidebar: #141414;
             --bg-card: rgba(30, 30, 30, 0.7);
@@ -33,11 +32,11 @@
             --accent-hover: #EDD398;
             --border-color: #262626;
             --card-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.7);
+            --banner-bg: linear-gradient(135deg, rgba(207, 179, 118, 0.15), rgba(207, 179, 118, 0.02));
         }
 
-        /* :::::: 2. 全局设置与排版 :::::: */
+        /* :::::: 2. 全局设置 :::::: */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
         body {
             font-family: 'Inter', sans-serif;
             background-color: var(--bg-body);
@@ -46,55 +45,29 @@
             overflow-x: hidden;
             transition: background-color 0.5s ease, color 0.5s ease;
         }
-
-        a {
-            text-decoration: none;
-            color: var(--accent-color);
-            font-weight: 600;
-            position: relative;
-            transition: color 0.3s ease;
-        }
-
+        a { text-decoration: none; color: var(--accent-color); font-weight: 600; position: relative; transition: color 0.3s ease; }
         .content a:not(.pub-link-btn)::after {
-            content: '';
-            position: absolute;
-            width: 100%; height: 2px;
-            bottom: -2px; left: 0;
-            background-color: var(--accent-color);
-            transform: scaleX(0);
-            transform-origin: bottom right;
-            transition: transform 0.3s ease-out;
+            content: ''; position: absolute; width: 100%; height: 2px;
+            bottom: -2px; left: 0; background-color: var(--accent-color);
+            transform: scaleX(0); transform-origin: bottom right; transition: transform 0.3s ease-out;
         }
-
-        .content a:not(.pub-link-btn):hover::after {
-            transform: scaleX(1); transform-origin: bottom left;
-        }
-
+        .content a:not(.pub-link-btn):hover::after { transform: scaleX(1); transform-origin: bottom left; }
         h1, h2, h3 { font-weight: 800; letter-spacing: -0.03em; line-height: 1.2; }
 
         /* :::::: 3. 布局结构 :::::: */
-        .app-container {
-            display: grid;
-            grid-template-columns: 320px 1fr;
-            min-height: 100vh;
-        }
-
+        .app-container { display: grid; grid-template-columns: 320px 1fr; min-height: 100vh; }
         .sidebar {
-            background-color: var(--bg-sidebar);
-            padding: 60px 40px;
+            background-color: var(--bg-sidebar); padding: 60px 40px;
             display: flex; flex-direction: column; justify-content: space-between;
             border-right: 1px solid var(--border-color);
             position: sticky; top: 0; height: 100vh; z-index: 10;
             transition: background-color 0.5s ease, border-color 0.5s ease;
         }
-
-        .main-content { padding: 80px 10%; max-width: 1000px; }
+        .main-content { padding: 60px 10%; max-width: 1000px; }
 
         /* :::::: 4. 组件样式 :::::: */
-        .profile-block { text-align: left; }
         .avatar {
-            width: 100px; height: 100px;
-            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            width: 100px; height: 100px; border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
             overflow: hidden; border: 3px solid var(--accent-color); margin-bottom: 30px;
             animation: morph 8s ease-in-out infinite;
         }
@@ -104,15 +77,9 @@
             100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
         }
         .avatar img { width: 100%; height: 100%; object-fit: cover; }
-
-        .big-name {
-            font-size: 3rem; margin-bottom: 10px;
-            background: linear-gradient(45deg, var(--text-primary), var(--accent-color));
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-        }
+        .big-name { font-size: 3rem; margin-bottom: 10px; background: linear-gradient(45deg, var(--text-primary), var(--accent-color)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .role-title { font-size: 1.1rem; color: var(--text-secondary); font-weight: 500; margin-bottom: 40px; }
         .contact-list { list-style: none; display: flex; flex-direction: column; gap: 15px; font-size: 0.95rem; }
-        
         .theme-toggle-btn {
             background: transparent; border: 1px solid var(--border-color); color: var(--text-primary);
             padding: 12px 24px; border-radius: 50px; cursor: pointer; font-weight: 600;
@@ -120,21 +87,77 @@
         }
         .theme-toggle-btn:hover { border-color: var(--accent-color); color: var(--accent-color); transform: translateY(-2px); }
 
-        section { margin-bottom: 90px; }
-        .section-header { font-size: 1.5rem; margin-bottom: 40px; display: flex; align-items: center; }
+        section { margin-bottom: 80px; }
+        .section-header { font-size: 1.5rem; margin-bottom: 35px; display: flex; align-items: center; }
         .section-header::after { content: ''; flex: 1; height: 1px; background: var(--border-color); margin-left: 20px; }
-        .about-text { font-size: 1.1rem; color: var(--text-secondary); max-width: 700px; }
+        .about-text { font-size: 1.1rem; color: var(--text-secondary); max-width: 700px; line-height: 1.8; }
 
-        /* --- 核心交互组件 1：3D 论文卡片 --- */
-        .pub-card {
-            display: flex; gap: 30px;
+        /* --- 新闻内嵌置顶横幅 (Announcement Banner) --- */
+        .announcement-banner {
+            background: var(--banner-bg);
+            border: 1px solid var(--border-color);
+            border-left: 4px solid var(--accent-color);
+            border-radius: 12px;
+            padding: 16px 24px;
+            margin-bottom: 30px; /* 调整了与下方普通新闻列表的间距 */
+            display: flex;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            /* 去掉了复杂的 slideDown 动画，让它跟随 section 一起淡入，视觉更统一 */
+        }
+        .banner-content { display: flex; align-items: center; font-size: 0.95rem; color: var(--text-primary); }
+        
+        /* 呼吸灯动画 */
+        .pulse-dot {
+            width: 10px; height: 10px; border-radius: 50%;
+            background-color: var(--accent-color); margin-right: 15px; flex-shrink: 0;
+            box-shadow: 0 0 0 0 var(--accent-color);
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 150, 136, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(0, 150, 136, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 150, 136, 0); }
+        }
+        [data-theme="dark"] .pulse-dot {
+            animation: pulse-dark 2s infinite;
+        }
+        @keyframes pulse-dark {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(207, 179, 118, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(207, 179, 118, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(207, 179, 118, 0); }
+        }
+
+        /* --- 新闻区块 (News Section) --- */
+        .news-list { display: flex; flex-direction: column; gap: 20px; }
+        .news-item { display: flex; gap: 25px; align-items: baseline; padding-bottom: 20px; border-bottom: 1px dashed var(--border-color); transition: transform 0.3s ease; }
+        .news-item:last-child { border-bottom: none; padding-bottom: 0; }
+        .news-item:hover { transform: translateX(10px); }
+        .news-date { font-family: monospace; font-weight: 700; font-size: 0.95rem; color: var(--accent-color); flex-shrink: 0; width: 100px; }
+        .news-text { color: var(--text-secondary); font-size: 1.05rem; line-height: 1.6; }
+        
+        /* 马克笔半画线高亮 */
+        .highlight-span {
+            font-weight: 600; color: var(--text-primary);
+            background-image: linear-gradient(120deg, transparent 0%, transparent 100%);
+            background-repeat: no-repeat; background-size: 100% 35%; background-position: 0 90%;
+            transition: background-size 0.3s ease;
+        }
+        [data-theme="light"] .highlight-span { background-image: linear-gradient(120deg, rgba(0, 150, 136, 0.25) 0%, rgba(0, 150, 136, 0.25) 100%); }
+        [data-theme="dark"] .highlight-span { background-image: linear-gradient(120deg, rgba(207, 179, 118, 0.3) 0%, rgba(207, 179, 118, 0.3) 100%); }
+        .news-item:hover .highlight-span { background-size: 100% 80%; }
+
+        /* --- 3D 磁吸卡片 --- */
+        .pub-card, .info-card {
             background-color: var(--bg-card); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur);
-            padding: 30px; border-radius: 20px; margin-bottom: 30px;
-            border: 1px solid var(--border-color); box-shadow: var(--card-shadow);
+            border-radius: 20px; border: 1px solid var(--border-color); box-shadow: var(--card-shadow);
             transform-style: preserve-3d; transform: perspective(1000px);
             transition: transform 0.1s ease-out, border-color 0.3s ease; cursor: default;
         }
-        .pub-card:hover { border-color: var(--accent-color); }
+        .pub-card { display: flex; gap: 30px; padding: 30px; margin-bottom: 30px; }
+        .info-card { padding: 25px 30px; margin-bottom: 20px; border-radius: 16px; }
+        .pub-card:hover, .info-card:hover { border-color: var(--accent-color); }
+        
         .pub-teaser { width: 200px; height: 130px; border-radius: 12px; overflow: hidden; flex-shrink: 0; transform: translateZ(20px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
         .pub-teaser img { width: 100%; height: 100%; object-fit: cover; }
         .pub-content { flex: 1; transform: translateZ(40px); }
@@ -146,42 +169,32 @@
         .pub-link-btn { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; padding: 6px 12px; border: 1px solid var(--border-color); border-radius: 4px; transition: all 0.3s ease; }
         .pub-link-btn:hover { background-color: var(--accent-color); color: var(--bg-sidebar) !important; border-color: transparent; }
 
-        /* --- 核心交互组件 2：3D 信息卡片 (用于教育和经历) --- */
-        .info-card {
-            background-color: var(--bg-card); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur);
-            padding: 25px 30px; border-radius: 16px; margin-bottom: 20px;
-            border: 1px solid var(--border-color); box-shadow: var(--card-shadow);
-            transform-style: preserve-3d; transform: perspective(1000px);
-            transition: transform 0.1s ease-out, border-color 0.3s ease; cursor: default;
-        }
-        .info-card:hover { border-color: var(--accent-color); }
         .info-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 5px; transform: translateZ(35px); }
         .info-header h3 { font-size: 1.2rem; color: var(--text-primary); }
         .info-date { font-size: 0.9rem; color: var(--accent-color); font-weight: 600; font-family: monospace; }
         .info-role { font-weight: 600; color: var(--text-primary); margin-bottom: 10px; transform: translateZ(30px); }
         .info-desc { font-size: 0.95rem; color: var(--text-secondary); transform: translateZ(20px); }
 
-        /* :::::: 5. 入场动画 :::::: */
-        .animate-block {
-            opacity: 0; transform: translateY(30px);
-            transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
+        /* 入场动画 */
+        .animate-block { opacity: 0; transform: translateY(30px); transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
         .animate-block.loaded { opacity: 1; transform: translateY(0); }
 
-        /* :::::: 6. 响应式设计 :::::: */
+        /* 响应式 */
         @media (max-width: 900px) {
             .app-container { grid-template-columns: 1fr; }
             .sidebar { height: auto; position: relative; padding: 60px 30px; border-right: none; border-bottom: 1px solid var(--border-color); align-items: center; text-align: center; }
             .profile-block { text-align: center; }
             .avatar { margin: 0 auto 20px auto; }
-            .main-content { padding: 60px 30px; }
+            .main-content { padding: 40px 30px; }
             .big-name { font-size: 2.5rem; }
+            .announcement-banner { align-items: flex-start; }
+            .pulse-dot { margin-top: 6px; } /* 移动端多行时让呼吸灯对齐首行 */
         }
         @media (max-width: 600px) {
             .pub-card { flex-direction: column; }
             .pub-teaser { width: 100%; height: auto; aspect-ratio: 16/9; }
             .info-header { flex-direction: column; align-items: flex-start; gap: 5px; }
-            .big-name { font-size: 2rem; }
+            .news-item { flex-direction: column; gap: 5px; }
         }
     </style>
 </head>
@@ -190,9 +203,7 @@
 <div class="app-container">
     <aside class="sidebar animate-block" style="transition-delay: 0.1s;">
         <div class="profile-block">
-            <div class="avatar">
-                <img src="https://via.placeholder.com/200" alt="Profile Face">
-            </div>
+            <div class="avatar"><img src="https://via.placeholder.com/200" alt="Profile Face"></div>
             <h1 class="big-name">Alex Chen</h1>
             <div class="role-title">Ph.D. Student in CS<br>Stanford University</div>
             <ul class="contact-list">
@@ -210,158 +221,115 @@
     </aside>
 
     <main class="main-content">
+        
         <section id="about" class="content animate-block" style="transition-delay: 0.2s;">
              <h2 class="section-header">Hello.</h2>
              <div class="about-text">
                  <p>I am a first-year Ph.D. student in Computer Science at Stanford, advised by Prof. Alan Turing. My research aims to bridge the gap between <strong>human creativity</strong> and <strong>computational intelligence</strong>.</p>
                  <br>
-                 <p>With a background in both CS and Graphic Design, I am obsessed with building tools that not only work efficiently but also feel intuitive and delightful to use. I currently focus on HCI and Generative Models for Design.</p>
+                 <p>With a background in both CS and Graphic Design, I am obsessed with building tools that not only work efficiently but also feel intuitive and delightful to use.</p>
              </div>
         </section>
 
-        <section id="education" class="content animate-block" style="transition-delay: 0.3s;">
+        <section id="news" class="content animate-block" style="transition-delay: 0.3s;">
+            <h2 class="section-header">Recent News</h2>
+            
+            <div class="announcement-banner">
+                <div class="banner-content">
+                    <span class="pulse-dot"></span>
+                    <span><strong>Urgent:</strong> I am actively looking for a 2027 Summer Internship! Feel free to <a href="mailto:alex@example.com">reach out</a> for a chat.</span>
+                </div>
+            </div>
+
+            <div class="news-list">
+                <div class="news-item">
+                    <span class="news-date">Feb 2026</span>
+                    <p class="news-text">Thrilled to share that our paper on Generative UI was <span class="highlight-span">accepted to CHI 2026</span>!</p>
+                </div>
+                <div class="news-item">
+                    <span class="news-date">Jan 2026</span>
+                    <p class="news-text">Honored to receive the <span class="highlight-span">Stanford Graduate Fellowship</span> for my upcoming Ph.D. studies.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="education" class="content animate-block" style="transition-delay: 0.4s;">
             <h2 class="section-header">Education</h2>
-            
             <div class="info-card" data-tilt>
-                <div class="info-header">
-                    <h3>Stanford University</h3>
-                    <span class="info-date">2025 – Present</span>
-                </div>
+                <div class="info-header"><h3>Stanford University</h3><span class="info-date">2025 – Present</span></div>
                 <div class="info-role">Ph.D. in Computer Science</div>
-                <p class="info-desc">Advisor: Prof. Alan Turing. Research focus: HCI, Generative Design, and Interactive Systems.</p>
-            </div>
-
-            <div class="info-card" data-tilt>
-                <div class="info-header">
-                    <h3>Massachusetts Institute of Technology</h3>
-                    <span class="info-date">2021 – 2025</span>
-                </div>
-                <div class="info-role">B.S. in Computer Science and Engineering</div>
-                <p class="info-desc">Minor in Graphic Design. GPA: 4.0/4.0. Graduated with Highest Honors.</p>
+                <p class="info-desc">Advisor: Prof. Alan Turing. Research focus: HCI, Generative Design.</p>
             </div>
         </section>
 
-        <section id="experience" class="content animate-block" style="transition-delay: 0.4s;">
-            <h2 class="section-header">Recent Experience</h2>
-            
+        <section id="experience" class="content animate-block" style="transition-delay: 0.5s;">
+            <h2 class="section-header">Experience</h2>
             <div class="info-card" data-tilt>
-                <div class="info-header">
-                    <h3>Google DeepMind</h3>
-                    <span class="info-date">May 2025 – Aug 2025</span>
-                </div>
+                <div class="info-header"><h3>Google DeepMind</h3><span class="info-date">May 2025 – Aug 2025</span></div>
                 <div class="info-role">Research Scientist Intern</div>
-                <p class="info-desc">Developed a novel interaction paradigm for LLM-driven vector graphic generation. Published one full paper at CHI as the first author.</p>
-            </div>
-
-            <div class="info-card" data-tilt>
-                <div class="info-header">
-                    <h3>MIT Media Lab</h3>
-                    <span class="info-date">Jan 2024 – May 2025</span>
-                </div>
-                <div class="info-role">Undergraduate Researcher</div>
-                <p class="info-desc">Worked in the Tangible Media Group. Designed and prototyped soft-robotic interfaces for AR/VR applications.</p>
+                <p class="info-desc">Developed a novel interaction paradigm for LLM-driven vector graphic generation.</p>
             </div>
         </section>
 
-        <section id="publications" class="content animate-block" style="transition-delay: 0.5s;">
+        <section id="publications" class="content animate-block" style="transition-delay: 0.6s;">
             <h2 class="section-header">Selected Work</h2>
-            
             <div class="pub-card" data-tilt>
-                <div class="pub-teaser">
-                    <img src="https://via.placeholder.com/300x200/009688/FFFFFF?text=CHI+2026" alt="Project Teaser">
-                </div>
+                <div class="pub-teaser"><img src="https://via.placeholder.com/300x200/009688/FFFFFF?text=CHI+2026" alt="Project Teaser"></div>
                 <div class="pub-content">
-                    <h3 class="pub-title">Sculpting with Words: An Interactive Interface for Generative 3D Modeling</h3>
+                    <h3 class="pub-title">Sculpting with Words: An Interactive Interface</h3>
                     <div class="pub-authors"><span class="highlight-me">Alex Chen</span>, Sarah Lee, Alan Turing</div>
-                    <div class="pub-venue">ACM CHI 2026 (Best Paper Honorable Mention)</div>
-                    <div class="pub-links">
-                        <a href="#" class="pub-link-btn">PDF</a>
-                        <a href="#" class="pub-link-btn">Project Page</a>
-                        <a href="#" class="pub-link-btn">Video</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="pub-card" data-tilt>
-                <div class="pub-teaser">
-                    <img src="https://via.placeholder.com/300x200/CFB376/FFFFFF?text=UIST+2025" alt="Project Teaser">
-                </div>
-                <div class="pub-content">
-                    <h3 class="pub-title">Understanding Designer-AI Collaboration Patterns in UI Design Tools</h3>
-                    <div class="pub-authors">David Wong, <span class="highlight-me">Alex Chen</span>, Emily White</div>
-                    <div class="pub-venue">ACM UIST 2025</div>
-                    <div class="pub-links">
-                        <a href="#" class="pub-link-btn">PDF</a>
-                        <a href="#" class="pub-link-btn">Code</a>
-                    </div>
+                    <div class="pub-venue">ACM CHI 2026</div>
+                    <div class="pub-links"><a href="#" class="pub-link-btn">PDF</a><a href="#" class="pub-link-btn">Video</a></div>
                 </div>
             </div>
         </section>
         
-        <footer class="animate-block" style="transition-delay: 0.6s; color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 40px;">
+        <footer class="animate-block" style="transition-delay: 0.7s; color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 40px;">
             © 2026 Alex Chen. <span style="color: var(--accent-color)">Code + Design.</span>
         </footer>
     </main>
 </div>
 
 <script>
-    // :::::: 1. 主题切换逻辑 ::::::
+    // 1. 主题切换
     const themeBtn = document.getElementById('theme-toggle');
     const htmlElement = document.documentElement;
     const themeText = document.getElementById('theme-text');
-
     const currentTheme = localStorage.getItem('theme') || 'light';
     htmlElement.setAttribute('data-theme', currentTheme);
-    updateThemeUI(currentTheme);
+    themeText.textContent = currentTheme === 'light' ? 'Switch to Dark' : 'Switch to Light';
 
     themeBtn.addEventListener('click', () => {
-        let theme = htmlElement.getAttribute('data-theme');
-        let newTheme = theme === 'light' ? 'dark' : 'light';
+        let newTheme = htmlElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
         htmlElement.setAttribute('data-theme', newTheme);
         localStorage.setItem('theme', newTheme);
-        updateThemeUI(newTheme);
+        themeText.textContent = newTheme === 'light' ? 'Switch to Dark' : 'Switch to Light';
     });
 
-    function updateThemeUI(theme) {
-        themeText.textContent = theme === 'light' ? 'Switch to Dark' : 'Switch to Light';
-    }
-
-    // :::::: 2. 入场交错动画 ::::::
+    // 2. 入场交错动画
     document.addEventListener("DOMContentLoaded", () => {
-        setTimeout(() => {
-            document.querySelectorAll('.animate-block').forEach(el => { el.classList.add('loaded'); });
-        }, 100);
+        setTimeout(() => { document.querySelectorAll('.animate-block').forEach(el => el.classList.add('loaded')); }, 100);
     });
 
-    // :::::: 3. 3D 磁吸倾斜效果 (复用于论文卡片与信息卡片) ::::::
-    // 通过获取所有带有 data-tilt 属性的元素，实现动画效果的复用
-    const tiltCards = document.querySelectorAll('[data-tilt]');
+    // 3. 异极相吸 3D 悬浮效果
+    document.querySelectorAll('[data-tilt]').forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = e.currentTarget.getBoundingClientRect();
+            const x = e.clientX - rect.left; 
+            const y = e.clientY - rect.top;  
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            // 异极相吸计算 
+            const rotateY = (centerX - x) / 30; 
+            const rotateX = (y - centerY) / 30; 
 
-    tiltCards.forEach(card => {
-        card.addEventListener('mousemove', handleMouseMove);
-        card.addEventListener('mouseleave', handleMouseLeave);
+            e.currentTarget.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        });
+        card.addEventListener('mouseleave', (e) => {
+            e.currentTarget.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg)`;
+        });
     });
-
-function handleMouseMove(e) {
-        const card = e.currentTarget;
-        const rect = card.getBoundingClientRect();
-        
-        const x = e.clientX - rect.left; 
-        const y = e.clientY - rect.top;  
-        
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-        
-        // 【关键修改点】反转了这里的减法顺序，实现“相吸”效果
-        const rotateY = (centerX - x) / 30; // 原为: (x - centerX) / 30
-        const rotateX = (y - centerY) / 30; // 原为: (centerY - y) / 30
-
-        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-    }
-
-    function handleMouseLeave(e) {
-        e.currentTarget.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg)`;
-    }
 </script>
 
 </body>

@@ -224,6 +224,38 @@ function initHomePageInteractions() {
     });
 }
 
+function initAllProjectsPageInteractions() {
+    if (!document.body.classList.contains('all-projects-page')) return;
+
+    const animatedBlocks = Array.from(document.querySelectorAll(
+        '.all-projects-page .all-projects-header, ' +
+        '.all-projects-page .filter-section, ' +
+        '.all-projects-page .project-section, ' +
+        '.all-projects-page .footer'
+    ));
+
+    animatedBlocks.forEach((block, index) => {
+        block.classList.add('animate-block');
+        if (!block.style.transitionDelay) {
+            block.style.transitionDelay = `${Math.min(index * 0.09, 0.75)}s`;
+        }
+    });
+
+    requestAnimationFrame(() => {
+        animatedBlocks.forEach((block) => block.classList.add('loaded'));
+    });
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    if (prefersReducedMotion || !canHover) return;
+
+    const tiltCards = document.querySelectorAll('.all-projects-page .project-card, .all-projects-page .fun-card');
+    tiltCards.forEach((card) => {
+        card.addEventListener('mousemove', handleTiltMove);
+        card.addEventListener('mouseleave', resetTilt);
+    });
+}
+
 function handleTiltMove(event) {
     const card = event.currentTarget;
     const rect = card.getBoundingClientRect();
@@ -248,6 +280,7 @@ function resetTilt(event) {
 }
 
 document.addEventListener('DOMContentLoaded', initHomePageInteractions);
+document.addEventListener('DOMContentLoaded', initAllProjectsPageInteractions);
 
 // ============================================
 // SCROLL POSITION SAVE/RESTORE
