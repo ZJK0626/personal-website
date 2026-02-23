@@ -197,6 +197,59 @@ window.addEventListener('scroll', highlightNavigation);
 window.addEventListener('load', highlightNavigation);
 
 // ============================================
+// HOME PAGE INTERACTIONS (REFERENCE-STYLE)
+// ============================================
+function initHomePageInteractions() {
+    if (!document.body.classList.contains('home-page')) return;
+
+    const animatedBlocks = Array.from(document.querySelectorAll('.home-page .animate-block'));
+    animatedBlocks.forEach((block, index) => {
+        if (!block.style.transitionDelay) {
+            block.style.transitionDelay = `${Math.min(index * 0.08, 0.6)}s`;
+        }
+    });
+
+    requestAnimationFrame(() => {
+        animatedBlocks.forEach((block) => block.classList.add('loaded'));
+    });
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    if (prefersReducedMotion || !canHover) return;
+
+    const tiltCards = document.querySelectorAll('.home-page .tilt-card');
+    tiltCards.forEach((card) => {
+        card.addEventListener('mousemove', handleTiltMove);
+        card.addEventListener('mouseleave', resetTilt);
+    });
+}
+
+function handleTiltMove(event) {
+    const card = event.currentTarget;
+    const rect = card.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+
+    if (!centerX || !centerY) return;
+
+    const rotateY = ((centerX - x) / centerX) * 6;
+    const rotateX = ((y - centerY) / centerY) * 6;
+
+    card.style.setProperty('--tilt-x', `${rotateX.toFixed(2)}deg`);
+    card.style.setProperty('--tilt-y', `${rotateY.toFixed(2)}deg`);
+}
+
+function resetTilt(event) {
+    const card = event.currentTarget;
+    card.style.setProperty('--tilt-x', '0deg');
+    card.style.setProperty('--tilt-y', '0deg');
+}
+
+document.addEventListener('DOMContentLoaded', initHomePageInteractions);
+
+// ============================================
 // SCROLL POSITION SAVE/RESTORE
 // ============================================
 document.addEventListener('DOMContentLoaded', function() {

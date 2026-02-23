@@ -72,6 +72,27 @@ a:not([class]):hover {
     text-decoration: underline;
 }
 
+/* ============================================
+   HOME INTERACTIONS
+   ============================================ */
+.animate-block {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                transform 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.animate-block.loaded {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@keyframes profileMorph {
+    0% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+    50% { border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%; }
+    100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+}
+
 
 /* ============================================
    3. MOBILE HEADER
@@ -543,6 +564,68 @@ a:not([class]):hover {
     padding-left: 20px;
 }
 
+/* Home page sidebar layout aligned with reference style */
+.home-page .sidebar {
+    background: var(--bg-white);
+    padding: 56px 38px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.home-page .profile-section {
+    height: 100%;
+}
+
+.home-page .profile-header {
+    margin-bottom: 28px;
+}
+
+.home-page .profile-image {
+    width: 112px;
+    height: 112px;
+    margin-bottom: 24px;
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    animation: profileMorph 8s ease-in-out infinite;
+}
+
+.home-page .profile-info h1 {
+    font-size: 2.25rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-bottom: 10px;
+    background: linear-gradient(45deg, var(--text-primary), var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.home-page .role {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.45;
+}
+
+.home-page .contact-info {
+    gap: 12px;
+    margin-bottom: 34px;
+}
+
+.home-page .contact-item {
+    font-size: 0.95rem;
+}
+
+.home-page .nav-menu {
+    margin-top: auto;
+    padding-top: 24px;
+    gap: 10px;
+}
+
+.home-page .main-content {
+    padding: 80px 8% 60px;
+    max-width: 1100px;
+}
+
 /* ============================================
    7. MAIN CONTENT
    ============================================ */
@@ -916,6 +999,21 @@ a:not([class]):hover {
     box-shadow: var(--shadow-lg);
 }
 
+.home-page .tilt-card {
+    --tilt-x: 0deg;
+    --tilt-y: 0deg;
+    transform: perspective(1000px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y));
+    transform-style: preserve-3d;
+    transition: transform 0.12s ease-out, border-color 0.3s ease, box-shadow 0.3s ease;
+    will-change: transform;
+}
+
+.home-page .project-item.tilt-card:hover,
+.home-page .direction-card.tilt-card:hover,
+.home-page .timeline-content.tilt-card:hover {
+    transform: perspective(1000px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y)) translateY(-3px);
+}
+
 .timeline-content h3 {
     font-size: 1.2rem;
     color: var(--text-primary);
@@ -942,6 +1040,19 @@ a:not([class]):hover {
 
 .footer p {
     margin: 5px 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .animate-block {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    .home-page .tilt-card {
+        transform: none !important;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
 }
 
 /* ============================================
@@ -1208,6 +1319,20 @@ a:not([class]):hover {
     .role {
         font-size: 0.8rem;
     }
+
+    .home-page .profile-image {
+        width: 104px;
+        height: 104px;
+        margin-bottom: 20px;
+    }
+
+    .home-page .profile-info h1 {
+        font-size: 1.95rem;
+    }
+
+    .home-page .role {
+        font-size: 0.95rem;
+    }
 }
 
 /* Very Narrow Desktop */
@@ -1227,6 +1352,23 @@ a:not([class]):hover {
     
     .role {
         font-size: 0.8rem;
+    }
+
+    .home-page .sidebar {
+        padding: 48px 26px;
+    }
+
+    .home-page .profile-image {
+        width: 92px;
+        height: 92px;
+    }
+
+    .home-page .profile-info h1 {
+        font-size: 1.7rem;
+    }
+
+    .home-page .role {
+        font-size: 0.9rem;
     }
     
     .project-image,
@@ -1265,6 +1407,10 @@ a:not([class]):hover {
         z-index: 999;
         overflow-y: auto;
     }
+
+    .home-page .sidebar {
+        padding: 48px 28px;
+    }
     
     .sidebar.active {
         left: 0;
@@ -1275,6 +1421,10 @@ a:not([class]):hover {
     }
     
     .main-content {
+        padding: 90px 30px 40px;
+    }
+
+    .home-page .main-content {
         padding: 90px 30px 40px;
     }
     
@@ -1322,9 +1472,30 @@ a:not([class]):hover {
     .sidebar {
         width: 280px;
     }
+
+    .home-page .sidebar {
+        padding: 40px 24px;
+    }
     
     .main-content {
         padding: 90px 20px 30px;
+    }
+
+    .home-page .main-content {
+        padding: 90px 20px 30px;
+    }
+
+    .home-page .profile-image {
+        width: 88px;
+        height: 88px;
+    }
+
+    .home-page .profile-info h1 {
+        font-size: 1.55rem;
+    }
+
+    .home-page .role {
+        font-size: 0.85rem;
     }
     
     .section-title {
@@ -1403,8 +1574,17 @@ a:not([class]):hover {
         width: 260px;
         padding: 20px 15px;
     }
+
+    .home-page .sidebar {
+        width: 260px;
+        padding: 24px 16px;
+    }
     
     .main-content {
+        padding: 90px 15px 20px;
+    }
+
+    .home-page .main-content {
         padding: 90px 15px 20px;
     }
     
