@@ -565,9 +565,28 @@ a:not([class]):hover {
 }
 
 /* Home page sidebar layout aligned with reference style */
+.home-page {
+    --home-sidebar-bg: #ffffff;
+    --home-sidebar-border: #e2e8f0;
+    --home-sidebar-title-start: #0f172a;
+    --home-sidebar-title-end: #009688;
+    --home-sidebar-role: #475569;
+    --home-sidebar-link: #009688;
+}
+
+[data-theme="dark"] .home-page {
+    --home-sidebar-bg: #141414;
+    --home-sidebar-border: #262626;
+    --home-sidebar-title-start: #ffffff;
+    --home-sidebar-title-end: #cfb376;
+    --home-sidebar-role: #a3a3a3;
+    --home-sidebar-link: #cfb376;
+}
+
 .home-page .sidebar {
-    background: var(--bg-white);
-    padding: 56px 38px;
+    background: var(--home-sidebar-bg);
+    border-right-color: var(--home-sidebar-border);
+    padding: 60px 40px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -578,47 +597,87 @@ a:not([class]):hover {
 }
 
 .home-page .profile-header {
-    margin-bottom: 28px;
+    margin-bottom: 0;
 }
 
 .home-page .profile-image {
-    width: 112px;
-    height: 112px;
-    margin-bottom: 24px;
+    width: 100px;
+    height: 100px;
+    margin-bottom: 30px;
+    border: 3px solid var(--home-sidebar-link);
     border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
     animation: profileMorph 8s ease-in-out infinite;
 }
 
 .home-page .profile-info h1 {
-    font-size: 2.25rem;
+    font-size: 2.65rem;
     font-weight: 800;
     letter-spacing: -0.03em;
-    line-height: 1.1;
+    line-height: 1.2;
     margin-bottom: 10px;
-    background: linear-gradient(45deg, var(--text-primary), var(--accent-color));
+    background: linear-gradient(45deg, var(--home-sidebar-title-start), var(--home-sidebar-title-end));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 .home-page .role {
-    color: var(--text-secondary);
+    color: var(--home-sidebar-role);
     font-size: 1rem;
-    line-height: 1.45;
+    font-weight: 500;
+    line-height: 1.4;
+    margin-bottom: 40px;
 }
 
 .home-page .contact-info {
-    gap: 12px;
-    margin-bottom: 34px;
+    gap: 15px;
+    margin-bottom: 25px;
 }
 
 .home-page .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
     font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--home-sidebar-link);
+    font-weight: 600;
+    letter-spacing: 0;
+}
+
+.home-page .contact-item i {
+    width: 16px;
+    font-size: 0.95rem;
+    color: var(--home-sidebar-link);
+    flex-shrink: 0;
+}
+
+.home-page .contact-item:hover {
+    color: var(--home-sidebar-link);
+    border-bottom: none;
 }
 
 .home-page .nav-menu {
     margin-top: auto;
-    padding-top: 24px;
+    padding-top: 20px;
+    border-top-color: var(--home-sidebar-border);
     gap: 10px;
+}
+
+.home-page .nav-link {
+    padding: 8px 0;
+    border-radius: 0;
+    background: transparent;
+    color: var(--home-sidebar-role);
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0;
+}
+
+.home-page .nav-link:hover,
+.home-page .nav-link.active {
+    background: transparent;
+    color: var(--home-sidebar-link);
+    padding-left: 0;
 }
 
 .home-page .main-content {
@@ -930,6 +989,16 @@ a:not([class]):hover {
     border: 1.1px solid var(--text-secondary);
     color: var(--text-secondary);
     transition: all 0.3s ease;
+}
+
+/* Light theme: subtle baseline shadow for card visibility */
+[data-theme="light"] .direction-card,
+[data-theme="light"] .project-item,
+[data-theme="light"] .project-card,
+[data-theme="light"] .timeline-content,
+[data-theme="light"] .fun-card,
+[data-theme="light"] .card-frame {
+    box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
 }
 
 /* ============================================
@@ -1323,17 +1392,17 @@ a:not([class]):hover {
     }
 
     .home-page .profile-image {
-        width: 104px;
-        height: 104px;
-        margin-bottom: 20px;
+        width: 98px;
+        height: 98px;
+        margin-bottom: 26px;
     }
 
     .home-page .profile-info h1 {
-        font-size: 1.95rem;
+        font-size: 2.4rem;
     }
 
     .home-page .role {
-        font-size: 0.95rem;
+        font-size: 0.98rem;
     }
 }
 
@@ -1366,11 +1435,11 @@ a:not([class]):hover {
     }
 
     .home-page .profile-info h1 {
-        font-size: 1.7rem;
+        font-size: 2.15rem;
     }
 
     .home-page .role {
-        font-size: 0.9rem;
+        font-size: 0.95rem;
     }
     
     .project-image,
@@ -1412,6 +1481,14 @@ a:not([class]):hover {
 
     .home-page .sidebar {
         padding: 48px 28px;
+    }
+
+    .home-page .profile-info h1 {
+        font-size: 2.2rem;
+    }
+
+    .home-page .role {
+        font-size: 0.95rem;
     }
     
     .sidebar.active {
@@ -1493,11 +1570,11 @@ a:not([class]):hover {
     }
 
     .home-page .profile-info h1 {
-        font-size: 1.55rem;
+        font-size: 1.95rem;
     }
 
     .home-page .role {
-        font-size: 0.85rem;
+        font-size: 0.9rem;
     }
     
     .section-title {
@@ -1588,6 +1665,14 @@ a:not([class]):hover {
 
     .home-page .main-content {
         padding: 90px 15px 20px;
+    }
+
+    .home-page .profile-info h1 {
+        font-size: 1.8rem;
+    }
+
+    .home-page .role {
+        font-size: 0.86rem;
     }
     
     .project-image,
