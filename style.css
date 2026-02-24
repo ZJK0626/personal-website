@@ -639,9 +639,9 @@ a:not([class]):hover {
     letter-spacing: -0.03em;
     line-height: 1.2;
     margin-bottom: 10px;
-    background: linear-gradient(45deg, var(--home-sidebar-title-start), var(--home-sidebar-title-end));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--home-sidebar-title-start);
+    background: none;
+    -webkit-text-fill-color: var(--home-sidebar-title-start);
 }
 
 .home-page .role {
