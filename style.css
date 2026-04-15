@@ -16,7 +16,6 @@
     --text-primary: #1f1a12;
     --text-secondary: #4c4332;
     --accent-color: #725a1f;
-    --accent-hover: #5d4a1a;
     --border-color: #d8ceb7;
     --shadow-sm: 0 2px 8px rgba(46, 34, 12, 0.08);
     --shadow-md: 0 8px 24px rgba(46, 34, 12, 0.12);
@@ -58,7 +57,6 @@ body {
     background: var(--bg-primary);
     transition: background-color 0.3s ease, color 0.3s ease;
     overflow-x: hidden;
-    overflow-y: auto !important;
 }
 
 a {
@@ -158,30 +156,8 @@ a:not([class]):hover {
    4. BUTTONS - UNIFIED STYLES
    ============================================ */
 
-/* Circle Button Base */
-.btn-circle {
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    background: transparent;
-    border: 2px solid var(--border-color);
-    color: var(--text-primary);
-    font-size: 1.2rem;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-    flex-shrink: 0;
-}
-
-.btn-circle:hover {
-    background: var(--accent-color);
-    color: white;
-    border-color: var(--accent-color);
-}
-
-/* Theme Toggle */
+/* Circle Button Base / Theme Toggle */
+.btn-circle,
 .theme-toggle {
     width: 45px;
     height: 45px;
@@ -198,10 +174,14 @@ a:not([class]):hover {
     flex-shrink: 0;
 }
 
+.btn-circle:hover,
 .theme-toggle:hover {
     background: var(--accent-color);
     color: white;
     border-color: var(--accent-color);
+}
+
+.theme-toggle:hover {
     transform: rotate(180deg);
 }
 
@@ -738,7 +718,7 @@ a:not([class]):hover {
 
 .home-page .main-content {
     width: 100%;
-    max-width: 1440px;
+    max-width: 1280px;
     margin: 0 auto;
     padding: 80px clamp(48px, 5vw, 140px) 60px;
 }
@@ -790,6 +770,12 @@ a:not([class]):hover {
     color: var(--text-secondary);
 }
 
+.home-page .about-content em {
+    color: var(--text-primary);
+    font-style: italic;
+    font-weight: 500;
+}
+
 .home-page .lead {
     font-weight: 400;
 }
@@ -798,6 +784,10 @@ a:not([class]):hover {
     gap: 18px;
     margin: 24px 0;
     max-width: none;
+}
+
+.home-page .research-directions-three {
+    grid-template-columns: repeat(3, 1fr);
 }
 
 .home-page .news-list {
@@ -1008,17 +998,66 @@ a:not([class]):hover {
     margin: 20px 0;
 }
 
+.research-directions-three {
+    grid-template-columns: repeat(3, 1fr);
+}
+
 .direction-card {
     background: var(--card-bg);
     padding: 20px;
     border-radius: 12px;
     border: 1px solid var(--border-color);
-    transition: all 0.3s;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    overflow: hidden;
+}
+
+.direction-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--accent-color);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.direction-card:hover::before {
+    transform: scaleX(1);
 }
 
 .direction-card:hover {
     border-color: var(--accent-color);
     box-shadow: var(--shadow-md);
+}
+
+.direction-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: var(--bg-tertiary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 14px;
+    transition: all 0.4s ease;
+}
+
+.direction-icon i {
+    font-size: 1rem;
+    color: var(--accent-color);
+    transition: all 0.4s ease;
+}
+
+.direction-card:hover .direction-icon {
+    background: var(--accent-color);
+}
+
+.direction-card:hover .direction-icon i {
+    color: #fff;
 }
 
 .direction-card h3 {
@@ -1646,6 +1685,10 @@ a:not([class]):hover {
     .home-page .research-directions {
         grid-template-columns: repeat(2, 1fr);
     }
+
+    .home-page .research-directions-three {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
 /* Narrow Desktop */
@@ -1684,6 +1727,12 @@ a:not([class]):hover {
 
     .home-page .role {
         font-size: 0.98rem;
+    }
+
+    .project-image,
+    .project-img {
+        width: 260px;
+        height: 190px;
     }
 }
 
@@ -1728,6 +1777,11 @@ a:not([class]):hover {
         width: 220px;
         height: 160px;
     }
+
+    .home-page .research-directions-three {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
 }
 
 /* Tablet */
@@ -1796,10 +1850,11 @@ a:not([class]):hover {
         margin-bottom: 34px;
     }
     
-    .research-directions {
-        grid-template-columns: 1fr;
+    .research-directions,
+    .home-page .research-directions-three {
+        grid-template-columns: repeat(2, 1fr);
     }
-    
+
     .project-image,
     .project-img {
         width: 200px;
@@ -1902,12 +1957,16 @@ a:not([class]):hover {
         font-size: 1.5rem;
     }
     
+    .home-page .research-directions-three {
+        grid-template-columns: 1fr;
+    }
+
     .project-item,
     .project-card {
         flex-direction: column;
         padding: 20px;
     }
-    
+
     .project-image,
     .project-img {
         width: 100%;

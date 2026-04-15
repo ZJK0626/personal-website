@@ -217,11 +217,6 @@ function initHomePageInteractions() {
     const canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
     if (prefersReducedMotion || !canHover) return;
 
-    const tiltCards = document.querySelectorAll('.home-page .tilt-card');
-    tiltCards.forEach((card) => {
-        card.addEventListener('mousemove', handleTiltMove);
-        card.addEventListener('mouseleave', resetTilt);
-    });
 }
 
 function initAllProjectsPageInteractions() {
@@ -277,6 +272,23 @@ function resetTilt(event) {
     const card = event.currentTarget;
     card.style.setProperty('--tilt-x', '0deg');
     card.style.setProperty('--tilt-y', '0deg');
+}
+
+function handleTiltMoveSubtle(event) {
+    const card = event.currentTarget;
+    const rect = card.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+
+    if (!centerX || !centerY) return;
+
+    const rotateY = ((centerX - x) / centerX) * 2;
+    const rotateX = ((y - centerY) / centerY) * 2;
+
+    card.style.setProperty('--tilt-x', `${rotateX.toFixed(2)}deg`);
+    card.style.setProperty('--tilt-y', `${rotateY.toFixed(2)}deg`);
 }
 
 document.addEventListener('DOMContentLoaded', initHomePageInteractions);

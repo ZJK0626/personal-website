@@ -17,6 +17,134 @@
     <!-- Stylesheets -->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+    /* ============================================
+       DESIGN PROJECTS — 3-column card grid
+    ============================================ */
+    .home-page .design-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+        align-items: start;
+    }
+    .home-page .design-card {
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 10px;
+        overflow: hidden;
+        text-decoration: none;
+        color: inherit;
+        display: flex;
+        flex-direction: column;
+        transition: border-color 0.45s ease,
+                    box-shadow 0.45s ease,
+                    transform 0.45s cubic-bezier(0.4, 0.4, 0.5, 1);
+    }
+    .home-page .design-card:hover {
+        border-color: var(--accent-color);
+        box-shadow: var(--shadow-lg);
+        transform: translateY(-4px);
+    }
+    .home-page .design-card-img {
+        width: 100%;
+        aspect-ratio: 16/9;
+        overflow: hidden;
+        background: var(--bg-secondary);
+    }
+    .home-page .design-card-img img {
+        width: 100%; height: 100%;
+        object-fit: cover; display: block;
+        transition: transform 0.25s ease;
+    }
+    .home-page .design-card:hover .design-card-img img { transform: scale(1.06); }
+    .home-page .design-card-body {
+        padding: 16px 18px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+    .home-page .design-card-year {
+        font-size: 0.72rem;
+        color: var(--text-secondary);
+        font-weight: 500;
+        opacity: 0.75;
+    }
+    .home-page .design-card-title {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        line-height: 1.35;
+        transition: color 0.2s ease;
+    }
+    .home-page .design-card:hover .design-card-title { color: var(--accent-color); }
+    .home-page .design-card-desc {
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+        line-height: 1.7;
+        max-height: 2.55em; /* ~1.5 lines visible */
+        overflow: hidden;
+        position: relative;
+        transition: max-height 0.7s cubic-bezier(0.5, 0.5, 0.5, 1);
+    }
+    .home-page .design-card-desc::after {
+        content: '';
+        position: absolute;
+        bottom: 0; left: 0; right: 0;
+        height: 1.4em;
+        background: linear-gradient(transparent, var(--card-bg));
+        pointer-events: none;
+        transition: opacity 0.5s ease;
+    }
+    .home-page .design-card:hover .design-card-desc {
+        max-height: 200px;
+    }
+    .home-page .design-card:hover .design-card-desc::after {
+        opacity: 0;
+    }
+    .home-page .design-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 10px; }
+    .home-page .dtag {
+        display: inline-block;
+        padding: 5px 10px;
+        border-radius: 16px;
+        font-size: 0.7rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        background: transparent;
+        border: 1.0px solid var(--text-secondary);
+        color: var(--text-secondary);
+        transition: all 0.3s ease;
+    }
+    .home-page .design-card:hover .dtag {
+        border-color: var(--accent-color);
+        color: var(--accent-color);
+    }
+
+    /* ============================================
+       RESEARCH — academic list with left accent + large thumbnail
+    ============================================ */
+    .home-page .research-list .project-item {
+        border-left: 3px solid var(--accent-color);
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+    .home-page .research-list .project-item .project-image {
+        width: 360px;
+        height: 240px;
+        flex-shrink: 0;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+        .home-page .design-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+        .home-page .design-grid { grid-template-columns: 1fr; }
+        .home-page .research-list .project-item .project-image { width: 100%; height: 200px; }
+    }
+    </style>
     
     <!-- Prevent Theme Flash -->
     <script>
@@ -61,7 +189,8 @@
                     </div>
                     <div class="profile-info">
                         <h1>Junke Zhao</h1>
-                        <p class="role">Research Assistant | UT Dallas</p>
+                        <p class="role">Incoming Ph.D. Student in Computer Science<br>University of Texas at Dallas</p>
+                        
                         <div class="contact-icons">
                             <a href="mailto:zhao.junke0626@gmail.com" class="contact-icon-link" title="Email">
                                 <i class="fas fa-envelope"></i>
@@ -104,35 +233,36 @@
                 <h2 class="section-title">Hello.</h2>
                 <div class="about-content">
                     <p class="lead">
-                        Hello, I'm Junke. I'm currently a Research Assistant at DE4M Lab, UT Dallas, advised by Prof. <a href="https://lianghe.me/" target="_blank">Liang He</a>. 
+                        I'm Junke. I'm an incoming Ph.D. student in Computer Science at DE4M Lab, UT Dallas, advised by Prof. <a href="https://lianghe.me/" target="_blank">Liang He</a>. 
                         Before this, I obtained my Master of Science degree in Computational Design from Carnegie Mellon University in May 2025, 
                         and obtained my Bachelor of Architecture degree from Southeast University in June 2023.
                     </p>
-                    
+
                     <p>
-                        My research interests focus on the intersection of design and technology, 
-                        with a focus on exploring computational design, digital fabrication, tangible interaction, 
-                        and ubiquitous computing in the field of human-computer interaction. 
-                        Specifically, my research objectives lie in the following two aspects:
+                        My research at the intersection of design and technology reimagines physical environments as active, responsive media. 
+                        While we spend more time immersed in digital spaces, I believe the tangible world is what truly shapes our experiences. Driven by the belief, I leverage computational design, tangible interaction, and ubiquitous computing within HCI to bridge the digital and physical. To this end, my work spans three interconnected directions:
                     </p>
                     
-                    <div class="research-directions">
-                        <div class="direction-card tilt-card">
-                            <h3>Interactive and Adaptive Physical Environments</h3>
+                    <div class="research-directions research-directions-three">
+                        <div class="direction-card" data-direction="1">
+                            <div class="direction-icon"><i class="fas fa-brain"></i></div>
+                            <h3>Spaces that Understand</h3>
                             <p>
-                                My research investigates the design and implementation of adaptive, 
-                                responsive and interactive systems within built environments and everyday artifacts, 
-                                aiming to enhance user comfort, human abilities, and overall experience.
-                            </p>
+                                I explore how everyday environments and objects can sense, reason about, and proactively respond to people's needs through embedded intelligence.</p>
                         </div>
                         
-                        <div class="direction-card tilt-card">
-                            <h3>User-Participatory Design and Fabrication Tools</h3>
+                        <div class="direction-card" data-direction="2">
+                            <div class="direction-icon"><i class="fas fa-hand-sparkles"></i></div>
+                            <h3>People who Shape</h3>
                             <p>
-                                My research explores design tools and advanced fabrication methodologies, 
-                                aimed at democratizing digital fabrication, reducing barriers to entry, improving user participatory
-                                and expanding the scope of material and spatial expression.
-                            </p>
+                            I explore how AI-assisted user participatory design and fabrication tools can empower non-experts to engage in creating and customizing their physical surroundings.</p>
+                        </div>
+
+                        <div class="direction-card" data-direction="3">
+                            <div class="direction-icon"><i class="fas fa-layer-group"></i></div>
+                            <h3>Realities that Blend</h3>
+                            <p>
+                                I explore how spatial computing can extend the capabilities of physical environments through context-aware virtual augmentation.</p>
                         </div>
                     </div>
                 </div>
@@ -182,9 +312,9 @@
             <section id="research-projects" class="section animate-block">
                 <h2 class="section-title">Research Projects</h2>
                 
-                <div class="project-list">
+                <div class="project-list research-list">
                     <!-- Project 1 -->
-                    <div class="project-item tilt-card">
+                    <div class="project-item">
                         <div class="project-image">
                             <img src="Assets/Taxo-cover.png" alt="Transformable Furniture Platform">
                         </div>
@@ -199,7 +329,7 @@
                     </div>
                     
                     <!-- Project 2 -->
-                    <div class="project-item tilt-card">
+                    <div class="project-item">
                         <div class="project-image">
                             <img src="Assets/cofab-cover.png" alt="CoFAB">
                         </div>
@@ -234,109 +364,70 @@
                     </a>
                 </div>
                 
-                <div class="project-list">
+                <div class="design-grid">
                     <!-- Project 1: Kinetic Shades -->
-                    <a href="Project_Pages/project-kinetic-shade.html" class="project-item tilt-card">
-                        <div class="project-image">
+                    <a href="Project_Pages/project-kinetic-shade.html" class="design-card animate-block">
+                        <div class="design-card-img">
                             <img src="Assets/kinetic-shade-cover.png" alt="Kinetic Shades">
                         </div>
-                        <div class="project-info">
-                            <p class="project-authors">2024</p>
-                            <h3 class="project-title">Kinetic Shades</h3>
-                            <p class="project-description">
-                                Exploring the spatial experience resulting from user interaction with building facade 
+                        <div class="design-card-body">
+                            <p class="design-card-year">2024</p>
+                            <h3 class="design-card-title">Kinetic Shades</h3>
+                            <p class="design-card-desc">
+                                Exploring the spatial experience resulting from user interaction with building facade
                                 design through an adaptively sensing curtain wall system enabled by digital fabrication and physical computing.
                             </p>
-                            <div class="project-meta">
-                                <span class="pub-badge design">Interactive Systems</span>
-                                <span class="pub-badge design">Digital Fabrication</span>
+                            <div class="design-tags">
+                                <span class="dtag">Interactive Systems</span>
+                                <span class="dtag">Digital Fabrication</span>
                             </div>
                         </div>
                     </a>
-                    
+
                     <!-- Project 2: Track Your Commute -->
-                    <a href="Project_Pages/project-bus-tracker.html" class="project-item tilt-card">
-                        <div class="project-image">
+                    <a href="Project_Pages/project-bus-tracker.html" class="design-card animate-block">
+                        <div class="design-card-img">
                             <img src="Assets/bustracker-cover.jpeg" alt="Track Your Commute">
                         </div>
-                        <div class="project-info">
-                            <p class="project-authors">2023</p>
-                            <h3 class="project-title">Track Your Commute</h3>
-                            <p class="project-description">
-                                An interactive widget that visualizes your daily commute by combining real-time 
+                        <div class="design-card-body">
+                            <p class="design-card-year">2023</p>
+                            <h3 class="design-card-title">Track Your Commute</h3>
+                            <p class="design-card-desc">
+                                An interactive widget that visualizes your daily commute by combining real-time
                                 weather and bus schedule data.
                             </p>
-                            <div class="project-meta">
-                                <span class="pub-badge design">Physical Computing</span>
-                                <span class="pub-badge design">IoT</span>
+                            <div class="design-tags">
+                                <span class="dtag">Physical Computing</span>
+                                <span class="dtag">IoT</span>
                             </div>
                         </div>
                     </a>
 
-                    <!-- Project 3: Ambient Infohub -->
-                    <a href="Project_Pages/project-ambient-infohub.html" class="project-item tilt-card">
-                        <div class="project-image">
-                            <img src="Assets/ambient-cover.png" alt="Ambient Infohub">
+                    <!-- Project 3: The Weaving Cloud -->
+                    <a href="Project_Pages/project-waving-cloud.html" class="design-card animate-block">
+                        <div class="design-card-img">
+                            <img src="Assets/waving-cloud-cover.png" alt="The Weaving Cloud">
                         </div>
-                        <div class="project-info">
-                            <p class="project-authors">2023</p>
-                            <h3 class="project-title">Ambient Infohub</h3>
-                            <p class="project-description">
-                                By incorporating sensors and interactive interfaces, 
-                                transforming the historic Magret Morrison Carnegie Hall into a massive information 
-                                distribution & interaction center that is perceptible, interactive, and experiential.
-                            </p>
-                            <div class="project-meta">
-                                <span class="pub-badge design">Spatial Computing</span>
-                                <span class="pub-badge design">Tangible Interaction</span>
-                            </div>
-                        </div>
-                    </a>
-
-                    <!-- Project 4: The Weaving Cloud -->
-                    <a href="Project_Pages/project-waving-cloud.html" class="project-item tilt-card">
-                        <div class="project-image">
-                            <img src="Assets/waving-cloud-cover.png" alt="The Waving Cloud">
-                        </div>
-                        <div class="project-info">
-                            <p class="project-authors">2022</p>
-                            <h3 class="project-title">The Weaving Cloud</h3>
-                            <p class="project-description">
-                                Prefabricated 3D printed architectural design explores breaking through the size limitations of 
+                        <div class="design-card-body">
+                            <p class="design-card-year">2022</p>
+                            <h3 class="design-card-title">The Weaving Cloud</h3>
+                            <p class="design-card-desc">
+                                Prefabricated 3D printed architectural design explores breaking through the size limitations of
                                 3D printing equipment by using a method of layered printing and structural reinforcement.
                             </p>
-                            <div class="project-meta">
-                                <span class="pub-badge design">Digital Fabrication</span>
-                            </div>
-                        </div>
-                    </a>
-
-                    <!-- Project 5: Living As You Want -->
-                    <a href="Project_Pages/project-living-as-you-want.html" class="project-item tilt-card">
-                        <div class="project-image">
-                            <img src="Assets/apartment-cover.png" alt="Living As You Want">
-                        </div>
-                        <div class="project-info">
-                            <p class="project-authors">2022</p>
-                            <h3 class="project-title">Living As You Want</h3>
-                            <p class="project-description">
-                                A user-participatory apartment design platform built to help users customize room layouts, 
-                                interior styles, and community environments, as well as assist designers in planning architectural and community designs.
-                            </p>
-                            <div class="project-meta">
-                                <span class="pub-badge design">User-Participatory Design</span>
-                                <span class="pub-badge design">Generative Design</span>
+                            <div class="design-tags">
+                                <span class="dtag">Digital Fabrication</span>
                             </div>
                         </div>
                     </a>
                 </div>
                 
-                <!-- View All Button -->
+                <!-- View All Button
                 <div class="view-all-bottom">
                     <a href="all-projects.html" class="view-all-btn-bottom">
                         View all <i class="fas fa-arrow-right"></i>
                     </a>
-                </div>
+                </div> -->
             </section>
 
             <!-- Experience Section -->
@@ -347,7 +438,7 @@
                         <div class="timeline-icon">
                             <img src="Assets/utd-logo.png" alt="UT Dallas">
                         </div>
-                        <div class="timeline-content tilt-card">
+                        <div class="timeline-content">
                             <h3>The University of Texas at Dallas</h3>
                             <p class="position">Research Assistant, Aug 2025 - Present</p>
                         </div>
@@ -357,7 +448,7 @@
                         <div class="timeline-icon">
                             <img src="Assets/cmu-logo.png" alt="CMU">
                         </div>
-                        <div class="timeline-content tilt-card">
+                        <div class="timeline-content">
                             <h3>Carnegie Mellon University</h3>
                             <p class="position">Research Assistant, Aug 2024 - Jan 2025</p>
                         </div>
@@ -373,7 +464,7 @@
                         <div class="timeline-icon">
                             <img src="Assets/cmu-logo.png" alt="CMU">
                         </div>
-                        <div class="timeline-content tilt-card">
+                        <div class="timeline-content">
                             <h3>Carnegie Mellon University</h3>
                             <p class="position">Master of Science in Computational Design, Aug 2023 - May 2025</p>
                         </div>
@@ -383,7 +474,7 @@
                         <div class="timeline-icon">
                             <img src="Assets/seu-logo.png" alt="Southeast University">
                         </div>
-                        <div class="timeline-content tilt-card">
+                        <div class="timeline-content">
                             <h3>Southeast University</h3>
                             <p class="position">Bachelor of Architecture, Aug 2018 - Jun 2023</p>
                         </div>
@@ -393,7 +484,7 @@
                         <div class="timeline-icon">
                             <img src="Assets/eth-logo.png" alt="ETH Zurich">
                         </div>
-                        <div class="timeline-content tilt-card">
+                        <div class="timeline-content">
                             <h3>ETH Zurich</h3>
                             <p class="position">Joint Program, Architecture, Sep 2019 - Jun 2020</p>
                         </div>
@@ -404,9 +495,9 @@
             <!-- Footer -->
             <footer class="footer animate-block">
                 <p>&copy; Designed and Developed by Junke Zhao. Last updated: <span class="last-updated"></span></p>
-            <p>Try pressing "T" to switch theme!</p>
-        </footer>
-    </main>
+                <p>Try pressing "T" to switch theme!</p>
+            </footer>
+        </main>
 
     <script src="script.js"></script>
 </body>
