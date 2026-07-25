@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Track Your Route - Junke Zhao</title>
+    <title>Track Your Commute - Junke Zhao</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="../Assets/logo.png">
@@ -42,7 +42,7 @@
         <a class="nav-float-btn" href="../index.html" aria-label="Back to Home" title="Home">
             <i class="fas fa-home"></i>
         </a>
-        <a class="nav-float-btn" href="javascript:history.back()" aria-label="Back to All Projects" title="All Projects">
+        <a class="nav-float-btn" href="../all-projects.html" aria-label="Back to All Projects" title="All Projects">
             <i class="fas fa-arrow-left"></i>
         </a>
     </nav>
@@ -74,14 +74,14 @@
 
             <!-- Project Header -->
             <div class="project-header">
-                <h1 class="project-page-title">Track Your Route</h1>
+                <h1 class="project-page-title">Track Your Commute</h1>
                 <p class="project-subtitle">
                     A desktop interactive installation using IoT and API to help you track the weather and traffic on your way to school.
                 </p>
 
                 <div class="meta-grid">
                     <div class="meta-card">
-                        <div class="meta-label">Team Member</div>
+                        <div class="meta-label">Team</div>
                         <div class="meta-value">Junke Zhao<br>Max Yuhan Wu<br>Xuan Peng</div>
                     </div>
                     <div class="meta-card">
@@ -100,10 +100,10 @@
                 <h2 class="section-title">Background</h2>
                 <div class="section-content">
                     <p>
-                        Commuting to campus by bus this semester, which is mainly 61 A / B / C / D, it is really common to see them come and go all together. As can be seen from the photo, it looks almost like a train coming through when is 4 of them arriving at the same time. <a href="https://bunching.github.io/" target="_blank">Visualization</a> created by CMU alumni Mark Egge is an amazing illustration for how bunching 61 routes are appearing in areas around the campus.
+                        We commuted to campus by bus this semester, mainly on the 61A / B / C / D routes, and it was common to see them come and go all together. As the photo shows, it looks almost like a train coming through when four of them arrive at the same time. A <a href="https://bunching.github.io/" target="_blank">visualization</a> created by CMU alumnus Mark Egge is a striking illustration of how often the 61 routes bunch in the areas around campus.
                     </p>
                     <p>
-                        Imagine when the weather gets worse and you miss a couple of buses that came together. This is really not a pleasant experience. And we would love to have a device that perhaps show us weather and bus status.
+                        Now imagine the weather turning bad just as you miss a couple of buses that arrived together &mdash; not a pleasant experience. We wanted a device that could show us the weather and bus status at a glance.
                     </p>
                 </div>
                 <div class="bg-grid">
@@ -124,7 +124,7 @@
                         The project would consist of a bus info display kit and a weather display kit.
                     </p>
                     <p>
-                        The bus tracker would be a box with an acrylic piece embedded in it that could display different colors with a Neo Pixel strip or a few LEDs inside of the box. Interactions are pictured to remind users to get prepared to go get a bus, go downstairs to the bus station, and lastly, inform that the user might need to take another bus. When the bus arrives, the light starts to subtly shift to a blue or green hue. When is about time to go to the station, the transition would be quicker. And fading to a yellow color would mean that the bus is now here or gone.
+                        The bus tracker would be a box with an embedded acrylic panel, lit from the inside by a NeoPixel strip or a few LEDs so it can display different colors. The interaction is designed to cue users through three moments: get ready to leave, head downstairs to the bus stop, and finally, be aware that they may need to catch a later bus. As a bus approaches, the light subtly shifts toward a blue or green hue; when it is nearly time to leave for the stop, the transition speeds up; and fading to yellow means the bus is either arriving now or already gone.
                     </p>
                 </div>
                 <div class="center-media card-frame" style="margin-top: 24px;">
@@ -137,7 +137,7 @@
                 <h2 class="section-title">Precedent Study</h2>
                 <div class="section-content">
                     <p>
-                        <a href="https://www.studiopsk.com/weathersystems.html" target="_blank">Weather System</a> by Studio PSK, <a href="https://experiments.withgoogle.com/paper-signals" target="_blank">Paper Signals</a> by Isaac Blankensmith, <a href="https://www.tempescope.com/" target="_blank">Tempescope</a> by Ken Kawamoto are fascinating cases that signals and subtly display the weather, by sounds, visualization and motions. The key takeaway for us is that the status and translation of signaling by different types of actuators creates various possibilities.
+                        <a href="https://www.studiopsk.com/weathersystems.html" target="_blank">Weather Systems</a> by Studio PSK, <a href="https://experiments.withgoogle.com/paper-signals" target="_blank">Paper Signals</a> by Isaac Blankensmith, and <a href="https://www.tempescope.com/" target="_blank">Tempescope</a> by Ken Kawamoto are fascinating cases that signal and subtly display the weather through sound, visualization, and motion. Our key takeaway is that translating status into signals through different types of actuators opens up a wide range of possibilities.
                     </p>
                 </div>
                 <div class="center-media card-frame" style="margin-top: 24px;">
@@ -152,7 +152,7 @@
                 <div class="bg-grid">
                     <div class="section-content">
                         <p>
-                            Our project is divided into two main parts, one is real-time crawling of bus schedules as well as alerts and the other is a weather indicator. We split up and synchronized these two directions, the first step was to get the API for bus schedule and real time snowfall and send it to the Particle microcontroller. The other step is to design the visualization and interaction of the information, how to represent the crawled bus time and snowfall information in the IoT devices.
+                            Our project is divided into two main parts: real-time retrieval of bus schedules and alerts, and a weather indicator. We worked on these two directions in parallel and kept them in sync. The first step was to pull the APIs for bus schedules and real-time snowfall and send the data to the Particle microcontroller. The second was to design how that information is visualized and interacted with &mdash; that is, how to represent the retrieved bus times and snowfall data on the IoT devices.
                         </p>
                     </div>
                     <aside class="sticky-media">
@@ -168,13 +168,13 @@
                     <h3 class="subhead">Process of Bus Tracker</h3>
                     <div class="section-content">
                         <p>
-                            In terms of API for bus information, we managed to receive an API key from the PRT and start with the information provided. Among these we found that route data or vehicle locations might be useful. Also we tested with the web hook from PRT to see how the API works.
+                            For the bus information, we obtained an API key from Pittsburgh Regional Transit (PRT) and started from the data it provided. Among the available feeds, we found route data and vehicle locations most promising. We also tested PRT's webhook to see how the API behaves.
                         </p>
                         <p>
-                            When started to test with data from multiple routes and couldn't visualize the data in a legible way, as the indicators would get more complicated. So you went back to the one route solution. We chose to hook our argon with the data of prediction time for inbound bus route 61D at Forbes & Morewoods that takes all of the team members back to residence in Oakland from campus.
+                            When we started testing with data from several routes at once, we could not visualize it legibly &mdash; the indicators simply became too complicated. So we went back to a single-route solution. We chose to feed our Argon with the predicted arrival times for the inbound 61D at Forbes &amp; Morewood, the route that takes all of our team members from campus back to where they live in Oakland.
                         </p>
                         <p>
-                            Below is the photo showing the process of testing the bus tracker on serial print monitor. We started with mapping the maximum brightness of the LEDs using the prediction time into the range of 255-100, meaning when the bus is almost there it would be fully on in red, when it is far away it would be a dim blue light. But it appears that the dim part of yellow and blue is not really seen. So we chose to map the brightness of each LED using its time within its range of loop. In that case the brightness is more obvious in every time range.
+                            The photo below shows us testing the bus tracker on the serial monitor. We started by mapping the predicted arrival time to the LEDs' maximum brightness across a range of 255&ndash;100, so that a bus about to arrive would glow fully red and a distant one would show a dim blue. In practice, though, the dim ends of the yellow and blue ranges were hard to see. We therefore mapped each LED's brightness within its own time range instead, which made the changes far more legible at every stage.
                         </p>
                     </div>
                     <div class="center-media card-frame" style="margin-top: 20px;">
@@ -187,13 +187,13 @@
                     <h3 class="subhead">Process of Snow Ball</h3>
                     <div class="section-content">
                         <p>
-                            Using the Open Meteo weather API, we tested data requests for temperature, rainfall, snowfall, and weather codes. Rain and snow data were provided as depth measurements, but we weren't entirely clear on the exact values, so we used approximate ranges for our conditional statements. <a href="https://open-meteo.com/" target="_blank">API link</a>
+                            Using the <a href="https://open-meteo.com/" target="_blank">Open-Meteo</a> weather API, we tested data requests for temperature, rainfall, snowfall, and weather codes. Rain and snow were reported as depth measurements, but we were not entirely certain how to interpret the exact values, so we used approximate ranges in our conditional statements.
                         </p>
                         <p>
                             We quickly realized that the solenoids couldn't produce enough force to move the beads through the air as intended.
                         </p>
                         <p>
-                            Moving forward, we tested a 5-volt mini DC fan (photo below) and achieved initial results. Prof. Daragh suggested using a more powerful 12-volt DC fan, which finally felt adequate for the project. To test the effect, we built a basic model using a plastic cup and aluminum mesh screen. To keep the beads contained, Prof. Daragh recommended adding a rubber band, which proved very helpful. Of all materials tested, we found the foam beads particularly interesting visually, so we decided to focus on those.
+                            Moving forward, we tested a 5-volt mini DC fan (photo below) and got promising initial results. Prof. Daragh suggested a more powerful 12-volt DC fan, which finally felt adequate for the project. To test the effect, we built a basic model from a plastic cup and an aluminum mesh screen. To keep the beads contained, Prof. Daragh recommended adding a rubber band, which proved very helpful. Of all the materials we tested, the foam beads were the most visually interesting, so we decided to focus on those.
                         </p>
                         <p>
                             The DC motor's back-and-forth motion during testing added a nice effect, smoothly oscillating on the granite countertop (see the YouTube video below). Additionally, we noticed that pointing the fan upward allowed the fan structure to block airflow to the center of the container. By reversing the fan direction, we created an airflow that effectively moved the beads across the container.
