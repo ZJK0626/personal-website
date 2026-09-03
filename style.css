@@ -20,6 +20,7 @@
     --shadow-sm: 0 2px 8px rgba(46, 34, 12, 0.08);
     --shadow-md: 0 8px 24px rgba(46, 34, 12, 0.12);
     --shadow-lg: 0 14px 30px rgba(46, 34, 12, 0.18);
+    --logo-color: #725a1f;
 }
 
 [data-theme="dark"] {
@@ -35,6 +36,7 @@
     --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
     --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.3);
     --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.5);
+    --logo-color: #cfb376;
 }
 
 /* ============================================
@@ -2259,4 +2261,52 @@ a:not([class]):hover {
 /* Life Section Container */
 .life-section {
     margin-bottom: 60px;
+}
+/* ============================================
+   BRAND MARK (logo)
+   ============================================ */
+/* The SVG is applied as a mask so a single file can be tinted per theme.
+   url() is resolved against style.css (repo root), so it also works from Project_Pages/. */
+.brand-mark {
+    display: inline-block;
+    flex-shrink: 0;
+    background-color: var(--logo-color);
+    -webkit-mask: url("Assets/logo-mark.svg") no-repeat center / contain;
+    mask: url("Assets/logo-mark.svg") no-repeat center / contain;
+    transition: background-color 0.3s ease;
+}
+
+/* Sidebar brand (home page) */
+.sidebar-brand {
+    display: block;
+    margin-bottom: 26px;
+}
+
+.sidebar-brand .brand-mark {
+    width: 42px;
+    height: 42px;
+    background-color: var(--home-sidebar-link, var(--logo-color));
+}
+
+/* Mobile header brand lockup */
+.mobile-site-name {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.mobile-site-name .brand-mark {
+    width: 24px;
+    height: 24px;
+}
+
+.mobile-site-name:hover .brand-mark {
+    background-color: var(--accent-color);
+}
+
+/* Brand mark used as the Home button in the floating nav */
+.floating-nav .nav-float-btn .brand-mark {
+    width: 24px;
+    height: 24px;
+    background-color: currentColor;
 }

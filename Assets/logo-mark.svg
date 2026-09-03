@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" role="img" aria-label="Junke Zhao logo">
+  <title>Junke Zhao</title>
+  <style>
+    .mark { fill: #725a1f; }
+    @media (prefers-color-scheme: dark) { .mark { fill: #cfb376; } }
+  </style>
+  <g class="mark">
+    <path d="M150 300A150 150 0 0 1 0 150h150z"/>
+    <path d="M150 0h150v150H150z"/>
+    <path d="M300 150v150H150z"/>
+  </g>
+</svg>
