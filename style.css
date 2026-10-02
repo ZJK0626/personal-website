@@ -702,7 +702,7 @@ a:not([class]):hover {
 }
 
 .home-page .section {
-    margin-bottom: 90px;
+    margin-bottom: 72px;
 }
 
 .home-page .section-title {
@@ -710,7 +710,7 @@ a:not([class]):hover {
     font-weight: 800;
     letter-spacing: -0.03em;
     line-height: 1.2;
-    margin-bottom: 40px;
+    margin-bottom: 28px;
     padding-bottom: 0;
     border-bottom: none;
     display: flex;
@@ -726,7 +726,7 @@ a:not([class]):hover {
 }
 
 .home-page .section-header-with-button {
-    margin-bottom: 40px;
+    margin-bottom: 28px;
     padding-bottom: 0;
     border-bottom: none;
     gap: 18px;
@@ -817,51 +817,14 @@ a:not([class]):hover {
     max-width: none;
     display: flex;
     flex-direction: column;
-    gap: 20px;
-}
-
-.home-page .announcement-banner {
-    background: var(--accent-color);
-    color: #fff;
-    border-radius: 12px;
-    padding: 14px 16px;
-    margin-bottom: 20px;
-}
-
-.home-page .banner-content {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 0.96rem;
-    line-height: 1.55;
-}
-
-.home-page .banner-content a {
-    color: #fff;
-    text-decoration: underline;
-}
-
-.home-page .pulse-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: #ffffff;
-    box-shadow: 0 0 0 rgba(255, 255, 255, 0.9);
-    animation: newsPulse 1.8s infinite;
-    flex-shrink: 0;
-}
-
-@keyframes newsPulse {
-    0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.65); }
-    70% { box-shadow: 0 0 0 10px rgba(255, 255, 255, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+    gap: 16px;
 }
 
 .home-page .news-item {
     display: flex;
     gap: 25px;
     align-items: baseline;
-    padding-bottom: 20px;
+    padding-bottom: 16px;
     border-bottom: 1px dashed var(--border-color);
     transition: transform 0.3s ease;
 }
@@ -1025,7 +988,14 @@ a:not([class]):hover {
     grid-template-columns: repeat(3, 1fr);
 }
 
+/* Icon and title share the first row; the description spans the full width below */
 .direction-card {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    column-gap: 12px;
+    row-gap: 12px;
+    align-content: start;
     background: var(--card-bg);
     padding: 20px;
     border-radius: 12px;
@@ -1058,14 +1028,13 @@ a:not([class]):hover {
 }
 
 .direction-icon {
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
     border-radius: 10px;
     background: var(--bg-tertiary);
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 14px;
     transition: all 0.4s ease;
 }
 
@@ -1085,12 +1054,13 @@ a:not([class]):hover {
 
 .direction-card h3 {
     color: var(--accent-color);
-    font-size: 1.2rem;
-    margin-bottom: 12px;
+    font-size: 1.1rem;
+    line-height: 1.3;
 }
 
 .direction-card p {
-    font-size: 1rem;
+    grid-column: 1 / -1;
+    font-size: 0.95rem;
     line-height: 1.6;
 }
 
@@ -1274,7 +1244,6 @@ a:not([class]):hover {
 [data-theme="light"] .direction-card,
 [data-theme="light"] .project-item,
 [data-theme="light"] .project-card,
-[data-theme="light"] .timeline-content,
 [data-theme="light"] .fun-card,
 [data-theme="light"] .card-frame {
     box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
@@ -1283,40 +1252,39 @@ a:not([class]):hover {
 /* ============================================
    10. TIMELINE
    ============================================ */
+/* Compact rows: logo | institution + role | date */
 .timeline {
     display: flex;
     flex-direction: column;
-    gap: 30px;
 }
 
 .timeline-item {
     display: grid;
-    grid-template-columns: 60px 1fr;
-    gap: 20px;
-    position: relative;
+    grid-template-columns: 44px 1fr auto;
+    align-items: center;
+    column-gap: 18px;
+    padding: 14px 0;
+    border-bottom: 1px dashed var(--border-color);
 }
 
-.timeline-item:not(:last-child)::before {
-    content: '';
-    position: absolute;
-    left: 29px;
-    top: 70px;
-    width: 2px;
-    height: calc(100% + 20px);
-    background: var(--border-color);
+.timeline-item:first-child {
+    padding-top: 0;
+}
+
+.timeline-item:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
 }
 
 .timeline-icon {
-    width: 60px;
-    height: 60px;
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
     background: var(--bg-white);
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 2px solid var(--border-color);
-    position: relative;
-    z-index: 1;
+    border: 1px solid var(--border-color);
     overflow: hidden;
 }
 
@@ -1324,7 +1292,7 @@ a:not([class]):hover {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    padding: 4px;
+    padding: 3px;
 }
 
 .timeline-icon i {
@@ -1334,19 +1302,6 @@ a:not([class]):hover {
 
 [data-theme="dark"] .timeline-icon {
     background: var(--bg-tertiary);
-}
-
-.timeline-content {
-    background: var(--card-bg);
-    padding: 20px;
-    border-radius: 12px;
-    border: 1px solid var(--border-color);
-    transition: all 0.3s;
-}
-
-.timeline-content:hover {
-    border-color: var(--accent-color);
-    box-shadow: var(--shadow-lg);
 }
 
 .home-page .tilt-card {
@@ -1365,16 +1320,24 @@ a:not([class]):hover {
 }
 
 .timeline-content h3 {
-    font-size: 1.2rem;
+    font-size: 1.05rem;
+    font-weight: 600;
+    line-height: 1.4;
     color: var(--text-primary);
-    margin-bottom: 8px;
 }
 
 .position {
     color: var(--text-secondary);
     font-size: 0.9rem;
     font-style: italic;
-    margin-bottom: 10px;
+}
+
+/* Matches .news-date so both lists read the same way */
+.timeline-date {
+    color: var(--accent-color);
+    font-size: 0.95rem;
+    font-weight: 700;
+    white-space: nowrap;
 }
 
 /* ============================================
@@ -1520,6 +1483,35 @@ a:not([class]):hover {
 .all-projects-page .fun-card:hover {
     transform: perspective(1000px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y)) translateY(-4px);
     border-color: var(--accent-color);
+}
+
+/* Design projects: card grid (same columns as .fun-stuff-grid) instead of full-width rows */
+.all-projects-page .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.all-projects-page .projects-grid .project-card {
+    flex-direction: column;
+    gap: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.all-projects-page .projects-grid .project-img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 10;
+    border-radius: 0;
+}
+
+.all-projects-page .projects-grid .project-body {
+    padding: 18px 20px 20px;
+}
+
+.all-projects-page .projects-grid .project-meta {
+    gap: 6px;
 }
 
 /* ============================================
@@ -1844,11 +1836,11 @@ a:not([class]):hover {
     }
 
     .home-page .section {
-        margin-bottom: 80px;
+        margin-bottom: 64px;
     }
 
     .home-page .section-title {
-        margin-bottom: 34px;
+        margin-bottom: 26px;
     }
     
     .research-directions,
@@ -1910,26 +1902,18 @@ a:not([class]):hover {
     }
 
     .home-page .section {
-        margin-bottom: 70px;
+        margin-bottom: 56px;
     }
 
     .home-page .section-title {
         font-size: 1.5rem;
-        margin-bottom: 30px;
+        margin-bottom: 24px;
     }
 
     .home-page .news-item {
         flex-direction: column;
         gap: 8px;
         padding-bottom: 16px;
-    }
-
-    .home-page .banner-content {
-        align-items: flex-start;
-    }
-
-    .home-page .pulse-dot {
-        margin-top: 6px;
     }
 
     .home-page .news-date {
@@ -1975,17 +1959,19 @@ a:not([class]):hover {
     }
     
     .timeline-item {
-        grid-template-columns: 50px 1fr;
+        grid-template-columns: 40px 1fr;
+        column-gap: 14px;
     }
     
     .timeline-icon {
-        width: 50px;
-        height: 50px;
+        width: 40px;
+        height: 40px;
     }
     
-    .timeline-item:not(:last-child)::before {
-        left: 24px;
-        top: 60px;
+    .timeline-date {
+        grid-column: 2;
+        margin-top: 2px;
+        font-size: 0.9rem;
     }
     
     .all-projects-container {
@@ -2044,12 +2030,12 @@ a:not([class]):hover {
     }
 
     .home-page .section {
-        margin-bottom: 58px;
+        margin-bottom: 48px;
     }
 
     .home-page .section-title {
         font-size: 1.4rem;
-        margin-bottom: 24px;
+        margin-bottom: 20px;
     }
 
     .home-page .section-title::after {
@@ -2113,8 +2099,16 @@ a:not([class]):hover {
 
 /* Fun Grid Tablet */
 @media (min-width: 769px) and (max-width: 1024px) {
-    .fun-stuff-grid {
+    .fun-stuff-grid,
+    .all-projects-page .projects-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .all-projects-page .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
     }
 }
 
