@@ -27,12 +27,11 @@
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 18px;
-        align-items: start;
     }
     .home-page .design-card {
         background: var(--card-bg);
         border: 1px solid var(--border-color);
-        border-radius: 10px;
+        border-radius: 12px;
         overflow: hidden;
         text-decoration: none;
         color: inherit;
@@ -83,28 +82,9 @@
     .home-page .design-card-desc {
         font-size: 0.9rem;
         color: var(--text-secondary);
-        line-height: 1.7;
-        max-height: 2.55em; /* ~1.5 lines visible */
-        overflow: hidden;
-        position: relative;
-        transition: max-height 0.7s cubic-bezier(0.5, 0.5, 0.5, 1);
+        line-height: 1.6;
     }
-    .home-page .design-card-desc::after {
-        content: '';
-        position: absolute;
-        bottom: 0; left: 0; right: 0;
-        height: 1.4em;
-        background: linear-gradient(transparent, var(--card-bg));
-        pointer-events: none;
-        transition: opacity 0.5s ease;
-    }
-    .home-page .design-card:hover .design-card-desc {
-        max-height: 200px;
-    }
-    .home-page .design-card:hover .design-card-desc::after {
-        opacity: 0;
-    }
-    .home-page .design-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 10px; }
+    .home-page .design-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: auto; padding-top: 10px; }
     .home-page .dtag {
         display: inline-block;
         padding: 5px 10px;
@@ -124,13 +104,8 @@
     }
 
     /* ============================================
-       RESEARCH — academic list with left accent + large thumbnail
+       RESEARCH — academic list with large thumbnail
     ============================================ */
-    .home-page .research-list .project-item {
-        border-left: 3px solid var(--accent-color);
-        border-top-left-radius: 0;
-        border-bottom-left-radius: 0;
-    }
     .home-page .research-list .project-item .project-image {
         width: 300px;
         height: 200px;
@@ -190,7 +165,7 @@
                 <div class="profile-header">
                     <div class="profile-info">
                         <h1>Junke Zhao</h1>
-                        <p class="role">Ph.D. Student in Computer Science<br>The University of Texas at Dallas</p>
+                        <p class="role">Ph.D. Student<br>Computer Science, UT Dallas</p>
                         
                         <div class="contact-icons">
                             <a href="mailto:zhao.junke0626@gmail.com" class="contact-icon-link" title="Email">
@@ -235,9 +210,9 @@
                 <div class="about-content">
                     <div class="about-intro">
                         <p class="lead">
-                            I'm Junke. I'm a Ph.D. student in Computer Science at the DE4M Lab, UT Dallas, advised by Prof. <a href="https://lianghe.me/" target="_blank">Liang He</a>.
-                            Before this, I received my Master of Science in Computational Design from Carnegie Mellon University in May 2025,
-                            and my Bachelor of Architecture from Southeast University in June 2023.
+                            I'm Junke, a Ph.D. student in Computer Science at the DE4M Lab, UT Dallas, advised by Prof. <a href="https://lianghe.me/" target="_blank">Liang He</a>.
+                            Previously, I earned an M.S. in Computational Design from Carnegie Mellon University (2025)
+                            and a B.Arch. from Southeast University (2023).
                         </p>
                         <div class="about-portrait">
                             <img src="Assets/profile.jpg" alt="Junke Zhao">
@@ -245,32 +220,35 @@
                     </div>
 
                     <p>
-                        My research at the intersection of design and technology reimagines physical environments as active, responsive media. 
-                        While we spend ever more time immersed in digital spaces, I believe the tangible world is what truly shapes our experiences. Driven by this belief, I draw on computational design, tangible interaction, and ubiquitous computing within HCI to bridge the digital and the physical. To this end, my work spans three interconnected directions:
+                        Working at the intersection of design and technology, I reimagine physical environments as active, responsive media.
+                        While we spend ever more time in digital spaces, I believe the tangible world is what truly shapes our experiences.
+                        Drawing on computational design, tangible interaction, and ubiquitous computing in HCI, my work bridges the digital and the physical along three directions:
                     </p>
-                    
+
                     <div class="research-directions research-directions-three">
                         <div class="direction-card" data-direction="1">
                             <div class="direction-icon"><i class="fas fa-brain"></i></div>
                             <h3>Spaces that Understand</h3>
-                            <p>
-                                I explore how everyday environments and objects can sense, reason about, and proactively respond to people's needs through embedded intelligence.</p>
+                            <p>Everyday environments and objects that sense, reason about, and proactively respond to people's needs through embedded intelligence.</p>
                         </div>
-                        
+
                         <div class="direction-card" data-direction="2">
                             <div class="direction-icon"><i class="fas fa-hand-sparkles"></i></div>
                             <h3>People who Shape</h3>
-                            <p>
-                            I explore how AI-assisted user participatory design and fabrication tools can empower non-experts to engage in creating and customizing their physical surroundings.</p>
+                            <p>AI-assisted participatory design and fabrication tools that empower non-experts to create and customize their physical surroundings.</p>
                         </div>
 
                         <div class="direction-card" data-direction="3">
                             <div class="direction-icon"><i class="fas fa-layer-group"></i></div>
                             <h3>Realities that Blend</h3>
-                            <p>
-                                I explore how spatial computing can extend the capabilities of physical environments through context-aware virtual augmentation.</p>
+                            <p>Spatial computing that extends physical environments through context-aware virtual augmentation.</p>
                         </div>
                     </div>
+
+                    <p>
+                        I'm always happy to chat about transformable furniture, digital fabrication, and tangible interaction &mdash;
+                        feel free to <a href="mailto:zhao.junke0626@gmail.com">reach out</a>.
+                    </p>
                 </div>
             </section>
 
@@ -278,31 +256,17 @@
             <section id="news" class="section animate-block">
                 <h2 class="section-title">News</h2>
                 <div class="news-list">
-                    <div class="announcement-banner">
-                        <div class="banner-content">
-                            <span class="pulse-dot"></span>
-                            <span>
-                                I have begun my Ph.D. in Computer Science at the University of Texas at Dallas,
-                                advised by Prof. <a href="https://lianghe.me/" target="_blank">Liang He</a>. I am always happy to chat about
-                                transformable furniture, digital fabrication, and tangible interaction &mdash; feel free to
-                                <a href="mailto:zhao.junke0626@gmail.com">reach out</a>.
-                            </span>
-                        </div>
-                    </div>
-
                     <div class="news-item">
                         <span class="news-date">Aug 2026</span>
                         <p class="news-text">
-                            Started my <span class="highlight-span">Ph.D. in Computer Science</span> at the University of Texas at Dallas,
-                            advised by Prof. Liang He.
+                            Started my <span class="highlight-span">Ph.D. in Computer Science</span> at UT Dallas.
                         </p>
                     </div>
 
                     <div class="news-item">
                         <span class="news-date">Aug 2025</span>
                         <p class="news-text">
-                            Joined the DE4M Lab at the University of Texas at Dallas as a Research Assistant, advised by
-                            <span class="highlight-span">Prof. Liang He</span>.
+                            Joined the <span class="highlight-span">DE4M Lab</span> at UT Dallas as a Research Assistant, advised by Prof. Liang He.
                         </p>
                     </div>
 
@@ -317,7 +281,7 @@
                     <div class="news-item">
                         <span class="news-date">Sep 2024</span>
                         <p class="news-text">
-                            Started a Research Assistant position at the Design Fabrication Lab, Carnegie Mellon University.
+                            Joined the <span class="highlight-span">Design Fabrication Lab</span> at Carnegie Mellon University as a Research Assistant.
                         </p>
                     </div>
 
@@ -340,7 +304,7 @@
                             </div>
                             <h3 class="project-title">Beyond Furniture: A Taxonomy and Personalized Design Platform of Transformable Furniture Made with Digital Fabrication Technologies for Domestic Usage</h3>
                             <p class="project-authors">Junke Zhao, Te-Yen Wu, Liang He</p>
-                            <div class="project-links"></div>
+                            <p class="project-description">A taxonomy and query platform that maps transformation mechanisms to user needs across diverse demographics, built on an analysis of 150+ papers from HCI, architecture, and design.</p>
                         </div>
                     </div>
                     
@@ -448,7 +412,7 @@
 
             <!-- Experience Section -->
             <section id="experience" class="section animate-block">
-                <h2 class="section-title">Recent Experiences</h2>
+                <h2 class="section-title">Experience</h2>
                 <div class="timeline">
                     <div class="timeline-item">
                         <div class="timeline-icon">
@@ -456,18 +420,20 @@
                         </div>
                         <div class="timeline-content">
                             <h3>The University of Texas at Dallas</h3>
-                            <p class="position">Research Assistant, Aug 2025 - Aug 2026</p>
+                            <p class="position">Research Assistant, DE4M Lab</p>
                         </div>
+                        <span class="timeline-date">Aug 2025 – Aug 2026</span>
                     </div>
-                    
+
                     <div class="timeline-item">
                         <div class="timeline-icon">
                             <img src="Assets/cmu-logo.png" alt="CMU">
                         </div>
                         <div class="timeline-content">
                             <h3>Carnegie Mellon University</h3>
-                            <p class="position">Research Assistant, Aug 2024 - Jan 2025</p>
+                            <p class="position">Research Assistant, Design Fabrication Lab</p>
                         </div>
+                        <span class="timeline-date">Aug 2024 – Jan 2025</span>
                     </div>
                 </div>
             </section>
@@ -482,8 +448,9 @@
                         </div>
                         <div class="timeline-content">
                             <h3>The University of Texas at Dallas</h3>
-                            <p class="position">Ph.D. in Computer Science, Aug 2026 - Present</p>
+                            <p class="position">Ph.D. in Computer Science</p>
                         </div>
+                        <span class="timeline-date">Aug 2026 – Present</span>
                     </div>
 
                     <div class="timeline-item">
@@ -492,18 +459,20 @@
                         </div>
                         <div class="timeline-content">
                             <h3>Carnegie Mellon University</h3>
-                            <p class="position">Master of Science in Computational Design, Aug 2023 - May 2025</p>
+                            <p class="position">M.S. in Computational Design</p>
                         </div>
+                        <span class="timeline-date">Aug 2023 – May 2025</span>
                     </div>
-                    
+
                     <div class="timeline-item">
                         <div class="timeline-icon">
                             <img src="Assets/seu-logo.png" alt="Southeast University">
                         </div>
                         <div class="timeline-content">
                             <h3>Southeast University</h3>
-                            <p class="position">Bachelor of Architecture, Aug 2018 - Jun 2023</p>
+                            <p class="position">Bachelor of Architecture</p>
                         </div>
+                        <span class="timeline-date">Aug 2018 – Jun 2023</span>
                     </div>
 
                     <div class="timeline-item">
@@ -512,8 +481,9 @@
                         </div>
                         <div class="timeline-content">
                             <h3>ETH Zurich</h3>
-                            <p class="position">Joint Program, Architecture, Sep 2019 - Jun 2020</p>
+                            <p class="position">Joint Program in Architecture</p>
                         </div>
+                        <span class="timeline-date">Sep 2019 – Jun 2020</span>
                     </div>
                 </div>
             </section>
