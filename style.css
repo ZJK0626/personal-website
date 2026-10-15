@@ -1953,6 +1953,7 @@ a:not([class]):hover {
         font-size: 1.5rem;
     }
     
+    .home-page .research-directions,
     .home-page .research-directions-three {
         grid-template-columns: 1fr;
     }
