@@ -1005,23 +1005,6 @@ a:not([class]):hover {
     overflow: hidden;
 }
 
-.direction-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: var(--accent-color);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.direction-card:hover::before {
-    transform: scaleX(1);
-}
-
 .direction-card:hover {
     border-color: var(--accent-color);
     box-shadow: var(--shadow-md);
